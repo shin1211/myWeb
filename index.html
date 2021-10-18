@@ -5,34 +5,120 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;600&family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="./styles/style.css">
 </head>
-<body>
+<body>  
     <header>
-        <nav>
-            <ul>
-                <li>
-                    <a href="#">Home</a>
-                </li>
-                <li>
-                    <a href="#about">About</a>
-                </li>
-                <li>
-                    <a href="#project">Projects</a>
-                </li>
-                <li>
-                    <a href="#contact">Contact</a>
-                </li>
-            </ul>
-        </nav>
-        <div class="hero-container">
-            <h1>Seungmin Shin</h1>
-            <p>iiii</p>
-        </div>
+        <div class="wrapper">
+            <nav class="nav-bar">
+                <ul class="nav-container">
+                    <li>
+                        <a href="#">Home</a>
+                    </li>
+                    <li>
+                        <a href="#about">About</a>
+                    </li>
+                    <li>
+                        <a href="#project">Projects</a>
+                    </li>
+                    <li>
+                        <a href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="contents-container">
+                <h1>Seungmin Shin</h1>
+                <p>Front-End-Dev</p>
+            </div>
+            <!-- <div class="hero-image"></div> -->
+        </div>  <!-- wrapper end -->
     </header>
 
     <main>
-        <section id="about"></section>
-        <section id="projects"></section>
+        <section id="about" class="about-container">
+            <div class="wrapper">
+                <h2>About</h2>
+                <div class="text-container">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit magni maxime cupiditate, consequuntur fugiat non, nemo et vero, minus nostrum quam facere? Quia saepe at praesentium, asperiores ea eum cupiditate?</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum debitis molestiae temporibus odio velit vel rerum quae asperiores! Ducimus molestiae eum aliquam aliquid voluptate totam ipsam eius, nobis assumenda aperiam!</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="projects-container">
+            <div class="wrapper">
+                <ul>
+                    <li>
+                        <div class="project">
+                            <div class="img-container"></div>
+                            <h3>project1</h3>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="project">
+                            <div class="img-container"></div>
+                            <h3>project2</h3>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="project">
+                            <div class="img-container"></div>
+                            <h3>project3</h3>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="skills">
+            <div class="wrapper">
+                <ul>
+                    <li>
+                        <img src="./images/icons/html5.svg" alt="">
+                        <p>HTML</p>
+                    </li>
+                    <li>
+                        <img src="./images/icons/css3-alt.svg" alt="">
+                        <p>CSS</p>
+                    </li>
+                    <li>
+                        <img src="./images/icons/js-square.svg" alt="">
+                        <p>JavaScript</p>
+                    </li>
+                    <li>
+                        <img src="./images/icons/sass.svg" alt="">
+                        <p>SCSS</p>
+                    </li>
+                    <li>
+                        <img src="./images/icons/react.svg" alt="">
+                        <p>React</p>
+                    </li>
+                    <li>
+                        <img src="./images/icons/dollar-sign.svg" alt="">
+                        <p>JQuery</p>
+                    </li>
+                    <li>
+                        <img src="./images/icons/git-alt.svg" alt="">
+                        <p>Git & Github</p>
+                    </li>
+                    <li>
+                        <img src="./images/icons/mobile-alt.svg" alt="">
+                        <p>Responsive Design</p>
+                    </li>
+                    <li>
+                        <img src="./images/icons/universal-access.svg" alt="">
+                        <p>Accessbility</p>
+                    </li>
+                    <li>
+                        <img src="./images/icons/firebase.svg" alt="">
+                        <p>firebase</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
         <section id="contact"></section>
     </main>
 

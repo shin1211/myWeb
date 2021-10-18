@@ -1,0 +1,38 @@
+/*=============
+Fonts
+=============== */
+h1,
+h2,
+h3 {
+  font-family: $base-font;
+  font-weight: 400;
+  letter-spacing: 8px;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+header p {
+  letter-spacing: 8px;
+}
+
+p {
+  font-family: $sub-font;
+}
+.nav-container a {
+  font-family: $base-font;
+  text-decoration: none;
+  color: $color-black;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.8rem;
+}
+
+h3 {
+  font-size: 1.1rem;
+  letter-spacing: 5px;
+}

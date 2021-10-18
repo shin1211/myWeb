@@ -1,0 +1,26 @@
+/*=============
+Header
+=============== */
+
+header {
+  background: url("../../images/profile_edit_Crop.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+
+  .nav-bar {
+    float: right;
+  }
+  .nav-container {
+    display: flex;
+    // border: 1px solid red;
+  }
+
+  .contents-container {
+    position: absolute;
+    top: 50%;
+  }
+  li {
+    padding: 0.5rem 1rem;
+  }
+}

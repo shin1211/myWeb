@@ -268,3 +268,191 @@ html {
   clip: rect(0 0 0 0);
   overflow: hidden;
 }
+
+/*=============
+Variables
+=============== */
+/*=============
+General
+=============== */
+html {
+  font-size: 125%;
+  color: #3c3c3c;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+ul {
+  list-style: none;
+}
+
+body,
+ul,
+h1,
+h2,
+h3,
+p,
+a {
+  padding: 0;
+  margin: 0;
+}
+
+.wrapper {
+  max-width: 1200px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+/*=============
+Fonts
+=============== */
+h1,
+h2,
+h3 {
+  font-family: "Dosis", sans-serif;
+  font-weight: 400;
+  letter-spacing: 8px;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+header p {
+  letter-spacing: 8px;
+}
+
+p {
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+.nav-container a {
+  font-family: "Dosis", sans-serif;
+  text-decoration: none;
+  color: #3c3c3c;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.8rem;
+}
+
+h3 {
+  font-size: 1.1rem;
+  letter-spacing: 5px;
+}
+
+/*=============
+Header
+=============== */
+header {
+  background: url("../../images/profile_edit_Crop.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+header .nav-bar {
+  float: right;
+}
+header .nav-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+header .contents-container {
+  position: absolute;
+  top: 50%;
+}
+header li {
+  padding: 0.5rem 1rem;
+}
+
+/*=============
+About
+=============== */
+.about-container {
+  background: #ffffff;
+  margin: 5rem 0;
+}
+.about-container .wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.about-container .text-container {
+  padding: 4rem;
+}
+
+.projects-container {
+  background-color: #e4e4e4;
+}
+.projects-container ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 3rem;
+}
+.projects-container .project {
+  border: 1px solid red;
+}
+.projects-container .img-container {
+  width: 300px;
+  height: 300px;
+  border: 1px solid blue;
+}
+
+.skills ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding: 1rem 5rem;
+  border: 1px solid red;
+}
+.skills ul li {
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100px;
+  padding: 1rem 0;
+  margin: 0 1rem;
+}
+.skills ul li img {
+  -webkit-filter: invert(88%) sepia(8%) saturate(11%) hue-rotate(341deg) brightness(82%) contrast(85%);
+          filter: invert(88%) sepia(8%) saturate(11%) hue-rotate(341deg) brightness(82%) contrast(85%);
+  width: 50px;
+  height: 50px;
+  margin-bottom: 0.5rem;
+}
