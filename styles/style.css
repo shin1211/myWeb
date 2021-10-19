@@ -329,8 +329,9 @@ p {
 
 .nav-container a {
   font-family: "Dosis", sans-serif;
-  text-decoration: none;
   color: #3c3c3c;
+  text-decoration: none;
+  font-size: 1.3rem;
 }
 
 h1 {
@@ -342,15 +343,19 @@ h2 {
 }
 
 h3 {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   letter-spacing: 5px;
+}
+
+p {
+  font-size: 1rem;
 }
 
 /*=============
 Header
 =============== */
 header {
-  background: url("../../images/profile_edit_Crop.jpg");
+  background: url("../../images/header/profile_edit_Crop.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   height: 100vh;
@@ -393,6 +398,9 @@ About
 .about-container .text-container {
   padding: 4rem;
 }
+.about-container p {
+  line-height: 1.7;
+}
 
 .projects-container {
   background-color: #e4e4e4;
@@ -404,7 +412,7 @@ About
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  padding: 3rem;
+  padding: 3rem 0;
 }
 .projects-container .project {
   border: 1px solid red;
@@ -442,12 +450,9 @@ About
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   width: 100px;
-  padding: 1rem 0;
-  margin: 0 1rem;
+  height: 106px;
+  margin: 1rem;
 }
 .skills ul li img {
   -webkit-filter: invert(88%) sepia(8%) saturate(11%) hue-rotate(341deg) brightness(82%) contrast(85%);

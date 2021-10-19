@@ -1,10 +1,8 @@
 /*=============
 About
 =============== */
-
 .about-container {
   background: $color-white;
-  //   height: 100vh;
   margin: 5rem 0;
 
   .wrapper {
@@ -13,7 +11,11 @@ About
     align-items: center;
   }
   .text-container {
-    // border: 1px solid red;
     padding: 4rem;
+    // border: 1px solid red;
+  }
+
+  p {
+    line-height: 1.7;
   }
 }

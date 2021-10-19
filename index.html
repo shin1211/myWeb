@@ -10,7 +10,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;600&family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="./styles/style.css">
 </head>
-<body>  
+<body>
+    <!--Header Start  -->
     <header>
         <div class="wrapper">
             <nav class="nav-bar">
@@ -22,7 +23,7 @@
                         <a href="#about">About</a>
                     </li>
                     <li>
-                        <a href="#project">Projects</a>
+                        <a href="#projects">Projects</a>
                     </li>
                     <li>
                         <a href="#contact">Contact</a>
@@ -33,11 +34,11 @@
                 <h1>Seungmin Shin</h1>
                 <p>Front-End-Dev</p>
             </div>
-            <!-- <div class="hero-image"></div> -->
         </div>  <!-- wrapper end -->
     </header>
-
+    <!-- Main start -->
     <main>
+        <!-- About start -->
         <section id="about" class="about-container">
             <div class="wrapper">
                 <h2>About</h2>
@@ -45,9 +46,9 @@
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit magni maxime cupiditate, consequuntur fugiat non, nemo et vero, minus nostrum quam facere? Quia saepe at praesentium, asperiores ea eum cupiditate?</p>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum debitis molestiae temporibus odio velit vel rerum quae asperiores! Ducimus molestiae eum aliquam aliquid voluptate totam ipsam eius, nobis assumenda aperiam!</p>
                 </div>
-            </div>
+            </div>  <!-- Wrapper end-->
         </section>
-
+        <!-- Projects start -->
         <section id="projects" class="projects-container">
             <div class="wrapper">
                 <ul>
@@ -70,19 +71,19 @@
                         </div>
                     </li>
                 </ul>
-            </div>
+            </div> <!-- Wrapper end-->
         </section>
-
+        <!-- Skills start -->
         <section class="skills">
             <div class="wrapper">
                 <ul>
                     <li>
                         <img src="./images/icons/html5.svg" alt="">
-                        <p>HTML</p>
+                        <p>HTML5</p>
                     </li>
                     <li>
                         <img src="./images/icons/css3-alt.svg" alt="">
-                        <p>CSS</p>
+                        <p>CSS3</p>
                     </li>
                     <li>
                         <img src="./images/icons/js-square.svg" alt="">
@@ -117,13 +118,28 @@
                         <p>firebase</p>
                     </li>
                 </ul>
+            </div> <!-- Wrapper end-->
+        </section>
+        <!-- Contact start -->
+        <section id="contact">
+            <div class="wrapper">
+                <form action="https://formsubmit.co/shin891211@gmail.com" method="POST">
+                    <label for="userName">Name</label>
+                    <input type="text" id="userName" name="name" required>
+
+                    <label for="userEmail">Email</label>
+                    <input type="email" id="userEmail" name="email" placeholder="E-mail adress" required>
+                    
+                    <label for="userMessage">Message</label>
+                    <input type="text" id="userMessage" name="message" placeholder="Write your message here">
+                    <button type="submit">Send</button>
+                </form> 
             </div>
         </section>
-        <section id="contact"></section>
     </main>
 
     <footer>
-
+        
     </footer>
 </body>
 </html>
