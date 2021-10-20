@@ -1,6 +1,6 @@
 .projects-container {
-  // background-color: rgb(228, 228, 228);
   background-color: $color-white;
+  text-align: center;
   margin: 5rem 0;
   img {
     height: 100%;
@@ -10,9 +10,10 @@
   .slide-container {
     position: relative;
     width: 1260px;
+    width: 420px;
     height: 400px;
     overflow: hidden;
-    margin: 0 auto;
+    margin: 2rem auto;
   }
 
   .image-slide {
@@ -35,8 +36,6 @@
     &:not(:last-child) {
       margin-right: 20px;
     }
-    // float: left;
-    // border: 1px solid red;
 
     // NEED TO FIX IT@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
     &:hover .description,

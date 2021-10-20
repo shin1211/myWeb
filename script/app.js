@@ -5,7 +5,6 @@ app.slides = document.querySelectorAll('.image-slide li');
 app.prevBtn = document.querySelector('.prev');
 app.nextBtn = document.querySelector('.next');
 
-
 app.currentIndex = 0;
 app.slideCount = app.slides.length;
 app.slideWidth = 400;
@@ -54,7 +53,7 @@ app.moveSlide = (currentIndex) => {
 	app.slideContainer.style.left = -currentIndex * (app.slideWidth + app.slideMargin) + 'px';
 	app.currentIndex = currentIndex;
 
-	console.log(app.currentIndex, app.slideCount);
+	// console.log(app.currentIndex, app.slideCount);
 
 	if (app.currentIndex === app.slideCount || app.currentIndex === -app.slideCount) {
 
@@ -73,9 +72,6 @@ app.moveSlide = (currentIndex) => {
 }
 
 app.prevBtn.addEventListener('click', (e) => {
-	// if (!e.detail || e.detail === 1) {
-	// 	console.log(e.timeStamp);
-	// }
 	if (app.oldTimeStamp === null || app.oldTimeStamp + 550 < e.timeStamp) {
 		app.moveSlide(app.currentIndex - 1);
 		app.oldTimeStamp = e.timeStamp;
@@ -84,7 +80,6 @@ app.prevBtn.addEventListener('click', (e) => {
 });
 
 app.nextBtn.addEventListener('click', (e) => {
-	console.log(e.timeStamp)
 	if (app.oldTimeStamp === null || app.oldTimeStamp + 550 < e.timeStamp) {
 		app.moveSlide(app.currentIndex + 1);
 		app.oldTimeStamp = e.timeStamp;
