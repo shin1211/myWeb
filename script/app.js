@@ -10,6 +10,8 @@ app.currentIndex = 0;
 app.slideCount = app.slides.length;
 app.slideWidth = 400;
 app.slideMargin = 20;
+app.oldTimeStamp = null;
+
 
 app.makeClone = () => {
 	// Looping slides and clone every single slides(li) to add to slideContainer at the end.
@@ -26,7 +28,10 @@ app.makeClone = () => {
 	}
 	app.updateWidth();
 	app.setInitialPos();
-	app.slideContainer.classList.add('animated');
+
+	setTimeout(() => {
+		app.slideContainer.classList.add('animated');
+	}, 100);
 }
 
 // function that grab current slide-container width (included all clones)and set new width.
@@ -37,10 +42,6 @@ app.updateWidth = () => {
 
 	app.slideContainer.style.width = currentSlideWidth;
 
-
-	console.log(currentSlideWidth);
-
-	console.log(currentSlides);
 }
 
 // Now the slides has all clones and it will begin with clone 'li'. need to re-position to start with original image slides which can make go forward and back by click event.
@@ -48,6 +49,47 @@ app.setInitialPos = () => {
 	const initialSlideWidth = -(app.slideWidth + app.slideMargin) * app.slideCount;
 	app.slideContainer.style.transform = `translateX(${initialSlideWidth}px)`;
 }
+
+app.moveSlide = (currentIndex) => {
+	app.slideContainer.style.left = -currentIndex * (app.slideWidth + app.slideMargin) + 'px';
+	app.currentIndex = currentIndex;
+
+	console.log(app.currentIndex, app.slideCount);
+
+	if (app.currentIndex === app.slideCount || app.currentIndex === -app.slideCount) {
+
+		// need to wait til .animate action is done. 
+		setTimeout(() => {
+			app.slideContainer.classList.remove('animated');
+			app.slideContainer.style.left = '0px';
+			app.currentIndex = 0;
+		}, 500);
+
+		setTimeout(() => {
+			app.slideContainer.classList.add('animated')
+		}, 550);
+
+	}
+}
+
+app.prevBtn.addEventListener('click', (e) => {
+	// if (!e.detail || e.detail === 1) {
+	// 	console.log(e.timeStamp);
+	// }
+	if (app.oldTimeStamp === null || app.oldTimeStamp + 550 < e.timeStamp) {
+		app.moveSlide(app.currentIndex - 1);
+		app.oldTimeStamp = e.timeStamp;
+	}
+
+});
+
+app.nextBtn.addEventListener('click', (e) => {
+	console.log(e.timeStamp)
+	if (app.oldTimeStamp === null || app.oldTimeStamp + 550 < e.timeStamp) {
+		app.moveSlide(app.currentIndex + 1);
+		app.oldTimeStamp = e.timeStamp;
+	}
+});
 
 
 
