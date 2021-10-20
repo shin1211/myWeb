@@ -6,14 +6,31 @@ header {
   background: url("../../images/header/profile_edit_Crop.jpg");
   background-size: cover;
   background-repeat: no-repeat;
+  background-position: 71%;
   height: 100vh;
+
+  .contents-container {
+    padding: 1rem;
+    background-color: $color-white;
+    border-radius: 5px;
+  }
 
   .nav-bar {
     float: right;
   }
   .nav-container {
-    display: flex;
-    border: 1px solid red;
+    display: none;
+  }
+
+  .burger-menu {
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    transition: all 0.5s;
+    cursor: pointer;
+    &:hover,
+    &:focus {
+      color: $color-orange;
+    }
   }
 
   .contents-container {
@@ -22,5 +39,15 @@ header {
   }
   li {
     padding: 0.5rem 1rem;
+  }
+
+  a {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    transition: all 0.5s;
+    &:hover,
+    &:focus {
+      color: $color-orange;
+    }
   }
 }

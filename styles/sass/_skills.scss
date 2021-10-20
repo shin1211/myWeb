@@ -1,12 +1,13 @@
 .skills {
-  margin: 5rem 0;
+  background-color: $color-lightgray;
+  padding: 5rem 0;
+  text-align: center;
   ul {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    padding: 1rem 5rem;
-    border: 1px solid red;
+    box-shadow: 2px 10px 10px;
   }
   ul li {
     text-align: center;
@@ -17,6 +18,8 @@
     height: 106px;
     margin: 1rem;
   }
+
+  // NEED TO FIX IT@@@@@@@@@@@@@@@@@@@@@@@@@@
   ul li img {
     filter: invert(88%) sepia(8%) saturate(11%) hue-rotate(341deg)
       brightness(82%) contrast(85%);

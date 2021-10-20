@@ -1,0 +1,39 @@
+// @media (min-width: 820px) {
+
+// }
+
+@media (min-width: 940px) {
+  header {
+    background-position: center top;
+
+    .contents-container {
+      background-color: inherit;
+    }
+    .nav-bar .nav-container {
+      display: flex;
+    }
+
+    .burger-menu {
+      display: none;
+    }
+  }
+
+  .projects-container .slide-container {
+    width: 840px;
+  }
+}
+
+@media (min-width: 1300px) {
+  .about-container,
+  .skills {
+    padding: 5rem;
+  }
+
+  .skills ul {
+    padding: 5rem;
+  }
+
+  .projects-container .slide-container {
+    width: 1260px;
+  }
+}
