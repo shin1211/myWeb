@@ -17,9 +17,10 @@
 
   .image-slide {
     position: absolute;
-    // padding: 3rem 0;
+    top: 0;
+    left: 0;
 
-    .animated {
+    &.animated {
       transition: 0.5s ease-out;
     }
   }

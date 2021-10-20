@@ -424,8 +424,10 @@ About
 }
 .projects-container .image-slide {
   position: absolute;
+  top: 0;
+  left: 0;
 }
-.projects-container .image-slide .animated {
+.projects-container .image-slide.animated {
   -webkit-transition: 0.5s ease-out;
   transition: 0.5s ease-out;
 }
