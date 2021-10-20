@@ -10,7 +10,7 @@
   .slide-container {
     position: relative;
     width: 1260px;
-    width: 420px;
+    width: 400px;
     height: 400px;
     overflow: hidden;
     margin: 2rem auto;
@@ -20,6 +20,9 @@
     position: absolute;
     top: 0;
     left: 0;
+    // border: 1px solid red;
+    // display: flex;
+    // justify-content: center;
 
     &.animated {
       transition: 0.5s ease-out;
@@ -42,7 +45,7 @@
     &:focus .description {
       visibility: visible;
       background-color: $color-gray;
-      box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.5);
+      // box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.5);
       border-radius: 10px;
       animation: fade 0.5s;
     }
