@@ -48,34 +48,10 @@
                 </div>
             </div>  <!-- Wrapper end-->
         </section>
-        <!-- Projects start -->
-        <section id="projects" class="projects-container">
-            <div class="wrapper">
-                <ul>
-                    <li>
-                        <div class="project">
-                            <div class="img-container"></div>
-                            <h3>project1</h3>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="project">
-                            <div class="img-container"></div>
-                            <h3>project2</h3>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="project">
-                            <div class="img-container"></div>
-                            <h3>project3</h3>
-                        </div>
-                    </li>
-                </ul>
-            </div> <!-- Wrapper end-->
-        </section>
         <!-- Skills start -->
         <section class="skills">
             <div class="wrapper">
+                <h2>Skills</h2>
                 <ul>
                     <li>
                         <img src="./images/icons/html5.svg" alt="">
@@ -120,15 +96,86 @@
                 </ul>
             </div> <!-- Wrapper end-->
         </section>
+        <!-- Projects start -->
+        <section id="projects" class="projects-container">
+            <div class="wrapper">
+                <h2>Projects</h2>
+                <div class="slide-container">
+                    <ul class="image-slide">
+                        <li class="project">
+                            <!-- <div class="project"> -->
+                            <div class="img-container">
+                                <img src="./images/projects/daily_log_app.jpg" alt="">
+                            </div>
+                            <!-- </div> -->
+                            <div class="description">
+                                <h3>project1</h3>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat eveniet quibusdam quisquam modi veniam alias similique possimus blanditiis aperiam repellendus velit laborum officiis quidem quasi nihil hic facere, vitae voluptatibus.</p>
+                                <a href="#">Git</a>
+                                <a href="#">Live</a>
+                            </div>
+                        </li>
+                        <li class="project">
+                            <!-- <div class="project"> -->
+                            <div class="img-container">
+                                <img src="./images/projects/daily_log_app.jpg" alt="">
+                            </div>
+                            <!-- </div> -->
+                            <div class="description overlay">
+                                <h3>project1</h3>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat eveniet quibusdam quisquam modi veniam alias similique possimus blanditiis aperiam repellendus velit laborum officiis quidem quasi nihil hic facere, vitae voluptatibus.</p>
+                                <a href="#">Git</a>
+                                <a href="#">Live</a>
+                            </div>
+                        </li>
+                        <li class="project">
+                            <!-- <div class="project"> -->
+                            <div class="img-container">
+                                <img src="./images/projects/daily_log_app.jpg" alt="">
+                            </div>
+                            <!-- </div> -->
+                            <div class="description">
+                                <h3>project1</h3>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat eveniet quibusdam quisquam modi veniam alias similique possimus blanditiis aperiam repellendus velit laborum officiis quidem quasi nihil hic facere, vitae voluptatibus.</p>
+                                <a href="#">Git</a>
+                                <a href="#">Live</a>
+                            </div>
+                        </li>
+                        <li class="project">
+                            <!-- <div class="project"> -->
+                            <div class="img-container">
+                                <img src="./images/projects/daily_log_app.jpg" alt="">
+                            </div>
+                            <!-- </div> -->
+                            <div class="description">
+                                <h3>project4</h3>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat eveniet quibusdam quisquam modi veniam alias similique possimus blanditiis aperiam repellendus velit laborum officiis quidem quasi nihil hic facere, vitae voluptatibus.</p>
+                                <a href="#">Git</a>
+                                <a href="#">Live</a>
+                            </div>
+                        </li>
+                        
+                    </ul>
+                </div> <!-- Slide-container end-->
+                <div class="controls">
+                    <button class="prev">Prev</button>
+                    <button class="next">Next</button>
+                </div>
+            </div> <!-- Wrapper end-->
+        </section>
+
         <!-- Contact start -->
         <section id="contact">
             <div class="wrapper">
+                <h2>Contact</h2>
                 <form action="https://formsubmit.co/shin891211@gmail.com" method="POST">
-                    <label for="userName" class="sr-only">Name</label>
-                    <input type="text" id="userName" name="name" placeholder="Full Name" required>
-
-                    <label for="userEmail" class="sr-only">Email</label>
-                    <input type="email" id="userEmail" name="email" placeholder="E-mail adress" required>
+                    <div class="input-container">
+                        <label for="userName" class="sr-only">Name</label>
+                        <input type="text" id="userName" name="name" placeholder="Full Name" required>
+    
+                        <label for="userEmail" class="sr-only">Email</label>
+                        <input type="email" id="userEmail" name="email" placeholder="E-mail adress" required>
+                    </div>
                     
                     <label for="userMessage" class="sr-only">Message</label>
                     <textarea name="message" id="userMessage" placeholder="Your Message" required></textarea>
@@ -141,5 +188,7 @@
     <footer>
         
     </footer>
+
+    <script src="./script/app.js"></script>
 </body>
 </html>

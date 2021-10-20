@@ -10,14 +10,18 @@ h3 {
   margin-bottom: 1rem;
   text-transform: uppercase;
 }
+p,
+button,
+input,
+textarea {
+  font-family: $sub-font;
+  font-weight: 400;
+}
 
 header p {
   letter-spacing: 8px;
 }
 
-p {
-  font-family: $sub-font;
-}
 .nav-container a {
   font-family: $base-font;
   color: $color-black;

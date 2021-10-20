@@ -1,18 +1,78 @@
 .projects-container {
-  background-color: rgb(228, 228, 228);
+  // background-color: rgb(228, 228, 228);
+  background-color: $color-white;
+  margin: 5rem 0;
+  img {
+    height: 100%;
+    border-radius: 10px;
+  }
 
-  ul {
-    display: flex;
-    justify-content: space-between;
-    padding: 3rem 0;
+  .slide-container {
+    position: relative;
+    width: 1260px;
+    height: 400px;
+    overflow: hidden;
+    margin: 0 auto;
+  }
+
+  .image-slide {
+    position: absolute;
+    // padding: 3rem 0;
+
+    .animated {
+      transition: 0.5s ease-out;
+    }
   }
 
   .project {
-    border: 1px solid red;
+    position: relative;
+    border-radius: 10px;
+    width: 400px;
+    height: 400px;
+    float: left;
+
+    &:not(:last-child) {
+      margin-right: 20px;
+    }
+    // float: left;
+    // border: 1px solid red;
+
+    // NEED TO FIX IT@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    &:hover .description,
+    &:focus .description {
+      visibility: visible;
+      background-color: $color-gray;
+      box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.5);
+      border-radius: 10px;
+      animation: fade 0.5s;
+    }
   }
   .img-container {
-    width: 300px;
-    height: 300px;
-    border: 1px solid blue;
+    width: 400px;
+    height: 400px;
+    border-radius: 10px;
+  }
+
+  .description {
+    visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: $color-white;
+  }
+
+  @keyframes fade {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
   }
 }
