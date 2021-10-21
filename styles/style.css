@@ -302,7 +302,7 @@ a {
 
 .wrapper {
   max-width: 1300px;
-  width: 90%;
+  width: 95%;
   margin: 0 auto;
 }
 
@@ -331,7 +331,7 @@ header p {
   letter-spacing: 8px;
 }
 
-.nav-container a {
+a {
   font-family: "Dosis", sans-serif;
   color: #3c3c3c;
   text-decoration: none;
@@ -384,7 +384,7 @@ header .burger-menu {
   cursor: pointer;
 }
 header .burger-menu:hover, header .burger-menu:focus {
-  color: orangered;
+  color: #ff4500;
 }
 header .contents-container {
   position: absolute;
@@ -400,7 +400,7 @@ header a {
   transition: all 0.5s;
 }
 header a:hover, header a:focus {
-  color: orangered;
+  color: #ff4500;
 }
 
 /*=============
@@ -423,7 +423,7 @@ About
           align-items: center;
 }
 .about-container .text-container {
-  padding: 1rem;
+  padding: 3rem;
 }
 .about-container p {
   line-height: 1.7;
@@ -466,11 +466,10 @@ About
   margin-right: 20px;
 }
 .projects-container .project:hover .description, .projects-container .project:focus .description {
-  visibility: visible;
-  background-color: #b2b2b2;
+  z-index: 0;
   border-radius: 10px;
-  -webkit-animation: fade 0.5s;
-          animation: fade 0.5s;
+  -webkit-animation: fade ease-in-out 0.5s;
+          animation: fade ease-in-out 0.5s;
 }
 .projects-container .img-container {
   width: 400px;
@@ -478,7 +477,8 @@ About
   border-radius: 10px;
 }
 .projects-container .description {
-  visibility: hidden;
+  padding: 0 1rem;
+  z-index: -10;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -492,19 +492,44 @@ About
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  line-height: 1.2;
   width: 100%;
   height: 100%;
   position: absolute;
   top: 0;
   left: 0;
+  opacity: 0.9;
+  background-color: #b2b2b2;
+  color: #3c3c3c;
+}
+.projects-container .description .link-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 70%;
+  margin-top: 2rem;
+}
+.projects-container .description a {
+  display: inline-block;
+  padding: 0.5rem 2rem;
+  border-radius: 20px;
+  border: 2px solid #ff4500;
+  -webkit-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out;
+}
+.projects-container .description a:hover, .projects-container .description a:focus {
   background-color: #ffffff;
+  border: none;
 }
 @-webkit-keyframes fade {
   0% {
     opacity: 0;
   }
   100% {
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 @keyframes fade {
@@ -512,7 +537,7 @@ About
     opacity: 0;
   }
   100% {
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
@@ -549,6 +574,13 @@ About
   width: 100px;
   height: 106px;
   margin: 1rem;
+  cursor: pointer;
+  -webkit-transition: all 0.7s;
+  transition: all 0.7s;
+}
+.skills ul li:hover, .skills ul li:focus {
+  -webkit-filter: invert(29%) sepia(38%) saturate(5331%) hue-rotate(5deg) brightness(107%) contrast(101%);
+          filter: invert(29%) sepia(38%) saturate(5331%) hue-rotate(5deg) brightness(107%) contrast(101%);
 }
 .skills ul li img {
   -webkit-filter: invert(88%) sepia(8%) saturate(11%) hue-rotate(341deg) brightness(82%) contrast(85%);
@@ -615,6 +647,10 @@ Contact
 }
 
 @media (min-width: 940px) {
+  .wrapper {
+    width: 90%;
+  }
+
   header {
     background-position: center top;
   }
@@ -635,13 +671,11 @@ Contact
   }
 }
 @media (min-width: 1300px) {
-  .about-container,
-.skills {
-    padding: 5rem;
-  }
-
   .skills ul {
     padding: 5rem;
+  }
+  .skills ul li {
+    margin: 2rem;
   }
 
   .projects-container .slide-container {

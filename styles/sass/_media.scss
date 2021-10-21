@@ -3,6 +3,9 @@
 // }
 
 @media (min-width: 940px) {
+  .wrapper {
+    width: 90%;
+  }
   header {
     background-position: center top;
 
@@ -26,11 +29,15 @@
 @media (min-width: 1300px) {
   .about-container,
   .skills {
-    padding: 5rem;
+    // padding: 5rem;
   }
 
   .skills ul {
     padding: 5rem;
+
+    li {
+      margin: 2rem;
+    }
   }
 
   .projects-container .slide-container {

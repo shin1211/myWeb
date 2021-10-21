@@ -22,7 +22,7 @@ header p {
   letter-spacing: 8px;
 }
 
-.nav-container a {
+a {
   font-family: $base-font;
   color: $color-black;
   text-decoration: none;
@@ -44,5 +44,4 @@ h3 {
 
 p {
   font-size: 1rem;
-  // line-height: 1.7;
 }
