@@ -24,14 +24,22 @@
   .projects-container .slide-container {
     width: 820px;
   }
+
+  .contact-container .container {
+    flex-direction: row;
+    .links {
+      padding: 0;
+      margin: 0;
+      border: none;
+      margin-left: 3rem;
+    }
+    li {
+      margin-top: 0;
+    }
+  }
 }
 
 @media (min-width: 1300px) {
-  .about-container,
-  .skills {
-    // padding: 5rem;
-  }
-
   .skills ul {
     padding: 5rem;
 
