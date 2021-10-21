@@ -7,13 +7,33 @@ header {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 71%;
-  // background-attachment: fixed;
   height: 100vh;
 
+  position: relative;
+
+  .link-bar {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    left: 10px;
+    bottom: 50px;
+
+    .line-decoration {
+      width: 1px;
+      height: 100px;
+      background-color: black;
+    }
+    i {
+      font-size: 1.3rem;
+      margin: 0.5rem;
+    }
+  }
   .contents-container {
     padding: 1rem;
     background-color: $color-white;
     border-radius: 5px;
+    z-index: 20;
   }
 
   .nav-bar {

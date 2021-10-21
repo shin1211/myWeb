@@ -37,6 +37,11 @@
     height: 400px;
     float: left;
 
+    &.fade {
+      filter: invert(99%) sepia(2%) saturate(168%) hue-rotate(181deg)
+        brightness(116%) contrast(91%);
+    }
+
     &:not(:last-child) {
       margin-right: 20px;
     }

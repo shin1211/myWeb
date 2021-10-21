@@ -372,11 +372,37 @@ header {
   background-repeat: no-repeat;
   background-position: 71%;
   height: 100vh;
+  position: relative;
+}
+header .link-bar {
+  position: fixed;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  left: 10px;
+  bottom: 50px;
+}
+header .link-bar .line-decoration {
+  width: 1px;
+  height: 100px;
+  background-color: black;
+}
+header .link-bar i {
+  font-size: 1.3rem;
+  margin: 0.5rem;
 }
 header .contents-container {
   padding: 1rem;
   background-color: #ffffff;
   border-radius: 5px;
+  z-index: 20;
 }
 header .nav-bar {
   float: right;
@@ -472,6 +498,10 @@ About
   width: 400px;
   height: 400px;
   float: left;
+}
+.projects-container .project.fade {
+  -webkit-filter: invert(99%) sepia(2%) saturate(168%) hue-rotate(181deg) brightness(116%) contrast(91%);
+          filter: invert(99%) sepia(2%) saturate(168%) hue-rotate(181deg) brightness(116%) contrast(91%);
 }
 .projects-container .project:not(:last-child) {
   margin-right: 20px;
@@ -588,6 +618,9 @@ About
   padding: 5rem 0;
   text-align: center;
 }
+.skills h2 {
+  margin-bottom: 1.5rem;
+}
 .skills ul {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -639,6 +672,8 @@ Contact
   background-color: #f4f4f4;
   text-align: center;
   padding: 5rem 0 2rem 0;
+  position: relative;
+  z-index: 10;
 }
 .contact-container .container {
   display: -webkit-box;
