@@ -2,6 +2,10 @@
   background-color: $color-lightgray;
   padding: 5rem 0;
   text-align: center;
+
+  h2 {
+    margin-bottom: 1.5rem;
+  }
   ul {
     display: flex;
     justify-content: center;

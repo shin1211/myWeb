@@ -5,6 +5,8 @@ Contact
   background-color: $color-lightgray;
   text-align: center;
   padding: 5rem 0 2rem 0;
+  position: relative;
+  z-index: 10;
 
   .container {
     display: flex;
