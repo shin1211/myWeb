@@ -7,8 +7,6 @@
     width: 90%;
   }
   header {
-    background-position: center top;
-
     .contents-container {
       background-color: inherit;
     }
@@ -40,6 +38,9 @@
 }
 
 @media (min-width: 1300px) {
+  header {
+    background-position: left top;
+  }
   .skills ul {
     padding: 5rem;
 

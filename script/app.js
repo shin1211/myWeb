@@ -1,9 +1,20 @@
 const app = {};
+// burger menu
+app.burgerBtn = document.querySelector('.burger-menu');
+app.navBar = document.querySelector('.nav-bar')
+app.burgerBtn.addEventListener('click', () => {
+	app.navBar.classList.toggle('active');
+})
+
+// slide funtion
 
 app.slideContainer = document.querySelector('.image-slide');
 app.slides = document.querySelectorAll('.image-slide li');
 app.prevBtn = document.querySelector('.prev');
 app.nextBtn = document.querySelector('.next');
+app.projectsImg = document.querySelectorAll('.project img');
+
+
 
 app.currentIndex = 0;
 app.slideCount = app.slides.length;
@@ -25,6 +36,8 @@ app.makeClone = () => {
 		cloneSlide.classList.add('clone');
 		app.slideContainer.prepend(cloneSlide);
 	}
+
+	// app.clickEve();
 	app.updateWidth();
 	app.setInitialPos();
 
@@ -32,6 +45,19 @@ app.makeClone = () => {
 		app.slideContainer.classList.add('animated');
 	}, 100);
 }
+
+// need to be done 
+
+// app.clickEve = () => {
+// 	const allElement = document.querySelectorAll('.image-slide li')
+// 	for (const item of allElement) {
+// 		item.addEventListener('click', (e) => {
+// 			if (e.target.src === 'http://127.0.0.1:5500/images/projects/whatDoYouNo.jpg' || 'http://127.0.0.1:5500/images/projects/BarOne.jpg' || 'http://127.0.0.1:5500/images/projects/whatDoYouNo.jpg' || 'http://127.0.0.1:5500/images/projects/daily_log_app.jpg') {
+// 				e.target.parentElement.classList.toggle('active');
+// 			}
+// 		})
+// 	}
+// }
 
 // function that grab current slide-container width (included all clones)and set new width.
 app.updateWidth = () => {
@@ -85,6 +111,8 @@ app.nextBtn.addEventListener('click', (e) => {
 		app.oldTimeStamp = e.timeStamp;
 	}
 });
+
+
 
 
 
