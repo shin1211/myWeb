@@ -57,7 +57,7 @@ app.clickEvent = () => {
 		item.addEventListener('mouseleave', (e) => {
 			setTimeout(() => {
 				e.target.children[0].classList.remove('active');
-			}, 500);
+			}, 100);
 		})
 	}
 }
