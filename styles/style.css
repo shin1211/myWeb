@@ -506,6 +506,10 @@ About
   -webkit-filter: grayscale(100%);
   filter: grayscale(100%);
 }
+.projects-container img:hover, .projects-container img:focus {
+  -webkit-filter: grayscale(0);
+  filter: grayscale(0);
+}
 .projects-container .slide-container {
   position: relative;
   width: 1260px;
@@ -524,23 +528,13 @@ About
   transition: 0.5s ease-out;
 }
 .projects-container .project {
-  position: relative;
   border-radius: 10px;
   width: 400px;
   height: 400px;
   float: left;
 }
-.projects-container .project.fade {
-  -webkit-filter: invert(99%) sepia(2%) saturate(168%) hue-rotate(181deg) brightness(116%) contrast(91%);
-          filter: invert(99%) sepia(2%) saturate(168%) hue-rotate(181deg) brightness(116%) contrast(91%);
-}
 .projects-container .project:not(:last-child) {
   margin-right: 20px;
-}
-.projects-container .project:hover .description, .projects-container .project:focus .description {
-  z-index: 0;
-  -webkit-animation: fade ease-in-out 0.5s;
-          animation: fade ease-in-out 0.5s;
 }
 .projects-container .skill-set {
   display: -webkit-box;
@@ -567,6 +561,7 @@ About
   width: 400px;
   height: 400px;
   border-radius: 10px;
+  position: relative;
 }
 .projects-container .img-container.active .description {
   z-index: 10;

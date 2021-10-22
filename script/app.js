@@ -7,14 +7,11 @@ app.burgerBtn.addEventListener('click', () => {
 })
 
 // slide funtion
-
 app.slideContainer = document.querySelector('.image-slide');
 app.slides = document.querySelectorAll('.image-slide li');
 app.prevBtn = document.querySelector('.prev');
 app.nextBtn = document.querySelector('.next');
 app.projectsImg = document.querySelectorAll('.project img');
-
-
 
 app.currentIndex = 0;
 app.slideCount = app.slides.length;
@@ -37,7 +34,7 @@ app.makeClone = () => {
 		app.slideContainer.prepend(cloneSlide);
 	}
 
-	// app.clickEve();
+	app.clickEvent();
 	app.updateWidth();
 	app.setInitialPos();
 
@@ -48,16 +45,24 @@ app.makeClone = () => {
 
 // need to be done 
 
-// app.clickEve = () => {
-// 	const allElement = document.querySelectorAll('.image-slide li')
-// 	for (const item of allElement) {
-// 		item.addEventListener('click', (e) => {
-// 			if (e.target.src === 'http://127.0.0.1:5500/images/projects/whatDoYouNo.jpg' || 'http://127.0.0.1:5500/images/projects/BarOne.jpg' || 'http://127.0.0.1:5500/images/projects/whatDoYouNo.jpg' || 'http://127.0.0.1:5500/images/projects/daily_log_app.jpg') {
-// 				e.target.parentElement.classList.toggle('active');
-// 			}
-// 		})
-// 	}
-// }
+app.clickEvent = () => {
+	const allElement = document.querySelectorAll('.image-slide li')
+	for (const item of allElement) {
+		item.addEventListener('click', (e) => {
+			console.log(e.target);
+			if (e.target.src === 'http://127.0.0.1:5500/images/projects/whatDoYouNo.jpg' || 'http://127.0.0.1:5500/images/projects/BarOne.jpg' || 'http://127.0.0.1:5500/images/projects/whatDoYouNo.jpg' || 'http://127.0.0.1:5500/images/projects/daily_log_app.jpg') {
+				e.target.parentElement.classList.add('active');
+			}
+		});
+		item.addEventListener('mouseleave', (e) => {
+			// console.log(e.target);
+			// console.log(e.target.children[0]);
+			setTimeout(() => {
+				e.target.children[0].classList.remove('active');
+			}, 500);
+		})
+	}
+}
 
 // function that grab current slide-container width (included all clones)and set new width.
 app.updateWidth = () => {

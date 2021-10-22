@@ -17,11 +17,11 @@
     filter: grayscale(100%);
 
     // working with js part
-    // &:hover,
-    // &:focus {
-    //   -webkit-filter: grayscale(0);
-    //   filter: grayscale(0);
-    // }
+    &:hover,
+    &:focus {
+      -webkit-filter: grayscale(0);
+      filter: grayscale(0);
+    }
   }
 
   .slide-container {
@@ -44,33 +44,27 @@
   }
 
   .project {
-    position: relative;
+    // position: relative;
     border-radius: 10px;
     width: 400px;
     height: 400px;
     float: left;
-
-    &.fade {
-      filter: invert(99%) sepia(2%) saturate(168%) hue-rotate(181deg)
-        brightness(116%) contrast(91%);
-    }
 
     &:not(:last-child) {
       margin-right: 20px;
     }
 
     // NEED TO FIX IT@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-    &:hover .description,
-    &:focus .description {
-      z-index: 0;
-      animation: fade ease-in-out 0.5s;
-    }
+    // &:hover .description,
+    // &:focus .description {
+    //   z-index: 0;
+    //   animation: fade ease-in-out 0.5s;
+    // }
   }
 
   .skill-set {
     display: flex;
     justify-content: center;
-    // width: 50%;
     margin-top: 1rem;
     border: 1px solid $color-orange;
     border-radius: 10px;
@@ -91,6 +85,7 @@
     width: 400px;
     height: 400px;
     border-radius: 10px;
+    position: relative;
 
     &.active .description {
       z-index: 10;
