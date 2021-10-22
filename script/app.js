@@ -49,12 +49,10 @@ app.clickEvent = () => {
 
 	const allElement = document.querySelectorAll('.image-slide li');
 	for (const item of allElement) {
-		console.log(item);
 		item.addEventListener('click', (e) => {
-			console.log(e.target.src);
-			if (e.target.src === 'sshinn.ca/images/projects/whatDoYouNo.jpg' || 'http://127.0.0.1:5500/images/projects/BarOne.jpg' || 'http://127.0.0.1:5500/images/projects/whatDoYouNo.jpg' || 'http://127.0.0.1:5500/images/projects/daily_log_app.jpg') {
-				e.target.parentElement.classList.add('active');
-			}
+			// if (e.target.src === 'https://sshinn.ca/images/projects/whatDoYouNo.jpg' || 'https://sshinn.ca/images/projects/BarOne.jpg' || 'https://sshinn.ca/images/projects/whatDoYouNo.jpg' || 'https://sshinn.ca/images/projects/daily_log_app.jpg') {
+			// }
+			e.target.parentElement.classList.add('active');
 		});
 		item.addEventListener('mouseleave', (e) => {
 			setTimeout(() => {
