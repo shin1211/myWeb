@@ -46,17 +46,17 @@ app.makeClone = () => {
 // need to be done 
 
 app.clickEvent = () => {
-	const allElement = document.querySelectorAll('.image-slide li')
+
+	const allElement = document.querySelectorAll('.image-slide li');
 	for (const item of allElement) {
+		console.log(item);
 		item.addEventListener('click', (e) => {
-			console.log(e.target);
-			if (e.target.src === 'http://127.0.0.1:5500/images/projects/whatDoYouNo.jpg' || 'http://127.0.0.1:5500/images/projects/BarOne.jpg' || 'http://127.0.0.1:5500/images/projects/whatDoYouNo.jpg' || 'http://127.0.0.1:5500/images/projects/daily_log_app.jpg') {
+			console.log(e.target.src);
+			if (e.target.src === 'sshinn.ca/images/projects/whatDoYouNo.jpg' || 'http://127.0.0.1:5500/images/projects/BarOne.jpg' || 'http://127.0.0.1:5500/images/projects/whatDoYouNo.jpg' || 'http://127.0.0.1:5500/images/projects/daily_log_app.jpg') {
 				e.target.parentElement.classList.add('active');
 			}
 		});
 		item.addEventListener('mouseleave', (e) => {
-			// console.log(e.target);
-			// console.log(e.target.children[0]);
 			setTimeout(() => {
 				e.target.children[0].classList.remove('active');
 			}, 500);
