@@ -16,7 +16,7 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    left: 10px;
+    left: 5px;
     bottom: 50px;
 
     .line-decoration {
@@ -38,12 +38,50 @@ header {
 
   .nav-bar {
     float: right;
+
+    &.active .nav-container {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      left: 0;
+      top: 0;
+    }
   }
   .nav-container {
     display: none;
   }
 
+  // .container {
+  //   padding: 1rem;
+  //   cursor: pointer;
+  // }
+  // .burger-menu {
+  //   // display: inline-block;
+  //   // padding: 0.5rem;
+  //   position: relative;
+  //   margin-top: 1rem;
+  //   width: 30px;
+  //   height: 2px;
+  //   background-color: black;
+
+  //   &::before,
+  //   &::after {
+  //     content: "";
+  //     position: absolute;
+  //     width: inherit;
+  //     height: inherit;
+  //     background-color: inherit;
+  //     top: 10px;
+  //   }
+
+  //   &::after {
+  //     top: -10px;
+  //   }
+  // }
+
   .burger-menu {
+    border-style: none;
+    background-color: inherit;
     font-size: 1.5rem;
     padding: 0.5rem;
     transition: all 0.5s;
