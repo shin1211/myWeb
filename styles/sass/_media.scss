@@ -12,6 +12,13 @@
     }
     .nav-bar .nav-container {
       display: flex;
+      flex-direction: row;
+    }
+
+    .nav-bar.active .nav-container {
+      position: static;
+      display: flex;
+      flex-direction: row;
     }
 
     .burger-menu {
