@@ -9,9 +9,34 @@ About
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
   }
   .text-container {
     padding: 3rem;
+    // border: 1px solid $color-orange;
+    &::before {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 300px;
+      border-top: 2px solid $color-orange;
+      border-left: 2px solid $color-orange;
+      border-bottom: 2px solid $color-orange;
+      top: 60px;
+      left: 0;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 300px;
+      border-top: 2px solid $color-orange;
+      border-right: 2px solid $color-orange;
+      border-bottom: 2px solid $color-orange;
+      top: 60px;
+      right: 0;
+    }
   }
 
   p {

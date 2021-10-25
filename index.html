@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;600&family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="./styles/style.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/47d75b071a.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -58,7 +59,8 @@
     <!-- Main start -->
     <main>
         <!-- About start -->
-        <section id="about" class="about-container">
+        <section id="about" class="about-container" data-aos="fade-up"
+        data-aos-anchor-placement="top-center">
             <div class="wrapper">
                 <h2>About</h2>
                 <div class="text-container">
@@ -69,7 +71,8 @@
             </div>  <!-- Wrapper end-->
         </section>
         <!-- Skills start -->
-        <section class="skills">
+        <section class="skills" data-aos="fade-up"
+        data-aos-anchor-placement="top-center">
             <div class="wrapper">
                 <h2>Skills</h2>
                 <ul>
@@ -117,7 +120,8 @@
             </div> <!-- Wrapper end-->
         </section>
         <!-- Projects start -->
-        <section id="projects" class="projects-container">
+        <section id="projects" class="projects-container" data-aos="fade-up"
+        data-aos-anchor-placement="top-center">
             <div class="wrapper">
                 <h2>Projects</h2>
                 <p>Please click the image to see the more details.</p>
@@ -218,7 +222,8 @@
         </section>
 
         <!-- Contact start -->
-        <section id="contact" class="contact-container">
+        <section id="contact" class="contact-container" data-aos="fade-up"
+        data-aos-anchor-placement="top-center">
             <div class="wrapper">
                 <h2>Contact</h2>
                 <div class="container">
@@ -268,6 +273,9 @@
     </footer>
 
     <script src="./script/app.js"></script>
-
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
 </body>
 </html>
