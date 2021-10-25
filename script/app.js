@@ -43,16 +43,18 @@ app.makeClone = () => {
 	}, 100);
 }
 
-// need to be done 
+
+
+// need to be fixed. keep adding active class on description.
 
 app.clickEvent = () => {
 
 	const allElement = document.querySelectorAll('.image-slide li');
 	for (const item of allElement) {
 		item.addEventListener('click', (e) => {
-			// if (e.target.src === 'https://sshinn.ca/images/projects/whatDoYouNo.jpg' || 'https://sshinn.ca/images/projects/BarOne.jpg' || 'https://sshinn.ca/images/projects/whatDoYouNo.jpg' || 'https://sshinn.ca/images/projects/daily_log_app.jpg') {
-			// }
-			e.target.parentElement.classList.add('active');
+			if (e.target.src === 'https://sshinn.ca/images/projects/whatDoYouNo.jpg' || 'https://sshinn.ca/images/projects/BarOne.jpg' || 'https://sshinn.ca/images/projects/whatDoYouNo.jpg' || 'https://sshinn.ca/images/projects/daily_log_app.jpg') {
+				e.target.parentElement.classList.add('active');
+			}
 		});
 		item.addEventListener('mouseleave', (e) => {
 			setTimeout(() => {
