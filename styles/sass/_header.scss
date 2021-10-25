@@ -37,18 +37,25 @@ header {
   }
 
   .nav-bar {
-    float: right;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
 
+    .nav-container {
+      // display: none;
+      position: absolute;
+      left: -100%;
+      transition: all 0.5s;
+      background-color: $color-white;
+    }
     &.active .nav-container {
       position: absolute;
       display: flex;
       flex-direction: column;
-      left: 0;
+      left: -20px;
       top: 0;
     }
-  }
-  .nav-container {
-    display: none;
   }
 
   // .container {
@@ -100,6 +107,9 @@ header {
     padding: 0.5rem 1rem;
   }
 
+  p {
+    color: $color-orange;
+  }
   a {
     display: inline-block;
     padding: 0.5rem 1rem;

@@ -12,7 +12,9 @@
     }
     .nav-bar .nav-container {
       display: flex;
+      position: static;
       flex-direction: row;
+      background-color: inherit;
     }
 
     .nav-bar.active .nav-container {

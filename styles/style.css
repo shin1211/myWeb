@@ -405,7 +405,21 @@ header .contents-container {
   z-index: 20;
 }
 header .nav-bar {
-  float: right;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  position: relative;
+}
+header .nav-bar .nav-container {
+  position: absolute;
+  left: -100%;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  background-color: #ffffff;
 }
 header .nav-bar.active .nav-container {
   position: absolute;
@@ -416,11 +430,8 @@ header .nav-bar.active .nav-container {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  left: 0;
+  left: -20px;
   top: 0;
-}
-header .nav-container {
-  display: none;
 }
 header .burger-menu {
   border-style: none;
@@ -440,6 +451,9 @@ header .contents-container {
 }
 header li {
   padding: 0.5rem 1rem;
+}
+header p {
+  color: #ff4500;
 }
 header a {
   display: inline-block;
@@ -480,6 +494,7 @@ About
 .about-container a {
   display: inline-block;
   padding: 0.5rem 2rem;
+  font-size: 1rem;
   background-color: #3c3c3c;
   color: #ffffff;
   border-radius: 10px;
@@ -849,10 +864,12 @@ footer p {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    position: static;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
+    background-color: inherit;
   }
   header .nav-bar.active .nav-container {
     position: static;
