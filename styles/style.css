@@ -487,12 +487,22 @@ About
 }
 .about-container .text-container {
   padding: 3rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 .about-container .text-container::before {
   content: "";
   position: absolute;
-  width: 20px;
-  height: 300px;
+  width: 30px;
+  height: 80%;
   border-top: 2px solid #ff4500;
   border-left: 2px solid #ff4500;
   border-bottom: 2px solid #ff4500;
@@ -502,8 +512,8 @@ About
 .about-container .text-container::after {
   content: "";
   position: absolute;
-  width: 20px;
-  height: 300px;
+  width: 30px;
+  height: 80%;
   border-top: 2px solid #ff4500;
   border-right: 2px solid #ff4500;
   border-bottom: 2px solid #ff4500;
@@ -517,6 +527,7 @@ About
 .about-container a {
   display: inline-block;
   padding: 0.5rem 2rem;
+  margin-top: 1rem;
   font-size: 1rem;
   background-color: #3c3c3c;
   color: #ffffff;
@@ -716,6 +727,32 @@ About
           align-items: center;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  border-radius: 10px 5%;
+  position: relative;
+}
+.skills ul::before {
+  content: "";
+  position: absolute;
+  width: 11%;
+  height: 25%;
+  border-left: 3px solid #b2b2b2;
+  border-bottom: 3px solid #b2b2b2;
+  bottom: -10px;
+  left: -10px;
+  border-bottom-left-radius: 20px;
+  z-index: -10;
+}
+.skills ul::after {
+  content: "";
+  position: absolute;
+  width: 11%;
+  height: 25%;
+  border-right: 3px solid #b2b2b2;
+  border-top: 3px solid #b2b2b2;
+  top: -10px;
+  right: -10px;
+  border-top-right-radius: 20px;
+  z-index: -10;
 }
 .skills ul li {
   text-align: center;
@@ -741,8 +778,6 @@ About
           filter: invert(29%) sepia(38%) saturate(5331%) hue-rotate(5deg) brightness(107%) contrast(101%);
 }
 .skills ul li img {
-  -webkit-filter: invert(88%) sepia(8%) saturate(11%) hue-rotate(341deg) brightness(82%) contrast(85%);
-          filter: invert(88%) sepia(8%) saturate(11%) hue-rotate(341deg) brightness(82%) contrast(85%);
   width: 50px;
   height: 50px;
   margin-bottom: 0.5rem;
