@@ -386,16 +386,16 @@ header .link-bar {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  left: 5px;
-  bottom: 50px;
+  left: 0;
+  bottom: 0;
 }
 header .link-bar .line-decoration {
   width: 1px;
-  height: 100px;
+  height: 80px;
   background-color: black;
 }
 header .link-bar i {
-  font-size: 1.3rem;
+  font-size: 1rem;
   margin: 0.5rem;
 }
 header .contents-container {
@@ -442,7 +442,7 @@ header .burger-menu {
   transition: all 0.5s;
   cursor: pointer;
 }
-header .burger-menu:hover, header .burger-menu:focus {
+header .burger-menu:hover, header .burger-menu:focus, header .burger-menu:active {
   color: #ff4500;
 }
 header .contents-container {
@@ -461,7 +461,7 @@ header a {
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
 }
-header a:hover, header a:focus {
+header a:hover, header a:focus, header a:active {
   color: #ff4500;
 }
 
@@ -502,22 +502,22 @@ About
   content: "";
   position: absolute;
   width: 30px;
-  height: 80%;
+  height: 100%;
   border-top: 2px solid #ff4500;
   border-left: 2px solid #ff4500;
   border-bottom: 2px solid #ff4500;
-  top: 60px;
+  top: 0;
   left: 0;
 }
 .about-container .text-container::after {
   content: "";
   position: absolute;
   width: 30px;
-  height: 80%;
+  height: 100%;
   border-top: 2px solid #ff4500;
   border-right: 2px solid #ff4500;
   border-bottom: 2px solid #ff4500;
-  top: 60px;
+  top: 0;
   right: 0;
 }
 .about-container p {
@@ -535,7 +535,7 @@ About
   -webkit-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
 }
-.about-container a:hover, .about-container a:focus {
+.about-container a:hover, .about-container a:focus, .about-container a:active {
   background-color: #ff4500;
 }
 
@@ -559,12 +559,6 @@ About
 .projects-container img {
   height: 100%;
   border-radius: 10px;
-  -webkit-filter: grayscale(100%);
-  filter: grayscale(100%);
-}
-.projects-container img:hover, .projects-container img:focus {
-  -webkit-filter: grayscale(0);
-  filter: grayscale(0);
 }
 .projects-container .slide-container {
   position: relative;
@@ -620,14 +614,13 @@ About
   position: relative;
   cursor: pointer;
 }
-.projects-container .img-container.active .description {
-  z-index: 10;
-}
-.projects-container .description {
-  z-index: -10;
+.projects-container .img-container:hover .description, .projects-container .img-container:focus .description, .projects-container .img-container:active .description {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+.projects-container .description {
+  display: none;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -649,6 +642,8 @@ About
   border-radius: 10px;
   background-color: #3c3c3c;
   color: #ffffff;
+  -webkit-animation: fade ease-in-out 0.5s;
+          animation: fade ease-in-out 0.5s;
 }
 .projects-container .description .link-container {
   display: -webkit-box;
@@ -669,10 +664,9 @@ About
   transition: all 0.5s ease-out;
   color: #ffffff;
 }
-.projects-container .description a:hover, .projects-container .description a:focus {
+.projects-container .description a:hover, .projects-container .description a:focus, .projects-container .description a:active {
   background-color: #ffffff;
   color: #3c3c3c;
-  border: none;
 }
 .projects-container .controls button {
   padding: 0.5rem 0.7rem;
@@ -685,7 +679,7 @@ About
   -webkit-transition: all 0.5 ease-in-out;
   transition: all 0.5 ease-in-out;
 }
-.projects-container .controls button:hover, .projects-container .controls button:focus {
+.projects-container .controls button:hover, .projects-container .controls button:focus, .projects-container .controls button:active {
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
   color: #ff4500;
@@ -730,30 +724,6 @@ About
   border-radius: 10px 5%;
   position: relative;
 }
-.skills ul::before {
-  content: "";
-  position: absolute;
-  width: 11%;
-  height: 25%;
-  border-left: 3px solid #b2b2b2;
-  border-bottom: 3px solid #b2b2b2;
-  bottom: -10px;
-  left: -10px;
-  border-bottom-left-radius: 20px;
-  z-index: -10;
-}
-.skills ul::after {
-  content: "";
-  position: absolute;
-  width: 11%;
-  height: 25%;
-  border-right: 3px solid #b2b2b2;
-  border-top: 3px solid #b2b2b2;
-  top: -10px;
-  right: -10px;
-  border-top-right-radius: 20px;
-  z-index: -10;
-}
 .skills ul li {
   text-align: center;
   display: -webkit-box;
@@ -791,7 +761,6 @@ Contact
   text-align: center;
   padding: 5rem 0 2rem 0;
   position: relative;
-  z-index: 10;
 }
 .contact-container .container {
   display: -webkit-box;
@@ -904,7 +873,9 @@ Contact
 }
 
 footer {
+  background-color: #ffffff;
   padding: 0.5rem;
+  position: relative;
 }
 footer p {
   text-align: center;
@@ -912,7 +883,7 @@ footer p {
 
 @media (min-width: 940px) {
   .wrapper {
-    width: 90%;
+    width: 80%;
   }
 
   header .contents-container {

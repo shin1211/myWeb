@@ -11,7 +11,8 @@ app.slideContainer = document.querySelector('.image-slide');
 app.slides = document.querySelectorAll('.image-slide li');
 app.prevBtn = document.querySelector('.prev');
 app.nextBtn = document.querySelector('.next');
-app.projectsImg = document.querySelectorAll('.project img');
+
+// app.projectsImg = document.querySelectorAll('.project img');
 
 app.currentIndex = 0;
 app.slideCount = app.slides.length;
@@ -34,7 +35,7 @@ app.makeClone = () => {
 		app.slideContainer.prepend(cloneSlide);
 	}
 
-	app.clickEvent();
+	// app.clickEvent();
 	app.updateWidth();
 	app.setInitialPos();
 
@@ -47,22 +48,22 @@ app.makeClone = () => {
 
 // need to be fixed. keep adding active class on description.
 
-app.clickEvent = () => {
+// app.clickEvent = () => {
 
-	const allElement = document.querySelectorAll('.image-slide li');
-	for (const item of allElement) {
-		item.addEventListener('click', (e) => {
-			if (e.target.src === 'https://sshinn.ca/images/projects/whatDoYouNo.jpg' || 'https://sshinn.ca/images/projects/BarOne.jpg' || 'https://sshinn.ca/images/projects/whatDoYouNo.jpg' || 'https://sshinn.ca/images/projects/daily_log_app.jpg') {
-				e.target.parentElement.classList.add('active');
-			}
-		});
-		item.addEventListener('mouseleave', (e) => {
-			setTimeout(() => {
-				e.target.children[0].classList.remove('active');
-			}, 100);
-		})
-	}
-}
+// 	const allElement = document.querySelectorAll('.image-slide li');
+// 	for (const item of allElement) {
+// 		item.addEventListener('click', (e) => {
+// 			if (e.target.src === 'https://sshinn.ca/images/projects/whatDoYouNo.jpg' || 'https://sshinn.ca/images/projects/BarOne.jpg' || 'https://sshinn.ca/images/projects/whatDoYouNo.jpg' || 'https://sshinn.ca/images/projects/daily_log_app.jpg') {
+// 				e.target.parentElement.classList.add('active');
+// 			}
+// 		});
+// 		item.addEventListener('mouseleave', (e) => {
+// 			setTimeout(() => {
+// 				e.target.children[0].classList.remove('active');
+// 			}, 100);
+// 		})
+// 	}
+// }
 
 // function that grab current slide-container width (included all clones)and set new width.
 app.updateWidth = () => {

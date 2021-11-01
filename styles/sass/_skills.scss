@@ -14,31 +14,31 @@
     border-radius: 10px 5%;
     position: relative;
 
-    &::before {
-      content: "";
-      position: absolute;
-      width: 11%;
-      height: 25%;
-      border-left: 3px solid $color-gray;
-      border-bottom: 3px solid $color-gray;
-      bottom: -10px;
-      left: -10px;
-      border-bottom-left-radius: 20px;
-      z-index: -10;
-    }
+    // &::before {
+    //   content: "";
+    //   position: absolute;
+    //   width: 11%;
+    //   height: 25%;
+    //   border-left: 3px solid $color-gray;
+    //   border-bottom: 3px solid $color-gray;
+    //   bottom: -10px;
+    //   left: -10px;
+    //   border-bottom-left-radius: 20px;
+    //   z-index: -10;
+    // }
 
-    &::after {
-      content: "";
-      position: absolute;
-      width: 11%;
-      height: 25%;
-      border-right: 3px solid $color-gray;
-      border-top: 3px solid $color-gray;
-      top: -10px;
-      right: -10px;
-      border-top-right-radius: 20px;
-      z-index: -10;
-    }
+    // &::after {
+    //   content: "";
+    //   position: absolute;
+    //   width: 11%;
+    //   height: 25%;
+    //   border-right: 3px solid $color-gray;
+    //   border-top: 3px solid $color-gray;
+    //   top: -10px;
+    //   right: -10px;
+    //   border-top-right-radius: 20px;
+    //   z-index: -10;
+    // }
   }
   ul li {
     text-align: center;
@@ -58,10 +58,7 @@
     }
   }
 
-  // NEED TO FIX IT@@@@@@@@@@@@@@@@@@@@@@@@@@
   ul li img {
-    // filter: invert(88%) sepia(8%) saturate(11%) hue-rotate(341deg)
-    //   brightness(82%) contrast(85%);
     width: 50px;
     height: 50px;
     margin-bottom: 0.5rem;
