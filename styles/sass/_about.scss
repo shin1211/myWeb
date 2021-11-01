@@ -21,11 +21,11 @@ About
       content: "";
       position: absolute;
       width: 30px;
-      height: 80%;
+      height: 100%;
       border-top: 2px solid $color-orange;
       border-left: 2px solid $color-orange;
       border-bottom: 2px solid $color-orange;
-      top: 60px;
+      top: 0;
       left: 0;
     }
 
@@ -33,11 +33,11 @@ About
       content: "";
       position: absolute;
       width: 30px;
-      height: 80%;
+      height: 100%;
       border-top: 2px solid $color-orange;
       border-right: 2px solid $color-orange;
       border-bottom: 2px solid $color-orange;
-      top: 60px;
+      top: 0;
       right: 0;
     }
   }
@@ -58,7 +58,8 @@ About
     transition: all 0.5s ease-in-out;
 
     &:hover,
-    &:focus {
+    &:focus,
+    &:active {
       background-color: $color-orange;
     }
   }

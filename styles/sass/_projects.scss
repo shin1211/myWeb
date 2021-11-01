@@ -20,15 +20,6 @@
   img {
     height: 100%;
     border-radius: 10px;
-    -webkit-filter: grayscale(100%);
-    filter: grayscale(100%);
-
-    // working with js part
-    &:hover,
-    &:focus {
-      -webkit-filter: grayscale(0);
-      filter: grayscale(0);
-    }
   }
 
   .slide-container {
@@ -59,13 +50,6 @@
     &:not(:last-child) {
       margin-right: 20px;
     }
-
-    // NEED TO FIX IT@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-    // &:hover .description,
-    // &:focus .description {
-    //   z-index: 0;
-    //   animation: fade ease-in-out 0.5s;
-    // }
   }
 
   .skill-set {
@@ -94,14 +78,17 @@
     position: relative;
     cursor: pointer;
 
-    &.active .description {
-      z-index: 10;
+    &:hover .description,
+    &:focus .description,
+    &:active .description {
+      // z-index: 10;
+      display: flex;
     }
   }
 
   .description {
-    z-index: -10;
-    display: flex;
+    // z-index: -10;
+    display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -116,6 +103,7 @@
     border-radius: 10px;
     background-color: $color-black;
     color: $color-white;
+    animation: fade ease-in-out 0.5s;
 
     .link-container {
       display: flex;
@@ -132,10 +120,10 @@
       color: $color-white;
 
       &:hover,
-      &:focus {
+      &:focus,
+      &:active {
         background-color: $color-white;
         color: $color-black;
-        border: none;
       }
     }
   }
@@ -151,7 +139,8 @@
     transition: all 0.5 ease-in-out;
 
     &:hover,
-    &:focus {
+    &:focus,
+    &:active {
       transform: scale(1.1);
       color: $color-orange;
     }
