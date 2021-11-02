@@ -721,8 +721,6 @@ About
           align-items: center;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  border-radius: 10px 5%;
-  position: relative;
 }
 .skills ul li {
   text-align: center;
@@ -883,7 +881,7 @@ footer p {
 
 @media (min-width: 940px) {
   .wrapper {
-    width: 80%;
+    width: 70%;
   }
 
   header .contents-container {
@@ -940,7 +938,7 @@ footer p {
   }
 
   .skills ul {
-    padding: 5rem;
+    padding: 2.5rem 5rem;
   }
   .skills ul li {
     margin: 2rem;
