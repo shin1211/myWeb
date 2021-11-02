@@ -16,7 +16,6 @@ About
     display: flex;
     flex-direction: column;
     align-items: center;
-    // border: 1px solid $color-orange;
     &::before {
       content: "";
       position: absolute;
@@ -43,7 +42,6 @@ About
   }
 
   p {
-    line-height: 1.7;
     margin-bottom: 0.5rem;
   }
 

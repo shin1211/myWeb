@@ -360,7 +360,9 @@ h4 {
 }
 
 p {
-  font-size: 1rem;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  line-height: 1.7;
 }
 
 /*=============
@@ -521,7 +523,6 @@ About
   right: 0;
 }
 .about-container p {
-  line-height: 1.7;
   margin-bottom: 0.5rem;
 }
 .about-container a {
@@ -709,6 +710,9 @@ About
 .skills h2 {
   margin-bottom: 1.5rem;
 }
+.skills p {
+  line-height: 1;
+}
 .skills ul {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -722,7 +726,7 @@ About
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
 }
-.skills ul li {
+.skills li {
   text-align: center;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -741,7 +745,7 @@ About
   -webkit-transition: all 0.7s;
   transition: all 0.7s;
 }
-.skills ul li:hover, .skills ul li:focus {
+.skills li:hover, .skills li:focus {
   -webkit-filter: invert(29%) sepia(38%) saturate(5331%) hue-rotate(5deg) brightness(107%) contrast(101%);
           filter: invert(29%) sepia(38%) saturate(5331%) hue-rotate(5deg) brightness(107%) contrast(101%);
 }
@@ -876,12 +880,13 @@ footer {
   position: relative;
 }
 footer p {
+  font-size: 0.8rem;
   text-align: center;
 }
 
 @media (min-width: 940px) {
   .wrapper {
-    width: 70%;
+    width: 80%;
   }
 
   header .contents-container {
@@ -937,6 +942,9 @@ footer p {
     background-position: left top;
   }
 
+  .skills h2 {
+    margin-bottom: 0;
+  }
   .skills ul {
     padding: 2.5rem 5rem;
   }
