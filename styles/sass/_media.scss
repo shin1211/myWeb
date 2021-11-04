@@ -1,7 +1,15 @@
+/*=============
+Media
+=============== */
+
 @media (min-width: 940px) {
   .wrapper {
     width: 80%;
   }
+
+  /*=============
+  header
+  =============== */
   header {
     .contents-container {
       background-color: inherit;
@@ -24,10 +32,18 @@
     }
   }
 
+  /*=============
+  Projects
+  =============== */
+
   .projects-container .slide-container {
-    width: 820px;
+    // width: 820px;
+    width: 840px;
   }
 
+  /*=============
+  Contact
+  =============== */
   .contact-container .container {
     flex-direction: row;
     .links {
@@ -62,6 +78,7 @@
   }
 
   .projects-container .slide-container {
-    width: 1240px;
+    // width: 1240px;
+    width: 1260px;
   }
 }
