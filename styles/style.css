@@ -488,7 +488,7 @@ About
   position: relative;
 }
 .about-container .text-container {
-  padding: 3rem;
+  margin: 3rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -499,28 +499,15 @@ About
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  position: relative;
 }
 .about-container .text-container::before {
   content: "";
-  position: absolute;
-  width: 30px;
+  width: 5px;
   height: 100%;
-  border-top: 2px solid #ff4500;
-  border-left: 2px solid #ff4500;
-  border-bottom: 2px solid #ff4500;
-  top: 0;
-  left: 0;
-}
-.about-container .text-container::after {
-  content: "";
+  background-color: #ff4500;
   position: absolute;
-  width: 30px;
-  height: 100%;
-  border-top: 2px solid #ff4500;
-  border-right: 2px solid #ff4500;
-  border-bottom: 2px solid #ff4500;
-  top: 0;
-  right: 0;
+  left: -1rem;
 }
 .about-container p {
   margin-bottom: 0.5rem;
