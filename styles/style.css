@@ -395,6 +395,15 @@ header .link-bar {
   left: 0;
   bottom: 0;
 }
+header .link-bar a {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+header .link-bar a:hover, header .link-bar a:focus, header .link-bar a:active {
+  color: #ff4500;
+}
 header .link-bar .line-decoration {
   width: 1px;
   height: 80px;
@@ -439,6 +448,27 @@ header .nav-bar.active .nav-container {
   left: -20px;
   top: 0;
 }
+header .nav-bar a {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  position: relative;
+}
+header .nav-bar a::before {
+  content: "";
+  position: absolute;
+  bottom: 5px;
+  width: 0%;
+  height: 2px;
+  background-color: #ff4500;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+header .nav-bar a:hover::before, header .nav-bar a:focus::before, header .nav-bar a:active::before {
+  color: #ff4500;
+  width: 60%;
+}
 header .burger-menu {
   border-style: none;
   background-color: inherit;
@@ -459,15 +489,6 @@ header li {
   padding: 0.5rem 1rem;
 }
 header p {
-  color: #ff4500;
-}
-header a {
-  display: inline-block;
-  padding: 0.5rem 1rem;
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
-}
-header a:hover, header a:focus, header a:active {
   color: #ff4500;
 }
 
