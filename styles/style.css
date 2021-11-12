@@ -544,7 +544,7 @@ About
 }
 .projects-container p {
   color: #3c3c3c;
-  line-height: 1.5;
+  line-height: 1.2;
 }
 .projects-container img {
   display: block;
@@ -585,14 +585,10 @@ About
           align-items: center;
   -webkit-box-shadow: #0000003b 10px 5px 7px;
           box-shadow: #0000003b 10px 5px 7px;
-  padding: 1rem 0;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 .projects-container .project .top-container {
-  position: absolute;
-  top: 0;
-  left: 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -654,17 +650,16 @@ About
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   position: absolute;
   bottom: -100px;
   opacity: 0;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
   padding: 0 1rem;
   height: 80%;
   background-color: #f4f4f4;
@@ -908,6 +903,11 @@ Media
   header .contents-container {
     background-color: inherit;
   }
+  header .nav-bar {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
   header .nav-bar .nav-container {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -918,6 +918,12 @@ Media
         -ms-flex-direction: row;
             flex-direction: row;
     background-color: inherit;
+  }
+  header .nav-bar .nav-container li {
+    padding: 0.5rem 1rem;
+  }
+  header .nav-bar .nav-container li:first-child {
+    padding-left: 0;
   }
   header .nav-bar.active .nav-container {
     position: static;

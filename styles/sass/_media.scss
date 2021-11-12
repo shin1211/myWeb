@@ -14,11 +14,23 @@ Media
     .contents-container {
       background-color: inherit;
     }
+
+    .nav-bar {
+      justify-content: flex-start;
+    }
     .nav-bar .nav-container {
       display: flex;
       position: static;
       flex-direction: row;
       background-color: inherit;
+
+      li {
+        padding: 0.5rem 1rem;
+
+        &:first-child {
+          padding-left: 0;
+        }
+      }
     }
 
     .nav-bar.active .nav-container {
