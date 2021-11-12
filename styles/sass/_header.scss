@@ -19,6 +19,17 @@ header {
     left: 0;
     bottom: 0;
 
+    a {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      transition: all 0.5s;
+      &:hover,
+      &:focus,
+      &:active {
+        color: $color-orange;
+      }
+    }
+
     .line-decoration {
       width: 1px;
       height: 80px;
@@ -54,6 +65,29 @@ header {
       flex-direction: column;
       left: -20px;
       top: 0;
+    }
+
+    a {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      transition: all 0.5s;
+      position: relative;
+
+      &::before {
+        content: "";
+        position: absolute;
+        bottom: 5px;
+        width: 0%;
+        height: 2px;
+        background-color: $color-orange;
+        transition: all 0.3s ease-in-out;
+      }
+      &:hover::before,
+      &:focus::before,
+      &:active::before {
+        color: $color-orange;
+        width: 60%;
+      }
     }
   }
 
@@ -109,15 +143,5 @@ header {
 
   p {
     color: $color-orange;
-  }
-  a {
-    display: inline-block;
-    padding: 0.5rem 1rem;
-    transition: all 0.5s;
-    &:hover,
-    &:focus,
-    &:active {
-      color: $color-orange;
-    }
   }
 }
