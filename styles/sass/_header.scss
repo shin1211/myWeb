@@ -45,6 +45,8 @@ header {
     background-color: $color-white;
     border-radius: 5px;
     z-index: 20;
+    position: absolute;
+    top: 45%;
   }
 
   .nav-bar {
@@ -133,15 +135,18 @@ header {
     }
   }
 
-  .contents-container {
-    position: absolute;
-    top: 50%;
-  }
   li {
     padding: 0.5rem 1rem;
   }
 
   p {
     color: $color-orange;
+  }
+
+  span {
+    opacity: 0;
+  }
+  span.animate {
+    opacity: 1;
   }
 }

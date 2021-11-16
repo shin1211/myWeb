@@ -5,7 +5,66 @@ app.navBar = document.querySelector('.nav-bar')
 app.burgerBtn.addEventListener('click', () => {
 	app.navBar.classList.toggle('active');
 })
+// ======================================
+// text animation 
+app.subHeading = document.querySelector('.sub-heading');
+app.strSubHeading = app.subHeading.textContent;
+app.textDisplayed = false;
+app.count = 0
+console.log(app.strSubHeading);
 
+app.animateText = () => {
+	app.subHeading.innerHTML = '';
+	const splitText = app.strSubHeading.split('');
+	for (let i = 0; i < splitText.length; i++) {
+		app.subHeading.innerHTML += '<span>' + splitText[i] + '</span>';
+	}
+	app.classTimer();
+}
+
+app.classTimer = () => {
+	const letters = Array.prototype.slice.call(app.subHeading.querySelectorAll('span'));
+	if (app.textDisplayed === false) {
+		app.addingClass(letters, app.count);
+
+	}
+	if (app.textDisplayed === true) {
+		setTimeout(() => app.removingClass(letters, app.count), 2000);
+	}
+}
+app.addingClass = (letters, count) => {
+	letters.forEach((indi, index) => {
+		setTimeout(() => {
+			indi.classList.add('animate');
+		}, index * 50);
+		app.count++;
+	});
+
+	if (letters.length === app.count) {
+		app.textDisplayed = true;
+	}
+}
+
+app.removingClass = (letters, count) => {
+	const reversAry = letters.reverse();
+	reversAry.forEach((indi, index) => {
+		setTimeout(() => {
+			indi.classList.remove('animate');
+		}, index * 50);
+		app.count--;
+		console.log(app.count)
+	});
+
+	if (app.count === 0) {
+		setTimeout(() => {
+			app.textDisplayed = false;
+		}, 3000);
+		console.log(app.textDisplayed)
+	}
+
+}
+
+//=======================================
 // slide funtion
 app.slideContainer = document.querySelector('.image-slide');
 app.slides = document.querySelectorAll('.image-slide li');
@@ -44,26 +103,6 @@ app.makeClone = () => {
 	}, 100);
 }
 
-
-
-// need to be fixed. keep adding active class on description.
-
-// app.clickEvent = () => {
-
-// 	const allElement = document.querySelectorAll('.image-slide li');
-// 	for (const item of allElement) {
-// 		item.addEventListener('click', (e) => {
-// 			if (e.target.src === 'https://sshinn.ca/images/projects/whatDoYouNo.jpg' || 'https://sshinn.ca/images/projects/BarOne.jpg' || 'https://sshinn.ca/images/projects/whatDoYouNo.jpg' || 'https://sshinn.ca/images/projects/daily_log_app.jpg') {
-// 				e.target.parentElement.classList.add('active');
-// 			}
-// 		});
-// 		item.addEventListener('mouseleave', (e) => {
-// 			setTimeout(() => {
-// 				e.target.children[0].classList.remove('active');
-// 			}, 100);
-// 		})
-// 	}
-// }
 
 // function that grab current slide-container width (included all clones)and set new width.
 app.updateWidth = () => {
@@ -124,6 +163,7 @@ app.nextBtn.addEventListener('click', (e) => {
 
 app.init = () => {
 	app.makeClone();
+	app.animateText();
 }
 
 

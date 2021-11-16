@@ -340,8 +340,7 @@ a {
 }
 
 h1 {
-  font-size: 2rem;
-  margin-bottom: 0.2rem;
+  font-size: 2.5rem;
 }
 
 h2 {
@@ -418,6 +417,8 @@ header .contents-container {
   background-color: #ffffff;
   border-radius: 5px;
   z-index: 20;
+  position: absolute;
+  top: 45%;
 }
 header .nav-bar {
   width: 100%;
@@ -481,15 +482,17 @@ header .burger-menu {
 header .burger-menu:hover, header .burger-menu:focus, header .burger-menu:active {
   color: #ff4500;
 }
-header .contents-container {
-  position: absolute;
-  top: 50%;
-}
 header li {
   padding: 0.5rem 1rem;
 }
 header p {
   color: #ff4500;
+}
+header span {
+  opacity: 0;
+}
+header span.animate {
+  opacity: 1;
 }
 
 /*=============
