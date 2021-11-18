@@ -128,6 +128,62 @@ header {
     }
   }
 
+  .burger-menu {
+    border-style: none;
+    background-color: inherit;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    transition: all 0.5s;
+    cursor: pointer;
+    &:hover,
+    &:focus,
+    &:active {
+      color: $color-orange;
+    }
+  }
+
+  .scroll-up-btn {
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    border-style: none;
+    border-radius: 50%;
+    padding: 0.25rem 0.5rem;
+    background-color: $color-black;
+    color: $color-white;
+    font-size: 1.3rem;
+    z-index: 30;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+
+    &:hover,
+    &:focus,
+    &:active {
+      transform: translateY(-5px);
+      background-color: orangered;
+    }
+  }
+
+  li {
+    padding: 0.5rem 1rem;
+  }
+
+  p {
+    color: $color-orange;
+  }
+
+  @keyframes movingAnimation {
+    0% {
+      transform: translateY(-10px);
+    }
+    50% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-10px);
+    }
+  }
+
   // .container {
   //   padding: 1rem;
   //   cursor: pointer;
@@ -156,39 +212,6 @@ header {
   //   }
   // }
 
-  .burger-menu {
-    border-style: none;
-    background-color: inherit;
-    font-size: 1.5rem;
-    padding: 0.5rem;
-    transition: all 0.5s;
-    cursor: pointer;
-    &:hover,
-    &:focus,
-    &:active {
-      color: $color-orange;
-    }
-  }
-
-  li {
-    padding: 0.5rem 1rem;
-  }
-
-  p {
-    color: $color-orange;
-  }
-
-  @keyframes movingAnimation {
-    0% {
-      transform: translateY(-10px);
-    }
-    50% {
-      transform: translateY(0);
-    }
-    100% {
-      transform: translateY(-10px);
-    }
-  }
   // span {
   //   opacity: 0;
   // }
