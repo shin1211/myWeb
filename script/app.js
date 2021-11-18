@@ -1,12 +1,139 @@
 const app = {};
-// burger menu
+//============
+// burger menu 
+//============
 app.burgerBtn = document.querySelector('.burger-menu');
-app.navBar = document.querySelector('.nav-bar')
+app.navBar = document.querySelector('.nav-bar');
+
 app.burgerBtn.addEventListener('click', () => {
 	app.navBar.classList.toggle('active');
 })
+// ==================
+// text animation 
+//===================
 
+app.subHeading = document.querySelector('.sub-heading');
+app.currentSentence = [];
+app.count = 0;
+app.letterCount = 0;
+app.isDeleting = false;
+app.isEnd = false;
+app.sentences = ['Front-End Developer', 'Dog Dad', 'Avid Gamer', 'Tech Savvy'];
+app.switch = false;
+
+app.animationBtn = document.querySelector('.animation-btn');
+app.btnText = app.animationBtn.querySelector('.btn-text')
+app.animationBtn.addEventListener('click', () => {
+	app.switch = !app.switch;
+	app.currentSentence = [];
+	app.isEnd = false;
+	app.isDeleting = false;
+	app.count = 0;
+	app.letterCount = 0;
+	app.subHeading.innerHTML = app.sentences[0];
+	if (app.switch) {
+		app.animationBtn.classList.remove('animate');
+		app.btnText.innerHTML = 'OFF';
+		AOS.init({ disable: true });
+	} else {
+		app.animationBtn.classList.add('animate');
+		app.btnText.innerHTML = 'ON'
+		AOS.init({ disable: false });
+
+	}
+})
+// app.textAnimationSpeed = app.isEnd ? 5000 : app.isDeleting ? 1000 : 100;
+
+app.textLoop = () => {
+	app.isEnd = false;
+	app.subHeading.setAttribute('aria-label', app.sentences[app.count]);
+	if (!app.switch && app.count < app.sentences.length) {
+		if (!app.isDeleting && app.letterCount <= app.sentences[app.count].length) {
+			app.currentSentence.push(app.sentences[app.count][app.letterCount]);
+			app.letterCount++;
+			app.subHeading.innerHTML = app.currentSentence.join('');
+		}
+
+		if (app.isDeleting && app.letterCount <= app.sentences[app.count].length) {
+			app.currentSentence.pop(app.sentences[app.count][app.letterCount]);
+			app.letterCount--;
+			app.subHeading.innerHTML = app.currentSentence.join('');
+		}
+
+		if (app.letterCount === app.sentences[app.count].length) {
+			app.isDeleting = true;
+			app.isEnd = true;
+		}
+
+		if (app.isDeleting && app.letterCount === 0) {
+			app.currentSentence = [];
+			app.isDeleting = false;
+			app.count++;
+		}
+
+		if (!app.isDeleting && app.count === app.sentences.length) {
+			app.count = 0;
+		}
+	}
+	const textAnimationSpeed = app.isEnd ? 1000 : app.isDeleting ? 50 : 50;
+	setTimeout(app.textLoop, textAnimationSpeed);
+}
+
+// app.subHeading = document.querySelector('.sub-heading');
+// app.strSubHeading = app.subHeading.textContent;
+// app.isDeleting = false;
+
+// app.animateText = () => {
+// 	app.subHeading.innerHTML = '';
+// 	const splitText = app.strSubHeading.split('');
+// 	for (let i = 0; i < splitText.length; i++) {
+// 		app.subHeading.innerHTML += '<span>' + splitText[i] + '</span>';
+// 	}
+// 	app.classTimer();
+// }
+
+// app.classTimer = () => {
+// 	const letters = Array.prototype.slice.call(app.subHeading.querySelectorAll('span'));
+// 	if (app.isDeleting === false) {
+// 		app.addingClass(letters, app.count);
+
+// 	}
+// 	if (app.isDeleting === true) {
+// 		setTimeout(() => app.removingClass(letters, app.count), 2000);
+// 	}
+
+// 	if (!app.isDeleting && app.count === 0) {
+// 		app.isDeleting = true;
+// 	}
+// }
+// app.addingClass = (letters, count) => {
+// 	letters.forEach((indi, index) => {
+// 		setTimeout(() => {
+// 			indi.classList.add('animate');
+// 		}, index * 50);
+// 		app.count++;
+// 	});
+
+// 	if (letters.length === app.count) {
+// 		app.isDeleting = true;
+// 	}
+// }
+
+// app.removingClass = (letters, count) => {
+// 	const reversAry = letters.reverse();
+// 	reversAry.forEach((indi, index) => {
+// 		setTimeout(() => {
+// 			indi.classList.remove('animate');
+// 		}, index * 50);
+// 		app.count--;
+// 		console.log(app.count)
+// 	});
+
+// }
+
+//===================
 // slide funtion
+//===================
 app.slideContainer = document.querySelector('.image-slide');
 app.slides = document.querySelectorAll('.image-slide li');
 app.prevBtn = document.querySelector('.prev');
@@ -44,26 +171,6 @@ app.makeClone = () => {
 	}, 100);
 }
 
-
-
-// need to be fixed. keep adding active class on description.
-
-// app.clickEvent = () => {
-
-// 	const allElement = document.querySelectorAll('.image-slide li');
-// 	for (const item of allElement) {
-// 		item.addEventListener('click', (e) => {
-// 			if (e.target.src === 'https://sshinn.ca/images/projects/whatDoYouNo.jpg' || 'https://sshinn.ca/images/projects/BarOne.jpg' || 'https://sshinn.ca/images/projects/whatDoYouNo.jpg' || 'https://sshinn.ca/images/projects/daily_log_app.jpg') {
-// 				e.target.parentElement.classList.add('active');
-// 			}
-// 		});
-// 		item.addEventListener('mouseleave', (e) => {
-// 			setTimeout(() => {
-// 				e.target.children[0].classList.remove('active');
-// 			}, 100);
-// 		})
-// 	}
-// }
 
 // function that grab current slide-container width (included all clones)and set new width.
 app.updateWidth = () => {
@@ -124,6 +231,8 @@ app.nextBtn.addEventListener('click', (e) => {
 
 app.init = () => {
 	app.makeClone();
+	app.textLoop();
+
 }
 
 

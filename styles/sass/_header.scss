@@ -16,17 +16,43 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    left: 0;
+    left: -15px;
     bottom: 0;
+    z-index: 10;
 
     a {
       display: inline-block;
       padding: 0.5rem 1rem;
-      transition: all 0.5s;
+      transition: all 0.5s ease-in-out;
       &:hover,
       &:focus,
       &:active {
         color: $color-orange;
+      }
+    }
+
+    .animation-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      cursor: pointer;
+      border-style: none;
+      color: $color-orange;
+      background-color: transparent;
+      transition: all 0.5s ease-in-out;
+
+      &.animate {
+        animation: movingAnimation 2s linear infinite;
+      }
+      // &:hover,
+      // &:focus,
+      // &:active {
+      //   transform: translateY(-5px);
+      // }
+
+      i {
+        font-size: 1.2rem;
       }
     }
 
@@ -39,12 +65,22 @@ header {
       font-size: 1rem;
       margin: 0.5rem;
     }
+
+    p {
+      font-size: 0.8rem;
+      letter-spacing: 0;
+    }
   }
   .contents-container {
     padding: 1rem;
     background-color: $color-white;
+    opacity: 0.9;
     border-radius: 5px;
     z-index: 20;
+    position: absolute;
+    top: 45%;
+    left: 15%;
+    height: 185px;
   }
 
   .nav-bar {
@@ -69,14 +105,15 @@ header {
 
     a {
       display: inline-block;
-      padding: 0.5rem 1rem;
+      // padding: 0.5rem 1rem;
+      margin: 0.5rem 1rem;
       transition: all 0.5s;
       position: relative;
 
       &::before {
         content: "";
         position: absolute;
-        bottom: 5px;
+        bottom: -5px;
         width: 0%;
         height: 2px;
         background-color: $color-orange;
@@ -86,7 +123,7 @@ header {
       &:focus::before,
       &:active::before {
         color: $color-orange;
-        width: 60%;
+        width: 100%;
       }
     }
   }
@@ -133,10 +170,6 @@ header {
     }
   }
 
-  .contents-container {
-    position: absolute;
-    top: 50%;
-  }
   li {
     padding: 0.5rem 1rem;
   }
@@ -144,4 +177,22 @@ header {
   p {
     color: $color-orange;
   }
+
+  @keyframes movingAnimation {
+    0% {
+      transform: translateY(-10px);
+    }
+    50% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-10px);
+    }
+  }
+  // span {
+  //   opacity: 0;
+  // }
+  // span.animate {
+  //   opacity: 1;
+  // }
 }
