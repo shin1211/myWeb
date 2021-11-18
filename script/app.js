@@ -8,6 +8,27 @@ app.navBar = document.querySelector('.nav-bar');
 app.burgerBtn.addEventListener('click', () => {
 	app.navBar.classList.toggle('active');
 })
+
+//============
+// scroll up btn 
+//============
+app.scrollUpBtn = document.querySelector('.scroll-up-btn');
+app.visibilityScrollBtn = () => {
+	if (document.documentElement.scrollTop <= 550) {
+		app.scrollUpBtn.style.display = 'none';
+	} else {
+		app.scrollUpBtn.style.display = 'block';
+	}
+}
+app.scrollUpBtn.addEventListener('click', () => {
+	document.body.scrollTop = 0;
+	document.documentElement.scrollTop = 0;
+})
+
+document.addEventListener('scroll', () => {
+	app.visibilityScrollBtn();
+})
+
 // ==================
 // text animation 
 //===================
@@ -39,10 +60,10 @@ app.animationBtn.addEventListener('click', () => {
 		app.animationBtn.classList.add('animate');
 		app.btnText.innerHTML = 'ON'
 		AOS.init({ disable: false });
+		location.reload();
 
 	}
 })
-// app.textAnimationSpeed = app.isEnd ? 5000 : app.isDeleting ? 1000 : 100;
 
 app.textLoop = () => {
 	app.isEnd = false;
@@ -78,58 +99,6 @@ app.textLoop = () => {
 	const textAnimationSpeed = app.isEnd ? 1000 : app.isDeleting ? 50 : 50;
 	setTimeout(app.textLoop, textAnimationSpeed);
 }
-
-// app.subHeading = document.querySelector('.sub-heading');
-// app.strSubHeading = app.subHeading.textContent;
-// app.isDeleting = false;
-
-// app.animateText = () => {
-// 	app.subHeading.innerHTML = '';
-// 	const splitText = app.strSubHeading.split('');
-// 	for (let i = 0; i < splitText.length; i++) {
-// 		app.subHeading.innerHTML += '<span>' + splitText[i] + '</span>';
-// 	}
-// 	app.classTimer();
-// }
-
-// app.classTimer = () => {
-// 	const letters = Array.prototype.slice.call(app.subHeading.querySelectorAll('span'));
-// 	if (app.isDeleting === false) {
-// 		app.addingClass(letters, app.count);
-
-// 	}
-// 	if (app.isDeleting === true) {
-// 		setTimeout(() => app.removingClass(letters, app.count), 2000);
-// 	}
-
-// 	if (!app.isDeleting && app.count === 0) {
-// 		app.isDeleting = true;
-// 	}
-// }
-// app.addingClass = (letters, count) => {
-// 	letters.forEach((indi, index) => {
-// 		setTimeout(() => {
-// 			indi.classList.add('animate');
-// 		}, index * 50);
-// 		app.count++;
-// 	});
-
-// 	if (letters.length === app.count) {
-// 		app.isDeleting = true;
-// 	}
-// }
-
-// app.removingClass = (letters, count) => {
-// 	const reversAry = letters.reverse();
-// 	reversAry.forEach((indi, index) => {
-// 		setTimeout(() => {
-// 			indi.classList.remove('animate');
-// 		}, index * 50);
-// 		app.count--;
-// 		console.log(app.count)
-// 	});
-
-// }
 
 //===================
 // slide funtion
@@ -226,14 +195,66 @@ app.nextBtn.addEventListener('click', (e) => {
 });
 
 
-
-
-
 app.init = () => {
+	app.visibilityScrollBtn();
 	app.makeClone();
 	app.textLoop();
-
 }
 
 
 app.init();
+
+
+
+
+// app.subHeading = document.querySelector('.sub-heading');
+// app.strSubHeading = app.subHeading.textContent;
+// app.isDeleting = false;
+
+// app.animateText = () => {
+// 	app.subHeading.innerHTML = '';
+// 	const splitText = app.strSubHeading.split('');
+// 	for (let i = 0; i < splitText.length; i++) {
+// 		app.subHeading.innerHTML += '<span>' + splitText[i] + '</span>';
+// 	}
+// 	app.classTimer();
+// }
+
+// app.classTimer = () => {
+// 	const letters = Array.prototype.slice.call(app.subHeading.querySelectorAll('span'));
+// 	if (app.isDeleting === false) {
+// 		app.addingClass(letters, app.count);
+
+// 	}
+// 	if (app.isDeleting === true) {
+// 		setTimeout(() => app.removingClass(letters, app.count), 2000);
+// 	}
+
+// 	if (!app.isDeleting && app.count === 0) {
+// 		app.isDeleting = true;
+// 	}
+// }
+// app.addingClass = (letters, count) => {
+// 	letters.forEach((indi, index) => {
+// 		setTimeout(() => {
+// 			indi.classList.add('animate');
+// 		}, index * 50);
+// 		app.count++;
+// 	});
+
+// 	if (letters.length === app.count) {
+// 		app.isDeleting = true;
+// 	}
+// }
+
+// app.removingClass = (letters, count) => {
+// 	const reversAry = letters.reverse();
+// 	reversAry.forEach((indi, index) => {
+// 		setTimeout(() => {
+// 			indi.classList.remove('animate');
+// 		}, index * 50);
+// 		app.count--;
+// 		console.log(app.count)
+// 	});
+
+// }
