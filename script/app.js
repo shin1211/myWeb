@@ -1,71 +1,139 @@
 const app = {};
-// burger menu
+//============
+// burger menu 
+//============
 app.burgerBtn = document.querySelector('.burger-menu');
-app.navBar = document.querySelector('.nav-bar')
+app.navBar = document.querySelector('.nav-bar');
+
 app.burgerBtn.addEventListener('click', () => {
 	app.navBar.classList.toggle('active');
 })
-// ======================================
+// ==================
 // text animation 
+//===================
+
 app.subHeading = document.querySelector('.sub-heading');
-app.strSubHeading = app.subHeading.textContent;
-app.textDisplayed = false;
-app.count = 0
-console.log(app.strSubHeading);
+app.currentSentence = [];
+app.count = 0;
+app.letterCount = 0;
+app.isDeleting = false;
+app.isEnd = false;
+app.sentences = ['Front-End Developer', 'Dog Dad', 'Avid Gamer', 'Tech Savvy'];
+app.switch = false;
 
-app.animateText = () => {
-	app.subHeading.innerHTML = '';
-	const splitText = app.strSubHeading.split('');
-	for (let i = 0; i < splitText.length; i++) {
-		app.subHeading.innerHTML += '<span>' + splitText[i] + '</span>';
+app.animationBtn = document.querySelector('.animation-btn');
+app.btnText = app.animationBtn.querySelector('.btn-text')
+app.animationBtn.addEventListener('click', () => {
+	app.switch = !app.switch;
+	app.currentSentence = [];
+	app.isEnd = false;
+	app.isDeleting = false;
+	app.count = 0;
+	app.letterCount = 0;
+	app.subHeading.innerHTML = app.sentences[0];
+	if (app.switch) {
+		app.animationBtn.classList.remove('animate');
+		app.btnText.innerHTML = 'OFF';
+		AOS.init({ disable: true });
+	} else {
+		app.animationBtn.classList.add('animate');
+		app.btnText.innerHTML = 'ON'
+		AOS.init({ disable: false });
+
 	}
-	app.classTimer();
+})
+// app.textAnimationSpeed = app.isEnd ? 5000 : app.isDeleting ? 1000 : 100;
+
+app.textLoop = () => {
+	app.isEnd = false;
+	app.subHeading.setAttribute('aria-label', app.sentences[app.count]);
+	if (!app.switch && app.count < app.sentences.length) {
+		if (!app.isDeleting && app.letterCount <= app.sentences[app.count].length) {
+			app.currentSentence.push(app.sentences[app.count][app.letterCount]);
+			app.letterCount++;
+			app.subHeading.innerHTML = app.currentSentence.join('');
+		}
+
+		if (app.isDeleting && app.letterCount <= app.sentences[app.count].length) {
+			app.currentSentence.pop(app.sentences[app.count][app.letterCount]);
+			app.letterCount--;
+			app.subHeading.innerHTML = app.currentSentence.join('');
+		}
+
+		if (app.letterCount === app.sentences[app.count].length) {
+			app.isDeleting = true;
+			app.isEnd = true;
+		}
+
+		if (app.isDeleting && app.letterCount === 0) {
+			app.currentSentence = [];
+			app.isDeleting = false;
+			app.count++;
+		}
+
+		if (!app.isDeleting && app.count === app.sentences.length) {
+			app.count = 0;
+		}
+	}
+	const textAnimationSpeed = app.isEnd ? 1000 : app.isDeleting ? 50 : 50;
+	setTimeout(app.textLoop, textAnimationSpeed);
 }
 
-app.classTimer = () => {
-	const letters = Array.prototype.slice.call(app.subHeading.querySelectorAll('span'));
-	if (app.textDisplayed === false) {
-		app.addingClass(letters, app.count);
+// app.subHeading = document.querySelector('.sub-heading');
+// app.strSubHeading = app.subHeading.textContent;
+// app.isDeleting = false;
 
-	}
-	if (app.textDisplayed === true) {
-		setTimeout(() => app.removingClass(letters, app.count), 2000);
-	}
-}
-app.addingClass = (letters, count) => {
-	letters.forEach((indi, index) => {
-		setTimeout(() => {
-			indi.classList.add('animate');
-		}, index * 50);
-		app.count++;
-	});
+// app.animateText = () => {
+// 	app.subHeading.innerHTML = '';
+// 	const splitText = app.strSubHeading.split('');
+// 	for (let i = 0; i < splitText.length; i++) {
+// 		app.subHeading.innerHTML += '<span>' + splitText[i] + '</span>';
+// 	}
+// 	app.classTimer();
+// }
 
-	if (letters.length === app.count) {
-		app.textDisplayed = true;
-	}
-}
+// app.classTimer = () => {
+// 	const letters = Array.prototype.slice.call(app.subHeading.querySelectorAll('span'));
+// 	if (app.isDeleting === false) {
+// 		app.addingClass(letters, app.count);
 
-app.removingClass = (letters, count) => {
-	const reversAry = letters.reverse();
-	reversAry.forEach((indi, index) => {
-		setTimeout(() => {
-			indi.classList.remove('animate');
-		}, index * 50);
-		app.count--;
-		console.log(app.count)
-	});
+// 	}
+// 	if (app.isDeleting === true) {
+// 		setTimeout(() => app.removingClass(letters, app.count), 2000);
+// 	}
 
-	if (app.count === 0) {
-		setTimeout(() => {
-			app.textDisplayed = false;
-		}, 3000);
-		console.log(app.textDisplayed)
-	}
+// 	if (!app.isDeleting && app.count === 0) {
+// 		app.isDeleting = true;
+// 	}
+// }
+// app.addingClass = (letters, count) => {
+// 	letters.forEach((indi, index) => {
+// 		setTimeout(() => {
+// 			indi.classList.add('animate');
+// 		}, index * 50);
+// 		app.count++;
+// 	});
 
-}
+// 	if (letters.length === app.count) {
+// 		app.isDeleting = true;
+// 	}
+// }
 
-//=======================================
+// app.removingClass = (letters, count) => {
+// 	const reversAry = letters.reverse();
+// 	reversAry.forEach((indi, index) => {
+// 		setTimeout(() => {
+// 			indi.classList.remove('animate');
+// 		}, index * 50);
+// 		app.count--;
+// 		console.log(app.count)
+// 	});
+
+// }
+
+//===================
 // slide funtion
+//===================
 app.slideContainer = document.querySelector('.image-slide');
 app.slides = document.querySelectorAll('.image-slide li');
 app.prevBtn = document.querySelector('.prev');
@@ -163,7 +231,8 @@ app.nextBtn.addEventListener('click', (e) => {
 
 app.init = () => {
 	app.makeClone();
-	app.animateText();
+	app.textLoop();
+
 }
 
 

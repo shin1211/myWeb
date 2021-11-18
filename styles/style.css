@@ -329,7 +329,7 @@ textarea {
 }
 
 header p {
-  letter-spacing: 8px;
+  letter-spacing: 6px;
 }
 
 a {
@@ -391,17 +391,43 @@ header .link-bar {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  left: 0;
+  left: -15px;
   bottom: 0;
+  z-index: 10;
 }
 header .link-bar a {
   display: inline-block;
   padding: 0.5rem 1rem;
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 header .link-bar a:hover, header .link-bar a:focus, header .link-bar a:active {
   color: #ff4500;
+}
+header .link-bar .animation-btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+  border-style: none;
+  color: #ff4500;
+  background-color: transparent;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+header .link-bar .animation-btn.animate {
+  -webkit-animation: movingAnimation 2s linear infinite;
+          animation: movingAnimation 2s linear infinite;
+}
+header .link-bar .animation-btn i {
+  font-size: 1.2rem;
 }
 header .link-bar .line-decoration {
   width: 1px;
@@ -412,13 +438,20 @@ header .link-bar i {
   font-size: 1rem;
   margin: 0.5rem;
 }
+header .link-bar p {
+  font-size: 0.8rem;
+  letter-spacing: 0;
+}
 header .contents-container {
   padding: 1rem;
   background-color: #ffffff;
+  opacity: 0.9;
   border-radius: 5px;
   z-index: 20;
   position: absolute;
   top: 45%;
+  left: 15%;
+  height: 185px;
 }
 header .nav-bar {
   width: 100%;
@@ -451,7 +484,7 @@ header .nav-bar.active .nav-container {
 }
 header .nav-bar a {
   display: inline-block;
-  padding: 0.5rem 1rem;
+  margin: 0.5rem 1rem;
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
   position: relative;
@@ -459,7 +492,7 @@ header .nav-bar a {
 header .nav-bar a::before {
   content: "";
   position: absolute;
-  bottom: 5px;
+  bottom: -5px;
   width: 0%;
   height: 2px;
   background-color: #ff4500;
@@ -468,7 +501,7 @@ header .nav-bar a::before {
 }
 header .nav-bar a:hover::before, header .nav-bar a:focus::before, header .nav-bar a:active::before {
   color: #ff4500;
-  width: 60%;
+  width: 100%;
 }
 header .burger-menu {
   border-style: none;
@@ -488,11 +521,33 @@ header li {
 header p {
   color: #ff4500;
 }
-header span {
-  opacity: 0;
+@-webkit-keyframes movingAnimation {
+  0% {
+    -webkit-transform: translateY(-10px);
+            transform: translateY(-10px);
+  }
+  50% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(-10px);
+            transform: translateY(-10px);
+  }
 }
-header span.animate {
-  opacity: 1;
+@keyframes movingAnimation {
+  0% {
+    -webkit-transform: translateY(-10px);
+            transform: translateY(-10px);
+  }
+  50% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(-10px);
+            transform: translateY(-10px);
+  }
 }
 
 /*=============
@@ -501,6 +556,7 @@ About
 .about-container {
   background: #ffffff;
   padding: 5rem 0;
+  z-index: 20;
 }
 .about-container .wrapper {
   display: -webkit-box;
@@ -559,6 +615,7 @@ About
   background-color: #ffffff;
   text-align: center;
   padding: 5rem 0;
+  z-index: 20;
 }
 .projects-container .wrapper {
   width: 100%;
@@ -796,6 +853,7 @@ Contact
   text-align: center;
   padding: 5rem 0 2rem 0;
   position: relative;
+  z-index: 20;
 }
 .contact-container .container {
   display: -webkit-box;
@@ -911,6 +969,7 @@ footer {
   background-color: #ffffff;
   padding: 0.5rem;
   position: relative;
+  z-index: 20;
 }
 footer p {
   font-size: 0.8rem;
@@ -920,6 +979,15 @@ footer p {
 /*=============
 Media
 =============== */
+@media (min-width: 533px) {
+  header .contents-container {
+    height: 124px;
+  }
+
+  header .link-bar {
+    left: -10px;
+  }
+}
 @media (min-width: 940px) {
   .wrapper {
     width: 80%;
@@ -968,6 +1036,9 @@ Media
   }
   header .burger-menu {
     display: none;
+  }
+  header .contents-container {
+    left: initial;
   }
 
   /*=============

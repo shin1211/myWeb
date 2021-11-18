@@ -2,6 +2,16 @@
 Media
 =============== */
 
+@media (min-width: 533px) {
+  header .contents-container {
+    height: 124px;
+  }
+
+  header .link-bar {
+    left: -10px;
+  }
+}
+
 @media (min-width: 940px) {
   .wrapper {
     width: 80%;
@@ -42,6 +52,10 @@ Media
 
     .burger-menu {
       display: none;
+    }
+
+    .contents-container {
+      left: initial;
     }
   }
 

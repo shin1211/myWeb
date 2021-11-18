@@ -4,6 +4,7 @@ About
 .about-container {
   background: $color-white;
   padding: 5rem 0;
+  z-index: 20;
 
   .wrapper {
     display: flex;
