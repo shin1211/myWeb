@@ -11,6 +11,10 @@ header {
 
   position: relative;
 
+  // .desktop-nav-container {
+  //   display: none;
+  // }
+
   .link-bar {
     position: fixed;
     display: flex;
@@ -87,7 +91,35 @@ header {
     width: 100%;
     display: flex;
     justify-content: flex-end;
-    position: relative;
+    position: fixed;
+    z-index: 1000;
+
+    // li.horizontal-underline {
+    //   // display: inline-block;
+    //   position: absolute;
+    //   background-color: $color-orange;
+    //   z-index: -1;
+    //   top: 43px;
+    //   left: 20px;
+    //   width: 46px;
+    //   height: 2px;
+    //   transition: 0.5s all;
+    //   padding: 0;
+    // }
+
+    li.horizontal-underline {
+      // display: inline-block;
+      position: absolute;
+      background-color: $color-orange;
+      // z-index: -1;
+      top: 43px;
+      left: 20px;
+      width: 46px;
+      height: 2px;
+      transition: 0.5s all;
+      padding: 0;
+      border: 1px solid red;
+    }
 
     .nav-container {
       position: absolute;
@@ -110,21 +142,21 @@ header {
       transition: all 0.5s;
       position: relative;
 
-      &::before {
-        content: "";
-        position: absolute;
-        bottom: -5px;
-        width: 0%;
-        height: 2px;
-        background-color: $color-orange;
-        transition: all 0.3s ease-in-out;
-      }
-      &:hover::before,
-      &:focus::before,
-      &:active::before {
-        color: $color-orange;
-        width: 100%;
-      }
+      // &::before {
+      //   content: "";
+      //   position: absolute;
+      //   bottom: -5px;
+      //   width: 0%;
+      //   height: 2px;
+      //   background-color: $color-orange;
+      //   transition: all 0.3s ease-in-out;
+      // }
+      // &:hover::before,
+      // &:focus::before,
+      // &:active::before {
+      //   color: $color-orange;
+      //   width: 100%;
+      // }
     }
   }
 
@@ -153,8 +185,8 @@ header {
     color: $color-white;
     font-size: 1.3rem;
     z-index: 30;
-    cursor: pointer;
     transition: all 0.3s ease-in-out;
+    cursor: pointer;
 
     &:hover,
     &:focus,

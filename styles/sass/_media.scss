@@ -26,7 +26,10 @@ Media
     }
 
     .nav-bar {
+      position: fixed;
+      // border: 1px solid red;
       justify-content: flex-start;
+      z-index: 9999;
     }
     .nav-bar .nav-container {
       display: flex;
@@ -36,7 +39,7 @@ Media
       background-color: inherit;
 
       li {
-        padding: 0.5rem 1rem;
+        // padding: 0.5rem 1rem;
 
         &:first-child {
           padding-left: 0;

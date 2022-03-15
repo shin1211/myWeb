@@ -10,6 +10,52 @@ app.burgerBtn.addEventListener('click', () => {
 })
 
 //============
+// HorizontalMenu animation
+//============
+
+
+app.horizontalUnderline = document.querySelector('.horizontal-underline');
+app.horizontalMenus = document.querySelectorAll('.nav-container li a');
+app.sections = document.querySelectorAll('section');
+
+
+// app.horizontalIndicator = (e) => {
+
+// 	app.horizontalUnderline.style.left = e.currentTarget.offsetLeft + 'px';
+// 	app.horizontalUnderline.style.width = e.currentTarget.offsetWidth + 'px';
+// 	app.horizontalUnderline.style.top = e.currentTarget.offsetTop + e.currentTarget.offsetHeight + 'px';
+// }
+
+// app.horizontalMenus.forEach((list) => {
+// 	list.addEventListener('click', e => app.horizontalIndicator(e));
+// });
+
+window.addEventListener('scroll', () => {
+	let current = '';
+	app.sections.forEach(section => {
+		const sectionTop = section.offsetTop;
+		const sectionHeight = section.clientHeight;
+		if (scrollY < 942 - 942 / 3) {
+			current = 'home';
+		}
+		if (scrollY >= (sectionTop - sectionHeight / 3)) {
+			current = section.getAttribute('id');
+		}
+	})
+
+	app.horizontalMenus.forEach(item => {
+		if (item.href.includes(`#${current}`)) {
+			// console.log(item.offsetLeft);
+			app.horizontalUnderline.style.left = item.offsetLeft + 'px';
+			app.horizontalUnderline.style.width = item.offsetWidth + 'px';
+			app.horizontalUnderline.style.top = item.offsetTop + item.offsetHeight + 'px'
+		}
+	})
+
+})
+
+
+//============
 // scroll up btn 
 //============
 app.scrollUpBtn = document.querySelector('.scroll-up-btn');
@@ -131,7 +177,6 @@ app.makeClone = () => {
 		app.slideContainer.prepend(cloneSlide);
 	}
 
-	// app.clickEvent();
 	app.updateWidth();
 	app.setInitialPos();
 

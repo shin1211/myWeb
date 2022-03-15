@@ -1,21 +1,12 @@
 .skills {
   background-color: $color-lightgray;
-  // position: relative;
-
-  // &::before {
-  //   background-color: #e7e7e7;
-  //   content: "";
-  //   height: 100%;
-  //   width: 100%;
-  //   position: absolute;
-  //   left: 0;
-  //   top: 0;
-  //   z-index: -1;
-  //   opacity: 0.54;
-  //   filter: blur(5px);
-  // }
   padding: 5rem 0;
   text-align: center;
+
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
 
   h2 {
     margin-bottom: 1.5rem;
