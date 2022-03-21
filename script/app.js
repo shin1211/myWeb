@@ -1,3 +1,4 @@
+'use strict';
 const app = {};
 //============
 // burger menu 
@@ -8,6 +9,50 @@ app.navBar = document.querySelector('.nav-bar');
 app.burgerBtn.addEventListener('click', () => {
 	app.navBar.classList.toggle('active');
 })
+
+//============
+//Menu slide animation
+//============
+
+app.horizontalMenus = document.querySelectorAll('.nav-container li a');
+app.horizontalUnderline = document.querySelector('.nav-container .horizontal-underline');
+app.sections = document.querySelectorAll('section');
+app.currentStatus = true;
+
+app.slideMenu = () => {
+	let current = '';
+	app.sections.forEach(section => {
+		const sectionTop = section.offsetTop;
+		const sectionHeight = section.clientHeight;
+		if (scrollY < 942 - sectionHeight / 3) {
+			current = 'home';
+		}
+		if (scrollY >= (sectionTop - sectionHeight / 3)) {
+			// if current section is skills section (returning null id value since this section is part of about), retrun 'about'
+			current = section.getAttribute('id') === null ? 'about' : section.getAttribute('id');
+		}
+	})
+
+	app.horizontalMenus.forEach(item => {
+		if (item.href.includes(`#${current}`)) {
+			app.horizontalUnderline.style.left = item.offsetLeft + 'px';
+			app.horizontalUnderline.style.width = item.offsetWidth + 'px';
+			app.horizontalUnderline.style.top = item.offsetTop + item.offsetHeight + 'px'
+		}
+	})
+}
+
+window.addEventListener('resize', function (event) {
+	app.slideMenu();
+
+	if (this.window.innerWidth > 940) {
+		app.navBar.classList.remove('active');
+	}
+});
+window.addEventListener('scroll', () => {
+	app.slideMenu();
+});
+
 
 //============
 // scroll up btn 
@@ -131,7 +176,6 @@ app.makeClone = () => {
 		app.slideContainer.prepend(cloneSlide);
 	}
 
-	// app.clickEvent();
 	app.updateWidth();
 	app.setInitialPos();
 
@@ -195,6 +239,8 @@ app.nextBtn.addEventListener('click', (e) => {
 });
 
 
+
+
 app.init = () => {
 	app.visibilityScrollBtn();
 	app.makeClone();
@@ -204,57 +250,3 @@ app.init = () => {
 
 app.init();
 
-
-
-
-// app.subHeading = document.querySelector('.sub-heading');
-// app.strSubHeading = app.subHeading.textContent;
-// app.isDeleting = false;
-
-// app.animateText = () => {
-// 	app.subHeading.innerHTML = '';
-// 	const splitText = app.strSubHeading.split('');
-// 	for (let i = 0; i < splitText.length; i++) {
-// 		app.subHeading.innerHTML += '<span>' + splitText[i] + '</span>';
-// 	}
-// 	app.classTimer();
-// }
-
-// app.classTimer = () => {
-// 	const letters = Array.prototype.slice.call(app.subHeading.querySelectorAll('span'));
-// 	if (app.isDeleting === false) {
-// 		app.addingClass(letters, app.count);
-
-// 	}
-// 	if (app.isDeleting === true) {
-// 		setTimeout(() => app.removingClass(letters, app.count), 2000);
-// 	}
-
-// 	if (!app.isDeleting && app.count === 0) {
-// 		app.isDeleting = true;
-// 	}
-// }
-// app.addingClass = (letters, count) => {
-// 	letters.forEach((indi, index) => {
-// 		setTimeout(() => {
-// 			indi.classList.add('animate');
-// 		}, index * 50);
-// 		app.count++;
-// 	});
-
-// 	if (letters.length === app.count) {
-// 		app.isDeleting = true;
-// 	}
-// }
-
-// app.removingClass = (letters, count) => {
-// 	const reversAry = letters.reverse();
-// 	reversAry.forEach((indi, index) => {
-// 		setTimeout(() => {
-// 			indi.classList.remove('animate');
-// 		}, index * 50);
-// 		app.count--;
-// 		console.log(app.count)
-// 	});
-
-// }
