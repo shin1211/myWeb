@@ -27,10 +27,10 @@ Media
 
     .nav-bar {
       position: fixed;
-      // border: 1px solid red;
       justify-content: flex-start;
       z-index: 9999;
     }
+
     .nav-bar .nav-container {
       display: flex;
       align-items: center;
@@ -39,18 +39,16 @@ Media
       background-color: inherit;
 
       li {
-        // padding: 0.5rem 1rem;
-
         &:first-child {
           padding-left: 0;
         }
       }
-    }
 
-    .nav-bar.active .nav-container {
-      position: static;
-      display: flex;
-      flex-direction: row;
+      li.horizontal-underline {
+        left: 20px;
+        width: 46px;
+        top: 43px;
+      }
     }
 
     .burger-menu {

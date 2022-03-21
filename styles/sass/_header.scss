@@ -8,12 +8,7 @@ header {
   background-repeat: no-repeat;
   background-position: 71%;
   height: 100vh;
-
   position: relative;
-
-  // .desktop-nav-container {
-  //   display: none;
-  // }
 
   .link-bar {
     position: fixed;
@@ -49,11 +44,6 @@ header {
       &.animate {
         animation: movingAnimation 2s linear infinite;
       }
-      // &:hover,
-      // &:focus,
-      // &:active {
-      //   transform: translateY(-5px);
-      // }
 
       i {
         font-size: 1.2rem;
@@ -94,31 +84,19 @@ header {
     position: fixed;
     z-index: 1000;
 
-    // li.horizontal-underline {
-    //   // display: inline-block;
-    //   position: absolute;
-    //   background-color: $color-orange;
-    //   z-index: -1;
-    //   top: 43px;
-    //   left: 20px;
-    //   width: 46px;
-    //   height: 2px;
-    //   transition: 0.5s all;
-    //   padding: 0;
-    // }
+    button.burger-menu {
+      margin-right: 0.5rem;
+    }
 
     li.horizontal-underline {
-      // display: inline-block;
       position: absolute;
       background-color: $color-orange;
-      // z-index: -1;
       top: 43px;
-      left: 20px;
+      left: 40px;
       width: 46px;
       height: 2px;
       transition: 0.5s all;
       padding: 0;
-      border: 1px solid red;
     }
 
     .nav-container {
@@ -128,8 +106,6 @@ header {
       background-color: $color-white;
     }
     &.active .nav-container {
-      position: absolute;
-      display: flex;
       flex-direction: column;
       left: -20px;
       top: 0;
@@ -137,26 +113,15 @@ header {
 
     a {
       display: inline-block;
-      // padding: 0.5rem 1rem;
       margin: 0.5rem 1rem;
       transition: all 0.5s;
       position: relative;
 
-      // &::before {
-      //   content: "";
-      //   position: absolute;
-      //   bottom: -5px;
-      //   width: 0%;
-      //   height: 2px;
-      //   background-color: $color-orange;
-      //   transition: all 0.3s ease-in-out;
-      // }
-      // &:hover::before,
-      // &:focus::before,
-      // &:active::before {
-      //   color: $color-orange;
-      //   width: 100%;
-      // }
+      &:hover,
+      &:focus,
+      &:active {
+        color: $color-orange;
+      }
     }
   }
 
