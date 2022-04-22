@@ -1,0 +1,11 @@
+.filter-container {
+  background-color: $color-lightgray;
+}
+
+.filter-container [data-content] {
+  display: none;
+}
+
+.filter-container .active[data-content] {
+  display: flex;
+}

@@ -11,6 +11,23 @@ app.burgerBtn.addEventListener('click', () => {
 })
 
 //============
+// ???
+//============
+
+app.filterBtns = document.querySelectorAll('[data-target]');
+app.contents = document.querySelectorAll('[data-content]')
+console.log(app.contents);
+app.filterBtns.forEach((btn) => {
+	btn.addEventListener('click', () => {
+		const target = document.querySelector(btn.dataset.target)
+		app.contents.forEach((content) => {
+			content.classList.remove('active')
+		})
+		target.classList.add('active');
+	})
+})
+
+//============
 //Menu slide animation
 //============
 
