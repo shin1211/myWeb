@@ -15,17 +15,28 @@ app.burgerBtn.addEventListener('click', () => {
 //============
 
 app.filterBtns = document.querySelectorAll('[data-target]');
-app.contents = document.querySelectorAll('[data-content]')
-console.log(app.contents);
+app.contents = document.querySelectorAll('[data-content]');
+app.btnMotion = document.querySelector('.btn-container .active-box');
 app.filterBtns.forEach((btn) => {
-	btn.addEventListener('click', () => {
+	btn.addEventListener('click', (e) => {
+		btnIndicator(e);
 		const target = document.querySelector(btn.dataset.target)
 		app.contents.forEach((content) => {
 			content.classList.remove('active')
 		})
 		target.classList.add('active');
+
 	})
 })
+
+function btnIndicator(e) {
+	console.log(e.currentTarget.offsetLeft);
+	console.log(e.currentTarget.offsetWidth);
+	console.log(e.currentTarget.offsetTop + e.currentTarget.offsetHeight);
+	app.btnMotion.style.left = e.currentTarget.offsetLeft + 'px';
+	app.btnMotion.style.width = e.currentTarget.offsetWidth + 'px';
+	app.btnMotion.style.height = e.currentTarget.offsetTop + e.currentTarget.offsetHeight + 'px';
+}
 
 //============
 //Menu slide animation

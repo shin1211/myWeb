@@ -1,11 +1,44 @@
 .filter-container {
-  background-color: $color-lightgray;
-}
-
-.filter-container [data-content] {
-  display: none;
-}
-
-.filter-container .active[data-content] {
+  // background-color: $color-lightgray;
   display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  [data-content] {
+    display: none;
+  }
+
+  .active[data-content] {
+    display: flex;
+  }
+
+  .btn-container {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    background-color: transparent;
+    border: 1px solid $color-orange;
+    // height: 100px;
+    border-radius: 50px;
+  }
+
+  .btn-container button {
+    border-style: none;
+    outline: none;
+    background: transparent;
+    width: 150px;
+    height: auto;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+  }
+  .active-box {
+    position: absolute;
+    left: -2px;
+    width: 150px;
+    height: 100%;
+    z-index: -10;
+    background-color: $color-orange;
+    transition: all 0.5s;
+    border-radius: 50px;
+  }
 }
