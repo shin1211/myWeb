@@ -11,7 +11,7 @@ app.burgerBtn.addEventListener('click', () => {
 })
 
 //============
-// ???
+// section toggle button
 //============
 
 app.filterBtns = document.querySelectorAll('[data-target]');
@@ -25,17 +25,17 @@ app.filterBtns.forEach((btn) => {
 			content.classList.remove('active')
 		})
 		target.classList.add('active');
-
+		app.filterBtns.forEach((btn) => {
+			btn.classList.remove('active-btn')
+		})
+		btn.classList.add('active-btn')
 	})
 })
 
 function btnIndicator(e) {
-	console.log(e.currentTarget.offsetLeft);
-	console.log(e.currentTarget.offsetWidth);
-	console.log(e.currentTarget.offsetTop + e.currentTarget.offsetHeight);
 	app.btnMotion.style.left = e.currentTarget.offsetLeft + 'px';
-	app.btnMotion.style.width = e.currentTarget.offsetWidth + 'px';
-	app.btnMotion.style.height = e.currentTarget.offsetTop + e.currentTarget.offsetHeight + 'px';
+	// app.btnMotion.style.width = e.currentTarget.offsetWidth + 'px';
+	// app.btnMotion.style.height = e.currentTarget.offsetTop + e.currentTarget.offsetHeight + 'px';
 }
 
 //============
@@ -60,7 +60,6 @@ app.slideMenu = () => {
 			current = section.getAttribute('id') === null ? 'about' : section.getAttribute('id');
 		}
 	})
-
 	app.horizontalMenus.forEach(item => {
 		if (item.href.includes(`#${current}`)) {
 			app.horizontalUnderline.style.left = item.offsetLeft + 'px';
@@ -181,7 +180,6 @@ app.slides = document.querySelectorAll('.image-slide li');
 app.prevBtn = document.querySelector('.prev');
 app.nextBtn = document.querySelector('.next');
 
-// app.projectsImg = document.querySelectorAll('.project img');
 
 app.currentIndex = 0;
 app.slideCount = app.slides.length;
@@ -277,4 +275,6 @@ app.init = () => {
 
 
 app.init();
+
+
 

@@ -1,19 +1,15 @@
 .projects-container {
   background-color: $color-white;
   text-align: center;
-  padding: 5rem 0;
+  height: 700px;
+  border: 1px solid blue;
+
   z-index: 20;
-
-  display: flex;
-  align-items: center;
-  min-height: 100vh;
-  min-height: -webkit-fill-available;
-
   .wrapper {
     width: 100%;
   }
   h2 {
-    margin-bottom: 0.5rem;
+    margin: 2rem 0;
   }
 
   h3 {
@@ -35,7 +31,7 @@
     width: 400px;
     min-height: 400px;
     overflow: hidden;
-    margin: 2rem auto;
+    margin: 0 auto;
   }
 
   .image-slide {
@@ -62,9 +58,6 @@
     transition: all 0.5s ease-in-out;
 
     .top-container {
-      // position: absolute;
-      // top: 0;
-      // left: 0;
       display: flex;
       flex-direction: column;
       align-items: center;
