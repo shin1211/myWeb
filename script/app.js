@@ -175,83 +175,39 @@ app.textLoop = () => {
 //===================
 // slide funtion
 //===================
-app.slideContainer = document.querySelector('.image-slide');
-app.slides = document.querySelectorAll('.image-slide li');
+app.wheelContainer = document.querySelector('.wheel-container');
+app.projects = document.querySelectorAll('.projects-container .wheel-container .project');
 app.prevBtn = document.querySelector('.prev');
 app.nextBtn = document.querySelector('.next');
 
+app.theta = Math.PI / 4;
+app.newTheta = 0;
+app.newX = 0;
+app.newY = 0;
+app.wheelRadius = 600;
+app.initialPos = {
+	x: parseFloat(getComputedStyle(app.projects[0]).left),
+	y: parseFloat(getComputedStyle(app.projects[0]).top)
 
+};
 app.currentIndex = 0;
-app.slideCount = app.slides.length;
-app.slideWidth = 400;
-app.slideMargin = 20;
 app.oldTimeStamp = null;
 
-
-app.makeClone = () => {
-	// Looping slides and clone every single slides(li) to add to slideContainer at the end.
-	for (let i = 0; i < app.slideCount; i++) {
-		const cloneSlide = app.slides[i].cloneNode(true);
-		cloneSlide.classList.add('clone');
-		app.slideContainer.appendChild(cloneSlide);
-	}
-
-	for (let i = app.slideCount - 1; i >= 0; i--) {
-		const cloneSlide = app.slides[i].cloneNode(true);
-		cloneSlide.classList.add('clone');
-		app.slideContainer.prepend(cloneSlide);
-	}
-
-	app.updateWidth();
-	app.setInitialPos();
-
-	setTimeout(() => {
-		app.slideContainer.classList.add('animated');
-	}, 100);
-}
+app.projects.forEach((project, index) => {
+	app.newTheta = app.theta * index;
+	app.newX = Math.cos(app.newTheta) * app.wheelRadius;
+	app.newY = -1 * Math.sin(app.newTheta) * app.wheelRadius;
+	console.log(app.newTheta)
+	project.style.left = `${app.initialPos.x + app.newX}px`
+	project.style.top = `${app.initialPos.y + app.newY}px`
+})
 
 
-// function that grab current slide-container width (included all clones)and set new width.
-app.updateWidth = () => {
-	const currentSlides = document.querySelectorAll('.image-slide li');
-	const currentSlideCount = currentSlides.length;
-	const currentSlideWidth = (app.slideWidth + app.slideMargin) * currentSlideCount - app.slideMargin + 'px';
 
-	app.slideContainer.style.width = currentSlideWidth;
-
-}
-
-// Now the slides has all clones and it will begin with clone 'li'. need to re-position to start with original image slides which can make go forward and back by click event.
-app.setInitialPos = () => {
-	const initialSlideWidth = -(app.slideWidth + app.slideMargin) * app.slideCount;
-	app.slideContainer.style.transform = `translateX(${initialSlideWidth}px)`;
-}
-
-app.moveSlide = (currentIndex) => {
-	app.slideContainer.style.left = -currentIndex * (app.slideWidth + app.slideMargin) + 'px';
-	app.currentIndex = currentIndex;
-
-	// console.log(app.currentIndex, app.slideCount);
-
-	if (app.currentIndex === app.slideCount || app.currentIndex === -app.slideCount) {
-
-		// need to wait til .animate action is done. 
-		setTimeout(() => {
-			app.slideContainer.classList.remove('animated');
-			app.slideContainer.style.left = '0px';
-			app.currentIndex = 0;
-		}, 500);
-
-		setTimeout(() => {
-			app.slideContainer.classList.add('animated')
-		}, 550);
-
-	}
-}
 
 app.prevBtn.addEventListener('click', (e) => {
 	if (app.oldTimeStamp === null || app.oldTimeStamp + 550 < e.timeStamp) {
-		app.moveSlide(app.currentIndex - 1);
+		// app.moveSlide(app.currentIndex - 1);
 		app.oldTimeStamp = e.timeStamp;
 	}
 
@@ -259,7 +215,7 @@ app.prevBtn.addEventListener('click', (e) => {
 
 app.nextBtn.addEventListener('click', (e) => {
 	if (app.oldTimeStamp === null || app.oldTimeStamp + 550 < e.timeStamp) {
-		app.moveSlide(app.currentIndex + 1);
+		// app.moveSlide(app.currentIndex + 1);
 		app.oldTimeStamp = e.timeStamp;
 	}
 });
@@ -269,7 +225,6 @@ app.nextBtn.addEventListener('click', (e) => {
 
 app.init = () => {
 	app.visibilityScrollBtn();
-	app.makeClone();
 	app.textLoop();
 }
 
@@ -278,3 +233,91 @@ app.init();
 
 
 
+// app.slideContainer = document.querySelector('.image-slide');
+// app.slides = document.querySelectorAll('.image-slide li');
+// app.prevBtn = document.querySelector('.prev');
+// app.nextBtn = document.querySelector('.next');
+
+
+// app.currentIndex = 0;
+// app.slideCount = app.slides.length;
+// app.slideWidth = 400;
+// app.slideMargin = 20;
+// app.oldTimeStamp = null;
+
+
+// app.makeClone = () => {
+// 	// Looping slides and clone every single slides(li) to add to slideContainer at the end.
+// 	for (let i = 0; i < app.slideCount; i++) {
+// 		const cloneSlide = app.slides[i].cloneNode(true);
+// 		cloneSlide.classList.add('clone');
+// 		app.slideContainer.appendChild(cloneSlide);
+// 	}
+
+// 	for (let i = app.slideCount - 1; i >= 0; i--) {
+// 		const cloneSlide = app.slides[i].cloneNode(true);
+// 		cloneSlide.classList.add('clone');
+// 		app.slideContainer.prepend(cloneSlide);
+// 	}
+
+// 	app.updateWidth();
+// 	app.setInitialPos();
+
+// 	setTimeout(() => {
+// 		app.slideContainer.classList.add('animated');
+// 	}, 100);
+// }
+
+
+// // function that grab current slide-container width (included all clones)and set new width.
+// app.updateWidth = () => {
+// 	const currentSlides = document.querySelectorAll('.image-slide li');
+// 	const currentSlideCount = currentSlides.length;
+// 	const currentSlideWidth = (app.slideWidth + app.slideMargin) * currentSlideCount - app.slideMargin + 'px';
+
+// 	app.slideContainer.style.width = currentSlideWidth;
+
+// }
+
+// // Now the slides has all clones and it will begin with clone 'li'. need to re-position to start with original image slides which can make go forward and back by click event.
+// app.setInitialPos = () => {
+// 	const initialSlideWidth = -(app.slideWidth + app.slideMargin) * app.slideCount;
+// 	app.slideContainer.style.transform = `translateX(${initialSlideWidth}px)`;
+// }
+
+// app.moveSlide = (currentIndex) => {
+// 	app.slideContainer.style.left = -currentIndex * (app.slideWidth + app.slideMargin) + 'px';
+// 	app.currentIndex = currentIndex;
+
+// 	// console.log(app.currentIndex, app.slideCount);
+
+// 	if (app.currentIndex === app.slideCount || app.currentIndex === -app.slideCount) {
+
+// 		// need to wait til .animate action is done. 
+// 		setTimeout(() => {
+// 			app.slideContainer.classList.remove('animated');
+// 			app.slideContainer.style.left = '0px';
+// 			app.currentIndex = 0;
+// 		}, 500);
+
+// 		setTimeout(() => {
+// 			app.slideContainer.classList.add('animated')
+// 		}, 550);
+
+// 	}
+// }
+
+// app.prevBtn.addEventListener('click', (e) => {
+// 	if (app.oldTimeStamp === null || app.oldTimeStamp + 550 < e.timeStamp) {
+// 		app.moveSlide(app.currentIndex - 1);
+// 		app.oldTimeStamp = e.timeStamp;
+// 	}
+
+// });
+
+// app.nextBtn.addEventListener('click', (e) => {
+// 	if (app.oldTimeStamp === null || app.oldTimeStamp + 550 < e.timeStamp) {
+// 		app.moveSlide(app.currentIndex + 1);
+// 		app.oldTimeStamp = e.timeStamp;
+// 	}
+// });

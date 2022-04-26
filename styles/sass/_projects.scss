@@ -1,13 +1,15 @@
 .projects-container {
   background-color: $color-white;
-  text-align: center;
-  height: 700px;
-  border: 1px solid blue;
-
+  position: relative;
   z-index: 20;
-  .wrapper {
-    width: 100%;
-  }
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  height: 100vh;
+  border: 1px solid blue;
+  overflow: hidden;
+
   h2 {
     margin: 2rem 0;
   }
@@ -26,31 +28,26 @@
     height: 151px;
   }
 
-  .slide-container {
-    position: relative;
-    width: 400px;
-    min-height: 400px;
-    overflow: hidden;
-    margin: 0 auto;
-  }
-
-  .image-slide {
+  .wheel-container {
     position: absolute;
-    top: 0;
-    left: 0;
-
-    &.animated {
-      transition: 0.5s ease-out;
-    }
+    // left: 50%;
+    right: 0;
+    top: 50%;
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+    transform: translate(-50%, -50%);
   }
 
   .project {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
     background-color: $color-lightgray;
-    border-radius: 10px;
     width: 400px;
     height: 370px;
-    float: left;
-    position: relative;
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
