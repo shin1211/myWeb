@@ -82,8 +82,10 @@ header {
     display: flex;
     justify-content: flex-end;
     position: fixed;
+    left: 0;
+    padding-left: 100px;
     z-index: 1000;
-
+    background-color: white;
     button.burger-menu {
       margin-right: 0.5rem;
     }

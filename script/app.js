@@ -184,17 +184,18 @@ app.theta = Math.PI / 4;
 app.newTheta = 0;
 app.newX = 0;
 app.newY = 0;
-app.wheelRadius = 600;
+app.wheelRadius = 300;
 app.initialPos = {
 	x: parseFloat(getComputedStyle(app.projects[0]).left),
 	y: parseFloat(getComputedStyle(app.projects[0]).top)
 
 };
-app.currentIndex = 0;
+app.angle = 0;
+app.currentIdx = 0;
 app.oldTimeStamp = null;
 
 app.projects.forEach((project, index) => {
-	app.newTheta = app.theta * index;
+	app.newTheta = app.theta * (index + 4);
 	app.newX = Math.cos(app.newTheta) * app.wheelRadius;
 	app.newY = -1 * Math.sin(app.newTheta) * app.wheelRadius;
 	console.log(app.newTheta)
@@ -206,18 +207,34 @@ app.projects.forEach((project, index) => {
 
 
 app.prevBtn.addEventListener('click', (e) => {
-	if (app.oldTimeStamp === null || app.oldTimeStamp + 550 < e.timeStamp) {
-		// app.moveSlide(app.currentIndex - 1);
-		app.oldTimeStamp = e.timeStamp;
+	if (app.currentIdx === 0) {
+		app.currentIdx = 7
+	} else {
+		app.currentIdx -= 1
 	}
+	app.angle -= 45
+	app.wheelContainer.style.transform = `translate(-50%, -50%) rotate(${app.angle}deg)`
+	app.projects.forEach((project) => {
+		project.classList.remove('selected')
+		project.style.transform = `translate(-50%, -50%) rotate(${-app.angle}deg)`
+	})
+	app.projects[app.currentIdx].classList.add('selected')
 
 });
 
 app.nextBtn.addEventListener('click', (e) => {
-	if (app.oldTimeStamp === null || app.oldTimeStamp + 550 < e.timeStamp) {
-		// app.moveSlide(app.currentIndex + 1);
-		app.oldTimeStamp = e.timeStamp;
+	if (app.currentIdx === 7) {
+		app.currentIdx = 0
+	} else {
+		app.currentIdx += 1
 	}
+	app.angle += 45
+	app.wheelContainer.style.transform = `translate(-50%, -50%) rotate(${app.angle}deg)`
+	app.projects.forEach((project) => {
+		project.classList.remove('selected')
+		project.style.transform = `translate(-50%, -50%) rotate(${-app.angle}deg)`
+	})
+	app.projects[app.currentIdx].classList.add('selected')
 });
 
 
