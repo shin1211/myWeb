@@ -740,17 +740,15 @@ About
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  width: 100%;
-  height: 100vh;
+  background-color: gray;
+  width: 90%;
+  height: 800px;
   overflow: hidden;
 }
 
 .projects-container h2 {
   margin: 2rem 0;
+  display: block;
 }
 
 .projects-container h3 {
@@ -765,17 +763,26 @@ About
 
 .projects-container img {
   display: block;
-  height: 151px;
+}
+
+.projects-container .test-container {
+  width: 50%;
+  height: 100%;
+  background-color: red;
+  color: white;
 }
 
 .projects-container .wheel-container {
   position: absolute;
-  right: 0;
+  left: 100%;
   top: 50%;
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
+  width: 450px;
+  height: 450px;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
+  margin-left: 75px;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
 }
 
 .projects-container .project {
@@ -785,8 +792,8 @@ About
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   background-color: #f4f4f4;
-  width: 200px;
-  height: 200px;
+  width: 50%;
+  height: 50%;
   opacity: 0.5;
   border-radius: 50%;
   display: -webkit-box;
@@ -824,18 +831,10 @@ About
 }
 
 .projects-container .project.selected {
-  width: 400px;
-  height: 370px;
+  width: 100%;
+  height: 100%;
   opacity: 1;
   z-index: 9999;
-}
-
-.projects-container .project.selected .description {
-  -webkit-transition-delay: 0.5s;
-          transition-delay: 0.5s;
-  left: -550px;
-  top: 50px;
-  opacity: 1;
 }
 
 .projects-container .skill-set {
@@ -873,9 +872,8 @@ About
 }
 
 .projects-container .description {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  opacity: 0;
+  display: none;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -888,8 +886,6 @@ About
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 500px;
-  opacity: 0;
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
   padding: 0 1rem;

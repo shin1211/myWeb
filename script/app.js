@@ -3,246 +3,244 @@ const app = {};
 //============
 // burger menu 
 //============
-app.burgerBtn = document.querySelector('.burger-menu');
-app.navBar = document.querySelector('.nav-bar');
+app.burgerMenu = () => {
+	const burgerBtn = document.querySelector('.burger-menu');
+	const navBar = document.querySelector('.nav-bar');
 
-app.burgerBtn.addEventListener('click', () => {
-	app.navBar.classList.toggle('active');
-})
+	burgerBtn.addEventListener('click', () => {
+		navBar.classList.toggle('active');
+	});
 
+	window.addEventListener('resize', () => {
+		if (this.window.innerWidth > 940) {
+			navBar.classList.remove('active');
+		}
+	})
+}
 //============
 // section toggle button
 //============
-
-app.filterBtns = document.querySelectorAll('[data-target]');
-app.contents = document.querySelectorAll('[data-content]');
-app.btnMotion = document.querySelector('.btn-container .active-box');
-app.filterBtns.forEach((btn) => {
-	btn.addEventListener('click', (e) => {
-		btnIndicator(e);
-		const target = document.querySelector(btn.dataset.target)
-		app.contents.forEach((content) => {
-			content.classList.remove('active')
+app.toggleSection = () => {
+	const filterBtns = document.querySelectorAll('[data-target]');
+	const contents = document.querySelectorAll('[data-content]');
+	const btnMotion = document.querySelector('.btn-container .active-box');
+	filterBtns.forEach((btn) => {
+		btn.addEventListener('click', (e) => {
+			btnIndicator(e);
+			const target = document.querySelector(btn.dataset.target)
+			contents.forEach((content) => {
+				content.classList.remove('active')
+			})
+			target.classList.add('active');
+			filterBtns.forEach((btn) => {
+				btn.classList.remove('active-btn')
+			})
+			btn.classList.add('active-btn')
 		})
-		target.classList.add('active');
-		app.filterBtns.forEach((btn) => {
-			btn.classList.remove('active-btn')
-		})
-		btn.classList.add('active-btn')
 	})
-})
 
-function btnIndicator(e) {
-	app.btnMotion.style.left = e.currentTarget.offsetLeft + 'px';
-	// app.btnMotion.style.width = e.currentTarget.offsetWidth + 'px';
-	// app.btnMotion.style.height = e.currentTarget.offsetTop + e.currentTarget.offsetHeight + 'px';
+	function btnIndicator(e) {
+		btnMotion.style.left = e.currentTarget.offsetLeft + 'px';
+	}
 }
-
 //============
 //Menu slide animation
 //============
+app.movingSlideNav = () => {
+	const horizontalMenus = document.querySelectorAll('.nav-container li a');
+	const horizontalUnderline = document.querySelector('.nav-container .horizontal-underline');
+	const sections = document.querySelectorAll('section');
 
-app.horizontalMenus = document.querySelectorAll('.nav-container li a');
-app.horizontalUnderline = document.querySelector('.nav-container .horizontal-underline');
-app.sections = document.querySelectorAll('section');
-app.currentStatus = true;
-
-app.slideMenu = () => {
-	let current = '';
-	app.sections.forEach(section => {
-		const sectionTop = section.offsetTop;
-		const sectionHeight = section.clientHeight;
-		if (scrollY < 942 - sectionHeight / 3) {
-			current = 'home';
-		}
-		if (scrollY >= (sectionTop - sectionHeight / 3)) {
-			// if current section is skills section (returning null id value since this section is part of about), retrun 'about'
-			current = section.getAttribute('id') === null ? 'about' : section.getAttribute('id');
-		}
-	})
-	app.horizontalMenus.forEach(item => {
-		if (item.href.includes(`#${current}`)) {
-			app.horizontalUnderline.style.left = item.offsetLeft + 'px';
-			app.horizontalUnderline.style.width = item.offsetWidth + 'px';
-			app.horizontalUnderline.style.top = item.offsetTop + item.offsetHeight + 'px'
-		}
-	})
-}
-
-window.addEventListener('resize', function (event) {
-	app.slideMenu();
-
-	if (this.window.innerWidth > 940) {
-		app.navBar.classList.remove('active');
+	const slideMenu = () => {
+		let current = '';
+		sections.forEach(section => {
+			const sectionTop = section.offsetTop;
+			const sectionHeight = section.clientHeight;
+			if (scrollY < 942 - sectionHeight / 3) {
+				current = 'home';
+			}
+			if (scrollY >= (sectionTop - sectionHeight / 3)) {
+				// if current section is skills section (returning null id value since this section is part of about), retrun 'about'
+				current = section.getAttribute('id') === null ? 'about' : section.getAttribute('id');
+			}
+		})
+		horizontalMenus.forEach(item => {
+			if (item.href.includes(`#${current}`)) {
+				horizontalUnderline.style.left = item.offsetLeft + 'px';
+				horizontalUnderline.style.width = item.offsetWidth + 'px';
+				horizontalUnderline.style.top = item.offsetTop + item.offsetHeight + 'px'
+			}
+		})
 	}
-});
-window.addEventListener('scroll', () => {
-	app.slideMenu();
-});
 
-
+	window.addEventListener('resize', () => {
+		slideMenu();
+	});
+	window.addEventListener('scroll', () => {
+		slideMenu();
+	});
+}
 //============
 // scroll up btn 
 //============
-app.scrollUpBtn = document.querySelector('.scroll-up-btn');
-app.visibilityScrollBtn = () => {
-	if (document.documentElement.scrollTop <= 550) {
-		app.scrollUpBtn.style.display = 'none';
-	} else {
-		app.scrollUpBtn.style.display = 'block';
+app.scrollUpBtn = () => {
+	const btn = document.querySelector('.scroll-up-btn');
+	const visibilityScrollBtn = () => {
+		if (document.documentElement.scrollTop <= 550) {
+			btn.style.display = 'none';
+		} else {
+			btn.style.display = 'block';
+		}
 	}
+	btn.addEventListener('click', () => {
+		document.body.scrollTop = 0;
+		document.documentElement.scrollTop = 0;
+	})
+
+	document.addEventListener('scroll', () => {
+		visibilityScrollBtn();
+	})
 }
-app.scrollUpBtn.addEventListener('click', () => {
-	document.body.scrollTop = 0;
-	document.documentElement.scrollTop = 0;
-})
-
-document.addEventListener('scroll', () => {
-	app.visibilityScrollBtn();
-})
-
 // ==================
 // text animation 
 //===================
+app.textAnimation = () => {
+	const subHeading = document.querySelector('.sub-heading');
+	const sentences = ['Front-End Developer', 'Dog Dad', 'Avid Gamer', 'Tech Savvy'];
+	let currentSentence = [];
+	let count = 0;
+	let letterCount = 0;
+	let isDeleting = false;
+	let isEnd = false;
+	let isOn = false;
 
-app.subHeading = document.querySelector('.sub-heading');
-app.currentSentence = [];
-app.count = 0;
-app.letterCount = 0;
-app.isDeleting = false;
-app.isEnd = false;
-app.sentences = ['Front-End Developer', 'Dog Dad', 'Avid Gamer', 'Tech Savvy'];
-app.switch = false;
+	const animationBtn = document.querySelector('.animation-btn');
+	const btnText = animationBtn.querySelector('.btn-text')
+	animationBtn.addEventListener('click', () => {
+		isOn = !isOn;
+		currentSentence = [];
+		isEnd = false;
+		isDeleting = false;
+		count = 0;
+		letterCount = 0;
+		subHeading.innerHTML = sentences[0];
+		if (isOn) {
+			animationBtn.classList.remove('animate');
+			btnText.innerHTML = 'OFF';
+			AOS.init({ disable: true });
+		} else {
+			animationBtn.classList.add('animate');
+			btnText.innerHTML = 'ON'
+			AOS.init({ disable: false });
+			location.reload();
+		}
+	})
 
-app.animationBtn = document.querySelector('.animation-btn');
-app.btnText = app.animationBtn.querySelector('.btn-text')
-app.animationBtn.addEventListener('click', () => {
-	app.switch = !app.switch;
-	app.currentSentence = [];
-	app.isEnd = false;
-	app.isDeleting = false;
-	app.count = 0;
-	app.letterCount = 0;
-	app.subHeading.innerHTML = app.sentences[0];
-	if (app.switch) {
-		app.animationBtn.classList.remove('animate');
-		app.btnText.innerHTML = 'OFF';
-		AOS.init({ disable: true });
-	} else {
-		app.animationBtn.classList.add('animate');
-		app.btnText.innerHTML = 'ON'
-		AOS.init({ disable: false });
-		location.reload();
+	const textLoop = () => {
+		isEnd = false;
+		subHeading.setAttribute('aria-label', sentences[count]);
+		if (!isOn && count < sentences.length) {
+			if (!isDeleting && letterCount <= sentences[count].length) {
+				currentSentence.push(sentences[count][letterCount]);
+				letterCount++;
+				subHeading.innerHTML = currentSentence.join('');
+			}
 
+			if (isDeleting && letterCount <= sentences[count].length) {
+				currentSentence.pop(sentences[count][letterCount]);
+				letterCount--;
+				subHeading.innerHTML = currentSentence.join('');
+			}
+
+			if (letterCount === sentences[count].length) {
+				isDeleting = true;
+				isEnd = true;
+			}
+
+			if (isDeleting && letterCount === 0) {
+				currentSentence = [];
+				isDeleting = false;
+				count++;
+			}
+
+			if (!isDeleting && count === sentences.length) {
+				count = 0;
+			}
+		}
+		const textAnimationSpeed = isEnd ? 1000 : isDeleting ? 50 : 50;
+		setTimeout(textLoop, textAnimationSpeed);
 	}
-})
 
-app.textLoop = () => {
-	app.isEnd = false;
-	app.subHeading.setAttribute('aria-label', app.sentences[app.count]);
-	if (!app.switch && app.count < app.sentences.length) {
-		if (!app.isDeleting && app.letterCount <= app.sentences[app.count].length) {
-			app.currentSentence.push(app.sentences[app.count][app.letterCount]);
-			app.letterCount++;
-			app.subHeading.innerHTML = app.currentSentence.join('');
-		}
-
-		if (app.isDeleting && app.letterCount <= app.sentences[app.count].length) {
-			app.currentSentence.pop(app.sentences[app.count][app.letterCount]);
-			app.letterCount--;
-			app.subHeading.innerHTML = app.currentSentence.join('');
-		}
-
-		if (app.letterCount === app.sentences[app.count].length) {
-			app.isDeleting = true;
-			app.isEnd = true;
-		}
-
-		if (app.isDeleting && app.letterCount === 0) {
-			app.currentSentence = [];
-			app.isDeleting = false;
-			app.count++;
-		}
-
-		if (!app.isDeleting && app.count === app.sentences.length) {
-			app.count = 0;
-		}
-	}
-	const textAnimationSpeed = app.isEnd ? 1000 : app.isDeleting ? 50 : 50;
-	setTimeout(app.textLoop, textAnimationSpeed);
+	textLoop();
 }
-
 //===================
 // slide funtion
 //===================
-app.wheelContainer = document.querySelector('.wheel-container');
-app.projects = document.querySelectorAll('.projects-container .wheel-container .project');
-app.prevBtn = document.querySelector('.prev');
-app.nextBtn = document.querySelector('.next');
+app.circleSlide = () => {
+	const wheelContainer = document.querySelector('.wheel-container');
+	const projects = document.querySelectorAll('.projects-container .wheel-container .project');
+	const prevBtn = document.querySelector('.prev');
+	const nextBtn = document.querySelector('.next');
 
-app.theta = Math.PI / 4;
-app.newTheta = 0;
-app.newX = 0;
-app.newY = 0;
-app.wheelRadius = 300;
-app.initialPos = {
-	x: parseFloat(getComputedStyle(app.projects[0]).left),
-	y: parseFloat(getComputedStyle(app.projects[0]).top)
+	const theta = Math.PI / 4;
+	const initialPos = {
+		x: parseFloat(getComputedStyle(projects[0]).left),
+		y: parseFloat(getComputedStyle(projects[0]).top)
+	};
+	let newTheta = 0;
+	let newX = 0;
+	let newY = 0;
+	let wheelRadius = 300;
+	//wheelRadius = 200;
+	let angle = 0;
+	let currentIdx = 0;
 
-};
-app.angle = 0;
-app.currentIdx = 0;
-app.oldTimeStamp = null;
-
-app.projects.forEach((project, index) => {
-	app.newTheta = app.theta * (index + 4);
-	app.newX = Math.cos(app.newTheta) * app.wheelRadius;
-	app.newY = -1 * Math.sin(app.newTheta) * app.wheelRadius;
-	console.log(app.newTheta)
-	project.style.left = `${app.initialPos.x + app.newX}px`
-	project.style.top = `${app.initialPos.y + app.newY}px`
-})
-
-
-
-
-app.prevBtn.addEventListener('click', (e) => {
-	if (app.currentIdx === 0) {
-		app.currentIdx = 7
-	} else {
-		app.currentIdx -= 1
-	}
-	app.angle -= 45
-	app.wheelContainer.style.transform = `translate(-50%, -50%) rotate(${app.angle}deg)`
-	app.projects.forEach((project) => {
-		project.classList.remove('selected')
-		project.style.transform = `translate(-50%, -50%) rotate(${-app.angle}deg)`
+	projects.forEach((project, index) => {
+		newTheta = theta * (index + 4);
+		newX = Math.cos(newTheta) * wheelRadius;
+		newY = -1 * Math.sin(newTheta) * wheelRadius;
+		project.style.left = `${initialPos.x + newX}px`
+		project.style.top = `${initialPos.y + newY}px`
 	})
-	app.projects[app.currentIdx].classList.add('selected')
 
-});
+	prevBtn.addEventListener('click', (e) => {
+		if (currentIdx === 0) {
+			currentIdx = 7
+		} else {
+			currentIdx -= 1
+		}
+		angle -= 45
+		wheelContainer.style.transform = `translate(-50%, -50%) rotate(${angle}deg)`
+		projects.forEach((project) => {
+			project.classList.remove('selected')
+			project.style.transform = `translate(-50%, -50%) rotate(${-angle}deg)`
+		})
+		projects[currentIdx].classList.add('selected')
+	});
 
-app.nextBtn.addEventListener('click', (e) => {
-	if (app.currentIdx === 7) {
-		app.currentIdx = 0
-	} else {
-		app.currentIdx += 1
-	}
-	app.angle += 45
-	app.wheelContainer.style.transform = `translate(-50%, -50%) rotate(${app.angle}deg)`
-	app.projects.forEach((project) => {
-		project.classList.remove('selected')
-		project.style.transform = `translate(-50%, -50%) rotate(${-app.angle}deg)`
-	})
-	app.projects[app.currentIdx].classList.add('selected')
-});
-
-
-
+	nextBtn.addEventListener('click', (e) => {
+		if (currentIdx === 7) {
+			currentIdx = 0
+		} else {
+			currentIdx += 1
+		}
+		angle += 45
+		wheelContainer.style.transform = `translate(-50%, -50%) rotate(${angle}deg)`
+		projects.forEach((project) => {
+			project.classList.remove('selected')
+			project.style.transform = `translate(-50%, -50%) rotate(${-angle}deg)`
+		})
+		projects[currentIdx].classList.add('selected')
+	});
+}
 
 app.init = () => {
-	app.visibilityScrollBtn();
-	app.textLoop();
+	app.burgerMenu();
+	app.toggleSection();
+	app.movingSlideNav();
+	app.scrollUpBtn();
+	app.textAnimation();
+	app.circleSlide();
 }
 
 
