@@ -177,11 +177,11 @@ app.textAnimation = () => {
 // slide funtion
 //===================
 app.circleSlide = () => {
+	app.makeClone();
 	const wheelContainer = document.querySelector('.wheel-container');
 	const projects = document.querySelectorAll('.projects-container .wheel-container .project');
 	const prevBtn = document.querySelector('.prev');
 	const nextBtn = document.querySelector('.next');
-
 	const theta = Math.PI / 4;
 	const initialPos = {
 		x: parseFloat(getComputedStyle(projects[0]).left),
@@ -196,7 +196,8 @@ app.circleSlide = () => {
 	let currentIdx = 0;
 
 	projects.forEach((project, index) => {
-		newTheta = theta * (index + 4);
+		newTheta = theta * (index + 6);
+		// newTheta = theta * (index);
 		newX = Math.cos(newTheta) * wheelRadius;
 		newY = -1 * Math.sin(newTheta) * wheelRadius;
 		project.style.left = `${initialPos.x + newX}px`
@@ -234,6 +235,28 @@ app.circleSlide = () => {
 	});
 }
 
+app.makeClone = () => {
+	// Looping slides and clone every single slides(li) to add to slideContainer at the end.
+	const wheelContainer = document.querySelector('.wheel-container');
+	const projects = document.querySelectorAll('.projects-container .wheel-container .project');
+	const projectsCount = projects.length
+	for (let i = 0; i < projectsCount; i++) {
+		const cloneSlide = projects[i].cloneNode(true);
+		cloneSlide.classList.add('clone');
+		wheelContainer.appendChild(cloneSlide);
+	}
+
+	// for (let i = projectsCount - 1; i >= 0; i--) {
+	// 	const cloneSlide = projects[i].cloneNode(true);
+	// 	cloneSlide.classList.add('clone');
+	// 	wheelContainer.prepend(cloneSlide);
+	// }
+
+	setTimeout(() => {
+		// app.slideContainer.classList.add('animated');
+	}, 100);
+}
+
 app.init = () => {
 	app.burgerMenu();
 	app.toggleSection();
@@ -243,6 +266,11 @@ app.init = () => {
 	app.circleSlide();
 }
 
+let a = ['a', 'b', 'c'];
+let b = a.shift();
+console.log(a);
+a.push(b);
+console.log(a);
 
 app.init();
 
