@@ -5,6 +5,8 @@
   align-items: center;
   min-height: 100vh;
   min-height: -webkit-fill-available;
+  border: 1px solid red;
+  padding-top: 5rem;
 
   [data-content] {
     display: none;

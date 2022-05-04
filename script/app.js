@@ -1,5 +1,15 @@
 'use strict';
 const app = {};
+app.navBgColor = () => {
+	const navBar = document.querySelector('.nav-bar');
+	window.addEventListener('scroll', () => {
+		if (document.documentElement.scrollTop > 740) {
+			navBar.style.backgroundColor = 'white'
+		} else {
+			navBar.style.backgroundColor = 'inherit'
+		}
+	})
+}
 //============
 // burger menu 
 //============
@@ -68,7 +78,11 @@ app.movingSlideNav = () => {
 			if (item.href.includes(`#${current}`)) {
 				horizontalUnderline.style.left = item.offsetLeft + 'px';
 				horizontalUnderline.style.width = item.offsetWidth + 'px';
-				horizontalUnderline.style.top = item.offsetTop + item.offsetHeight + 'px'
+				horizontalUnderline.style.top = item.offsetTop + item.offsetHeight + 'px';
+				// console.log(item.offsetLeft);
+				// console.log(item.offsetWidth);
+				// console.log(item.offsetTop + item.offsetHeight)
+
 			}
 		})
 	}
@@ -258,6 +272,7 @@ app.makeClone = () => {
 }
 
 app.init = () => {
+	app.navBgColor();
 	app.burgerMenu();
 	app.toggleSection();
 	app.movingSlideNav();
