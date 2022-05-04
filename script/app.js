@@ -190,7 +190,7 @@ app.circleSlide = () => {
 	let newTheta = 0;
 	let newX = 0;
 	let newY = 0;
-	let wheelRadius = 300;
+	let wheelRadius = 350;
 	//wheelRadius = 200;
 	let angle = 0;
 	let currentIdx = 0;
@@ -266,11 +266,6 @@ app.init = () => {
 	app.circleSlide();
 }
 
-let a = ['a', 'b', 'c'];
-let b = a.shift();
-console.log(a);
-a.push(b);
-console.log(a);
 
 app.init();
 
