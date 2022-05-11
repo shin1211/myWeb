@@ -1,5 +1,4 @@
 .projects-container {
-  // background-color: $color-lightgray;
   position: relative;
   display: flex;
   justify-content: center;
@@ -117,10 +116,20 @@
   .skill-set {
     display: flex;
     justify-content: center;
-    margin-top: 1rem;
-    border-radius: 10px;
+    margin: 0.5rem 0;
     padding: 0.5rem;
 
+    li {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-transform: uppercase;
+
+      &:not(:last-child) {
+        margin-right: 15px;
+      }
+    }
     img {
       width: 30px;
       height: 30px;
@@ -128,9 +137,9 @@
       filter: invert(34%) sepia(5%) saturate(363%) hue-rotate(104deg)
         brightness(85%) contrast(84%);
 
-      &:not(:last-child) {
-        margin-right: 15px;
-      }
+      // &:not(:last-child) {
+      //   margin-right: 15px;
+      // }
     }
   }
 
@@ -152,7 +161,6 @@
     opacity: 0;
     display: flex;
     flex-direction: column;
-    // justify-content: space-between;
     align-items: center;
     transition: all 0.5s;
     width: 350px;
@@ -186,9 +194,7 @@
   }
   .controls {
     position: absolute;
-    right: 0;
-    top: 350px;
-    transform: rotate(90deg);
+    top: 50px;
     border: 1px solid red;
   }
   .controls button {

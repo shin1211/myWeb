@@ -75,7 +75,6 @@ header {
     top: 45%;
     left: 15%;
     height: 185px;
-    animation: slide 1s ease-out;
   }
 
   .nav-bar {
@@ -186,18 +185,6 @@ header {
 
   p {
     color: $color-orange;
-  }
-
-  @keyframes slide {
-    from {
-      opacity: 0;
-      left: -100px;
-    }
-
-    to {
-      opacity: 1;
-      left: 15%;
-    }
   }
 
   @keyframes movingAnimation {

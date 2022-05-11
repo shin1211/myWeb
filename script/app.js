@@ -271,31 +271,6 @@ app.makeClone = () => {
 	}, 100);
 }
 
-// =========
-// svg
-//==========
-app.svgControler = () => {
-	const testSvg = document.querySelector('.test-container');
-	const svgImg = document.querySelector('.path');
-	const svgImgLength = svgImg.getTotalLength();
-
-	svgImg.style.strokeDasharray = svgImgLength;
-	svgImg.style.strokeDashoffset = svgImgLength;
-
-	const scrollHandler = () => {
-		const scrollY = window.scrollY + (window.innerHeight * .02);
-		svgImg.style.strokeDashoffset = app.calcDashoffset(scrollY, testSvg, svgImgLength);
-	}
-	window.addEventListener('scroll', scrollHandler)
-}
-
-
-
-app.calcDashoffset = (scrollY, element, length) => {
-	const ratio = (scrollY - element.offsetTop) / element.offsetHeight;
-	const value = length - (length * ratio);
-	return value < 0 ? 0 : value > length ? length : value;
-}
 app.init = () => {
 	app.navBgColor();
 	app.burgerMenu();
@@ -304,7 +279,6 @@ app.init = () => {
 	app.scrollUpBtn();
 	app.textAnimation();
 	app.circleSlide();
-	app.svgControler();
 }
 
 
