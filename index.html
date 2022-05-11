@@ -41,10 +41,19 @@
               <a href="#about">About</a>
             </li>
             <li>
-              <a href="#projects">Projects</a>
+              <a href="#projectsAndSkills">Projects</a>
             </li>
             <li>
               <a href="#contact">Contact</a>
+            </li>
+            <li>
+              <a
+                href="./images/Seungmin_Shin_Resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="resume"
+                >Resume</a
+              >
             </li>
             <li class="horizontal-underline"></li>
           </ul>
@@ -97,12 +106,13 @@
     <!-- Main start -->
     <main>
       <!-- About start -->
-      <section id="about" class="about-container">
-        <div
-          class="wrapper"
-          data-aos="fade-up"
-          data-aos-anchor-placement="top-center"
-        >
+      <section
+        id="about"
+        class="about-container"
+        data-aos="fade-up"
+        data-aos-anchor-placement="top-center"
+      >
+        <div class="wrapper">
           <h2>About</h2>
           <div class="text-container">
             <p>
@@ -125,282 +135,226 @@
         </div>
         <!-- Wrapper end-->
       </section>
-      <!-- Skills start -->
-      <section class="skills">
-        <div
-          class="wrapper"
-          data-aos="fade-up"
-          data-aos-anchor-placement="top-center"
-        >
-          <h2>Skills</h2>
-          <ul>
-            <li>
-              <img src="./images/icons/html5.svg" alt="HTML logo" />
-              <p>HTML5</p>
+      <!--Projects / Skills start -->
+      <section
+        id="projectsAndSkills"
+        class="filter-container"
+        data-aos="fade-up"
+        data-aos-anchor-placement="top-center"
+      >
+        <div class="btn-container">
+          <div class="active-box"></div>
+          <button type="button" data-target="#projects" class="active-btn">
+            Project
+          </button>
+          <button type="button" data-target="#skills">Skills</button>
+        </div>
+        <!-- Projects start -->
+        <div id="projects" class="projects-container active" data-content>
+          <h2>Projects</h2>
+          <ul class="wheel-container">
+            <li class="project selected">
+              <div class="circle"></div>
+
+              <div class="top-container">
+                <h3>Wordle</h3>
+                <div class="img-container">
+                  <img
+                    src="./images/projects/wordle.jpg"
+                    alt="Screenshot of the project main page."
+                  />
+                </div>
+                <ul class="skill-set">
+                  <li>
+                    <img src="./images/icons/html5.svg" alt="HTML logo" />
+                    <p>html</p>
+                  </li>
+                  <li>
+                    <img src="./images/icons/css3-alt.svg" alt="CSS logo" />
+                    <p>css</p>
+                  </li>
+                  <li>
+                    <img src="./images/icons/react.svg" alt="React logo" />
+                    <p>react</p>
+                  </li>
+                </ul>
+              </div>
+              <div class="description">
+                <p>
+                  This is a clone project of the popular word guessing game we
+                  all know and love. Developed using multiple APIs including
+                  Random Word API and Free Dictionary API.
+                </p>
+                <div class="link-container">
+                  <a
+                    href="https://github.com/shin1211/wordle"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Github</a
+                  >
+                  <a
+                    href="https://stunning-bublanina-32326f.netlify.app"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Live</a
+                  >
+                </div>
+              </div>
             </li>
-            <li>
-              <img src="./images/icons/css3-alt.svg" alt="CSS logo" />
-              <p>CSS3</p>
+            <li class="project">
+              <div class="circle"></div>
+              <div class="top-container">
+                <h3>What do you no</h3>
+                <div class="img-container">
+                  <img
+                    src="./images/projects/whatDoYouNo.jpg"
+                    alt="Screenshot of the project main page. Click or hover the image to see more detail information about the project!"
+                  />
+                </div>
+                <ul class="skill-set">
+                  <li>
+                    <img src="./images/icons/html5.svg" alt="HTML logo" />
+                    <p>html</p>
+                  </li>
+                  <li>
+                    <img src="./images/icons/css3-alt.svg" alt="CSS logo" />
+                    <p>css</p>
+                  </li>
+                  <li>
+                    <img src="./images/icons/react.svg" alt="React logo" />
+                    <p>react</p>
+                  </li>
+                  <li>
+                    <img
+                      src="./images/icons/firebase2.svg"
+                      alt="Firebase logo"
+                    />
+                    <p>FB</p>
+                  </li>
+                </ul>
+              </div>
+              <div class="description">
+                <p>
+                  This is a learning game. Users are presented with two randomly
+                  generated homophonous words, such as piece and peace, and a
+                  single definition. The user must match the correct spelling to
+                  the definition.
+                </p>
+                <div class="link-container">
+                  <a
+                    href="https://github.com/whatDoYouNoProjectFour/bootcampProjectFour/tree/production"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Github</a
+                  >
+                  <a
+                    href="https://gracious-noyce-6f5c2d.netlify.app"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Live</a
+                  >
+                </div>
+              </div>
             </li>
-            <li>
-              <img src="./images/icons/js-square.svg" alt="Javascript logo" />
-              <p>JavaScript</p>
+            <li class="project">
+              <div class="circle"></div>
+
+              <div class="top-container">
+                <h3>Daily Log</h3>
+                <div class="img-container">
+                  <img
+                    src="./images/projects/daily_log.jpg"
+                    alt="Screenshot of the project main page. Click or hover the image to see more detail information about the project!"
+                  />
+                </div>
+                <ul class="skill-set">
+                  <li>
+                    <img src="./images/icons/html5.svg" alt="HTML logo" />
+                    <p>html</p>
+                  </li>
+                  <li>
+                    <img src="./images/icons/css3-alt.svg" alt="CSS logo" />
+                    <p>css</p>
+                  </li>
+                  <li>
+                    <img src="./images/icons/react.svg" alt="React logo" />
+                    <p>react</p>
+                  </li>
+                  <li>
+                    <img
+                      src="./images/icons/firebase2.svg"
+                      alt="Firebase logo"
+                    />
+                    <p>fb</p>
+                  </li>
+                </ul>
+              </div>
+              <div class="description">
+                <p>
+                  This is a CRUD application where users can utilize it to
+                  record their daily activities, save them for future
+                  references, and delete them if needed.
+                </p>
+                <div class="link-container">
+                  <a
+                    href="https://github.com/shin1211/seungmin-shin-project-three"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Github</a
+                  >
+                  <a
+                    href="https://seungmin-shin-project-3.netlify.app"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Live</a
+                  >
+                </div>
+              </div>
             </li>
-            <li>
-              <img src="./images/icons/sass.svg" alt="SASS logo" />
-              <p>SASS</p>
-            </li>
-            <li>
-              <img src="./images/icons/react.svg" alt="React logo" />
-              <p>React</p>
-            </li>
-            <li>
-              <img src="./images/icons/dollar-sign.svg" alt="Jquery logo" />
-              <p>JQuery</p>
-            </li>
-            <li>
-              <img src="./images/icons/firebase2.svg" alt="Firebase logo" />
-              <p>Firebase</p>
-            </li>
-            <li>
-              <img src="./images/icons/git-alt.svg" alt="Github logo" />
-              <p>Git & Github</p>
-            </li>
-            <li>
-              <img
-                src="./images/icons/mobile-alt.svg"
-                alt="Mobile phone icon to express responsible design"
-              />
-              <p>Responsive Design</p>
-            </li>
-            <li>
-              <img
-                src="./images/icons/universal-access.svg"
-                alt="The icon to express accessbility"
-              />
-              <p>Accessbility</p>
+            <li class="project">
+              <div class="circle"></div>
+
+              <div class="top-container">
+                <h3>Bar-One</h3>
+                <div class="img-container">
+                  <img
+                    src="./images/projects/BarOne.jpg"
+                    alt="Screenshot of the project main page. Click or hover the image to see more detail information about the project!"
+                  />
+                </div>
+                <ul class="skill-set">
+                  <li>
+                    <img src="./images/icons/html5.svg" alt="HTML logo" />
+                    <p>html</p>
+                  </li>
+                  <li>
+                    <img src="./images/icons/sass.svg" alt="SASS logo" />
+                    <p>sass</p>
+                  </li>
+                </ul>
+              </div>
+              <div class="description">
+                <p>
+                  Converted PSD design into multi-page, functional, and
+                  responsive website. Built by using HTML and SASS.
+                </p>
+                <div class="link-container">
+                  <a
+                    href="https://github.com/shin1211/Seungmin-Shin-Project-One"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Github</a
+                  >
+                  <a
+                    href="https://shin1211.github.io/Seungmin-Shin-Project-One/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Live</a
+                  >
+                </div>
+              </div>
             </li>
           </ul>
-        </div>
-        <!-- Wrapper end-->
-      </section>
-      <!-- Projects start -->
-      <section id="projects" class="projects-container">
-        <div
-          class="wrapper"
-          data-aos="fade-up"
-          data-aos-anchor-placement="top-center"
-        >
-          <h2>Projects</h2>
-          <div class="slide-container">
-            <ul class="image-slide">
-              <li class="project">
-                <div class="top-container">
-                  <h3>What do you no</h3>
-                  <div class="img-container">
-                    <img
-                      src="./images/projects/whatDoYouNo.jpg"
-                      alt="Screenshot of the project main page. Click or hover the image to see more detail information about the project!"
-                    />
-                  </div>
-                  <div class="skill-set">
-                    <img src="./images/icons/html5.svg" alt="HTML logo" />
-                    <img src="./images/icons/css3-alt.svg" alt="CSS logo" />
-                    <img
-                      src="./images/icons/js-square.svg"
-                      alt="Javascript logo"
-                    />
-                    <img src="./images/icons/react.svg" alt="React logo" />
-                    <img
-                      src="./images/icons/firebase2.svg"
-                      alt="Firebase logo"
-                    />
-                  </div>
-                </div>
-                <div class="description">
-                  <div class="skill-set">
-                    <img src="./images/icons/html5.svg" alt="HTML logo" />
-                    <img src="./images/icons/css3-alt.svg" alt="CSS logo" />
-                    <img
-                      src="./images/icons/js-square.svg"
-                      alt="Javascript logo"
-                    />
-                    <img src="./images/icons/react.svg" alt="React logo" />
-                    <img
-                      src="./images/icons/firebase2.svg"
-                      alt="Firebase logo"
-                    />
-                  </div>
-                  <p>
-                    This is a learning game. Users are presented with two
-                    randomly generated homophonous words, such as piece and
-                    peace, and a single definition. The user must match the
-                    correct spelling to the definition.
-                  </p>
-                  <div class="link-container">
-                    <a
-                      href="https://github.com/whatDoYouNoProjectFour/bootcampProjectFour/tree/production"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      >Github</a
-                    >
-                    <a
-                      href="https://gracious-noyce-6f5c2d.netlify.app"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      >Live</a
-                    >
-                  </div>
-                </div>
-              </li>
-              <li class="project">
-                <div class="top-container">
-                  <h3>Daily Log</h3>
-                  <div class="img-container">
-                    <img
-                      src="./images/projects/daily_log.jpg"
-                      alt="Screenshot of the project main page. Click or hover the image to see more detail information about the project!"
-                    />
-                  </div>
-                  <div class="skill-set">
-                    <img src="./images/icons/html5.svg" alt="HTML logo" />
-                    <img src="./images/icons/css3-alt.svg" alt="CSS logo" />
-                    <img
-                      src="./images/icons/js-square.svg"
-                      alt="Javascript logo"
-                    />
-                    <img src="./images/icons/react.svg" alt="React logo" />
-                    <img
-                      src="./images/icons/firebase2.svg"
-                      alt="Firebase logo"
-                    />
-                  </div>
-                </div>
-                <div class="description">
-                  <div class="skill-set">
-                    <img src="./images/icons/html5.svg" alt="HTML logo" />
-                    <img src="./images/icons/css3-alt.svg" alt="CSS logo" />
-                    <img
-                      src="./images/icons/js-square.svg"
-                      alt="Javascript logo"
-                    />
-                    <img src="./images/icons/react.svg" alt="React logo" />
-                    <img
-                      src="./images/icons/firebase2.svg"
-                      alt="Firebase logo"
-                    />
-                  </div>
-                  <p>
-                    This is a CRUD application where users can utilize it to
-                    record their daily activities, save them for future
-                    references, and delete them if needed.
-                  </p>
-                  <div class="link-container">
-                    <a
-                      href="https://github.com/shin1211/seungmin-shin-project-three"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      >Github</a
-                    >
-                    <a
-                      href="https://seungmin-shin-project-3.netlify.app"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      >Live</a
-                    >
-                  </div>
-                </div>
-              </li>
-              <li class="project">
-                <div class="top-container">
-                  <h3>Best Friend Finder</h3>
-                  <div class="img-container">
-                    <img
-                      src="./images/projects/bestFriendFinder.jpg"
-                      alt="Screenshot of the project main page. Click or hover the image to see more detail information about the project!"
-                    />
-                  </div>
-                  <div class="skill-set">
-                    <img src="./images/icons/html5.svg" alt="HTML logo" />
-                    <img
-                      src="./images/icons/js-square.svg"
-                      alt="Javascript logo"
-                    />
-                    <img src="./images/icons/sass.svg" alt="SASS logo" />
-                  </div>
-                </div>
-                <div class="description">
-                  <div class="skill-set">
-                    <img src="./images/icons/html5.svg" alt="HTML logo" />
-                    <img
-                      src="./images/icons/js-square.svg"
-                      alt="Javascript logo"
-                    />
-                    <img src="./images/icons/sass.svg" alt="SASS logo" />
-                  </div>
-                  <p>
-                    This app uses API calls to display adoptable animals. If a
-                    specific type of animal is not currently available to adopt,
-                    we have filtered using error handling. This app was
-                    developed by pair programing.
-                  </p>
-                  <div class="link-container">
-                    <a
-                      href="https://github.com/project-2-group-awesome/adpotionApp"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      >Github</a
-                    >
-                    <a
-                      href="https://determined-hodgkin-1afc0b.netlify.app"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      >Live</a
-                    >
-                  </div>
-                </div>
-              </li>
-              <li class="project">
-                <div class="top-container">
-                  <h3>Bar-One</h3>
-                  <div class="img-container">
-                    <img
-                      src="./images/projects/BarOne.jpg"
-                      alt="Screenshot of the project main page. Click or hover the image to see more detail information about the project!"
-                    />
-                  </div>
-                  <div class="skill-set">
-                    <img src="./images/icons/html5.svg" alt="HTML logo" />
-                    <img src="./images/icons/css3-alt.svg" alt="CSS logo" />
-                  </div>
-                </div>
-                <div class="description">
-                  <div class="skill-set">
-                    <img src="./images/icons/html5.svg" alt="HTML logo" />
-                    <img src="./images/icons/css3-alt.svg" alt="CSS logo" />
-                  </div>
-                  <p>
-                    Converted PSD design into multi-page, functional, and
-                    responsive website. Built by using HTML and SASS.
-                  </p>
-                  <div class="link-container">
-                    <a
-                      href="https://github.com/shin1211/Seungmin-Shin-Project-One"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      >Github</a
-                    >
-                    <a
-                      href="https://shin1211.github.io/Seungmin-Shin-Project-One/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      >Live</a
-                    >
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </div>
           <!-- Slide-container end-->
           <div class="controls">
             <button
@@ -419,6 +373,61 @@
                 <span class="sr-only">Next</span>
               </i>
             </button>
+          </div>
+          <!-- Wrapper end-->
+        </div>
+        <!-- Skills start -->
+        <div id="skills" class="skills" data-content>
+          <div class="wrapper">
+            <h2>Skills</h2>
+            <ul>
+              <li>
+                <img src="./images/icons/html5.svg" alt="HTML logo" />
+                <p>HTML5</p>
+              </li>
+              <li>
+                <img src="./images/icons/css3-alt.svg" alt="CSS logo" />
+                <p>CSS3</p>
+              </li>
+              <li>
+                <img src="./images/icons/js-square.svg" alt="Javascript logo" />
+                <p>JavaScript</p>
+              </li>
+              <li>
+                <img src="./images/icons/sass.svg" alt="SASS logo" />
+                <p>SASS</p>
+              </li>
+              <li>
+                <img src="./images/icons/react.svg" alt="React logo" />
+                <p>React</p>
+              </li>
+              <li>
+                <img src="./images/icons/dollar-sign.svg" alt="Jquery logo" />
+                <p>JQuery</p>
+              </li>
+              <li>
+                <img src="./images/icons/firebase2.svg" alt="Firebase logo" />
+                <p>Firebase</p>
+              </li>
+              <li>
+                <img src="./images/icons/git-alt.svg" alt="Github logo" />
+                <p>Git & Github</p>
+              </li>
+              <li>
+                <img
+                  src="./images/icons/mobile-alt.svg"
+                  alt="Mobile phone icon to express responsible design"
+                />
+                <p>Responsive Design</p>
+              </li>
+              <li>
+                <img
+                  src="./images/icons/universal-access.svg"
+                  alt="The icon to express accessbility"
+                />
+                <p>Accessbility</p>
+              </li>
+            </ul>
           </div>
         </div>
         <!-- Wrapper end-->

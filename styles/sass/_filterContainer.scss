@@ -1,0 +1,51 @@
+.filter-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+  padding-top: 5rem;
+  // background-color: $color-lightgray;
+
+  [data-content] {
+    display: none;
+  }
+
+  .active[data-content] {
+    display: flex;
+  }
+
+  .btn-container {
+    position: relative;
+    background: transparent;
+    border: 1px solid $color-orange;
+    border-radius: 50px;
+    margin: 2rem 0;
+  }
+
+  .btn-container button {
+    border-style: none;
+    outline: none;
+    background: transparent;
+    width: 150px;
+    height: auto;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: all 0.5s;
+
+    &.active-btn {
+      color: white;
+    }
+  }
+  .active-box {
+    position: absolute;
+    left: 0;
+    width: 150px;
+    height: 100%;
+    z-index: -10;
+    background-color: $color-orange;
+    transition: all 0.5s;
+    border-radius: 50px;
+  }
+}

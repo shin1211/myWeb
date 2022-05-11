@@ -28,6 +28,8 @@ Media
     .nav-bar {
       position: fixed;
       justify-content: flex-start;
+      padding-left: 100px;
+
       z-index: 9999;
     }
 
@@ -45,9 +47,9 @@ Media
       }
 
       li.horizontal-underline {
-        left: 20px;
+        top: 50px;
+        left: 120px;
         width: 46px;
-        top: 43px;
       }
     }
 
@@ -67,12 +69,25 @@ Media
   /*=============
   Projects
   =============== */
+  .projects-container {
+    .project.selected {
+      width: 700px;
+      height: 400px;
+      opacity: 1;
+      z-index: 100;
 
-  .projects-container .slide-container {
-    // width: 820px;
-    width: 840px;
+      & .top-container {
+        left: 25%;
+        top: 50%;
+      }
+
+      & .description {
+        top: 59%;
+        left: 73%;
+        // border: 1px solid red;
+      }
+    }
   }
-
   /*=============
   Contact
   =============== */
@@ -101,16 +116,9 @@ Media
     }
 
     ul {
-      padding: 2.5rem 5rem;
-
       li {
         margin: 2rem;
       }
     }
-  }
-
-  .projects-container .slide-container {
-    // width: 1240px;
-    width: 1260px;
   }
 }

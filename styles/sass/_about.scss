@@ -31,29 +31,6 @@ About
       left: -1rem;
       // top: 0;
     }
-    // &::before {
-    //   content: "";
-    //   position: absolute;
-    //   width: 30px;
-    //   height: 100%;
-    //   border-top: 2px solid $color-orange;
-    //   border-left: 2px solid $color-orange;
-    //   border-bottom: 2px solid $color-orange;
-    //   top: 0;
-    //   left: 0;
-    // }
-
-    // &::after {
-    //   content: "";
-    //   position: absolute;
-    //   width: 30px;
-    //   height: 100%;
-    //   border-top: 2px solid $color-orange;
-    //   border-right: 2px solid $color-orange;
-    //   border-bottom: 2px solid $color-orange;
-    //   top: 0;
-    //   right: 0;
-    // }
   }
 
   p {
@@ -63,10 +40,10 @@ About
   a {
     display: inline-block;
     padding: 0.5rem 2rem;
-    // margin-top: 1rem;
     font-size: 1rem;
-    background-color: $color-black;
-    color: $color-white;
+    // background-color: $color-black;
+    border: 2px solid $color-orange;
+    color: $color-black;
     border-radius: 10px;
     transition: all 0.5s ease-in-out;
 
@@ -74,6 +51,7 @@ About
     &:focus,
     &:active {
       background-color: $color-orange;
+      color: $color-white;
     }
   }
 }
