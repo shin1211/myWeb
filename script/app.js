@@ -271,6 +271,31 @@ app.makeClone = () => {
 	}, 100);
 }
 
+// =========
+// svg
+//==========
+app.svgControler = () => {
+	const testSvg = document.querySelector('.test-container');
+	const svgImg = document.querySelector('.path');
+	const svgImgLength = svgImg.getTotalLength();
+
+	svgImg.style.strokeDasharray = svgImgLength;
+	svgImg.style.strokeDashoffset = svgImgLength;
+
+	const scrollHandler = () => {
+		const scrollY = window.scrollY + (window.innerHeight * .02);
+		svgImg.style.strokeDashoffset = app.calcDashoffset(scrollY, testSvg, svgImgLength);
+	}
+	window.addEventListener('scroll', scrollHandler)
+}
+
+
+
+app.calcDashoffset = (scrollY, element, length) => {
+	const ratio = (scrollY - element.offsetTop) / element.offsetHeight;
+	const value = length - (length * ratio);
+	return value < 0 ? 0 : value > length ? length : value;
+}
 app.init = () => {
 	app.navBgColor();
 	app.burgerMenu();
@@ -279,98 +304,8 @@ app.init = () => {
 	app.scrollUpBtn();
 	app.textAnimation();
 	app.circleSlide();
+	app.svgControler();
 }
 
 
 app.init();
-
-
-
-// app.slideContainer = document.querySelector('.image-slide');
-// app.slides = document.querySelectorAll('.image-slide li');
-// app.prevBtn = document.querySelector('.prev');
-// app.nextBtn = document.querySelector('.next');
-
-
-// app.currentIndex = 0;
-// app.slideCount = app.slides.length;
-// app.slideWidth = 400;
-// app.slideMargin = 20;
-// app.oldTimeStamp = null;
-
-
-// app.makeClone = () => {
-// 	// Looping slides and clone every single slides(li) to add to slideContainer at the end.
-// 	for (let i = 0; i < app.slideCount; i++) {
-// 		const cloneSlide = app.slides[i].cloneNode(true);
-// 		cloneSlide.classList.add('clone');
-// 		app.slideContainer.appendChild(cloneSlide);
-// 	}
-
-// 	for (let i = app.slideCount - 1; i >= 0; i--) {
-// 		const cloneSlide = app.slides[i].cloneNode(true);
-// 		cloneSlide.classList.add('clone');
-// 		app.slideContainer.prepend(cloneSlide);
-// 	}
-
-// 	app.updateWidth();
-// 	app.setInitialPos();
-
-// 	setTimeout(() => {
-// 		app.slideContainer.classList.add('animated');
-// 	}, 100);
-// }
-
-
-// // function that grab current slide-container width (included all clones)and set new width.
-// app.updateWidth = () => {
-// 	const currentSlides = document.querySelectorAll('.image-slide li');
-// 	const currentSlideCount = currentSlides.length;
-// 	const currentSlideWidth = (app.slideWidth + app.slideMargin) * currentSlideCount - app.slideMargin + 'px';
-
-// 	app.slideContainer.style.width = currentSlideWidth;
-
-// }
-
-// // Now the slides has all clones and it will begin with clone 'li'. need to re-position to start with original image slides which can make go forward and back by click event.
-// app.setInitialPos = () => {
-// 	const initialSlideWidth = -(app.slideWidth + app.slideMargin) * app.slideCount;
-// 	app.slideContainer.style.transform = `translateX(${initialSlideWidth}px)`;
-// }
-
-// app.moveSlide = (currentIndex) => {
-// 	app.slideContainer.style.left = -currentIndex * (app.slideWidth + app.slideMargin) + 'px';
-// 	app.currentIndex = currentIndex;
-
-// 	// console.log(app.currentIndex, app.slideCount);
-
-// 	if (app.currentIndex === app.slideCount || app.currentIndex === -app.slideCount) {
-
-// 		// need to wait til .animate action is done. 
-// 		setTimeout(() => {
-// 			app.slideContainer.classList.remove('animated');
-// 			app.slideContainer.style.left = '0px';
-// 			app.currentIndex = 0;
-// 		}, 500);
-
-// 		setTimeout(() => {
-// 			app.slideContainer.classList.add('animated')
-// 		}, 550);
-
-// 	}
-// }
-
-// app.prevBtn.addEventListener('click', (e) => {
-// 	if (app.oldTimeStamp === null || app.oldTimeStamp + 550 < e.timeStamp) {
-// 		app.moveSlide(app.currentIndex - 1);
-// 		app.oldTimeStamp = e.timeStamp;
-// 	}
-
-// });
-
-// app.nextBtn.addEventListener('click', (e) => {
-// 	if (app.oldTimeStamp === null || app.oldTimeStamp + 550 < e.timeStamp) {
-// 		app.moveSlide(app.currentIndex + 1);
-// 		app.oldTimeStamp = e.timeStamp;
-// 	}
-// });

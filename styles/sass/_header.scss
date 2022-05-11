@@ -3,7 +3,7 @@ Header
 =============== */
 
 header {
-  background: url("../../images/header/profile_edit_Crop.jpg");
+  background: url("../../images/header/profile_edit_Crop.jpg") fixed;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 71%;
@@ -68,13 +68,14 @@ header {
   .contents-container {
     padding: 1rem;
     background-color: $color-white;
-    opacity: 0.9;
+    opacity: 1;
     border-radius: 5px;
     z-index: 20;
     position: absolute;
     top: 45%;
     left: 15%;
     height: 185px;
+    animation: slide 1s ease-out;
   }
 
   .nav-bar {
@@ -83,7 +84,6 @@ header {
     justify-content: flex-end;
     position: fixed;
     left: 0;
-    padding-left: 100px;
     z-index: 1000;
     background-color: inherit;
     button.burger-menu {
@@ -129,6 +129,7 @@ header {
     a {
       display: inline-block;
       margin: 0.5rem 1rem;
+
       transition: all 0.5s;
       position: relative;
 
@@ -178,10 +179,25 @@ header {
 
   li {
     padding: 0.5rem 1rem;
+    &:nth-child(5) {
+      padding: 0;
+    }
   }
 
   p {
     color: $color-orange;
+  }
+
+  @keyframes slide {
+    from {
+      opacity: 0;
+      left: -100px;
+    }
+
+    to {
+      opacity: 1;
+      left: 15%;
+    }
   }
 
   @keyframes movingAnimation {
@@ -195,39 +211,4 @@ header {
       transform: translateY(-10px);
     }
   }
-
-  // .container {
-  //   padding: 1rem;
-  //   cursor: pointer;
-  // }
-  // .burger-menu {
-  //   // display: inline-block;
-  //   // padding: 0.5rem;
-  //   position: relative;
-  //   margin-top: 1rem;
-  //   width: 30px;
-  //   height: 2px;
-  //   background-color: black;
-
-  //   &::before,
-  //   &::after {
-  //     content: "";
-  //     position: absolute;
-  //     width: inherit;
-  //     height: inherit;
-  //     background-color: inherit;
-  //     top: 10px;
-  //   }
-
-  //   &::after {
-  //     top: -10px;
-  //   }
-  // }
-
-  // span {
-  //   opacity: 0;
-  // }
-  // span.animate {
-  //   opacity: 1;
-  // }
 }

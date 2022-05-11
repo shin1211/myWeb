@@ -1,5 +1,5 @@
 .projects-container {
-  background-color: $color-white;
+  // background-color: $color-lightgray;
   position: relative;
   display: flex;
   justify-content: center;
@@ -35,12 +35,11 @@
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    opacity: 0.5;
+    opacity: 0.4;
 
     width: 450px;
     height: 600px;
     transition: all 0.5s;
-    // border: 1px solid red;
 
     h3,
     .skill-set {
@@ -63,8 +62,8 @@
         width: 100%;
         height: 100%;
         border-radius: 20px;
-        background-color: #ec5114a3;
-        clip-path: circle(160px at center);
+        background-color: rgb(181, 218, 164);
+        clip-path: circle(140px at center);
         transition: all 0.5s;
       }
     }
@@ -93,7 +92,9 @@
       }
 
       & .circle::before {
-        background-color: #aedfe3;
+        background-color: $color-lightgray;
+        box-shadow: 15px 15px 21px -9px rgba(84, 81, 81, 0.55);
+
         transition-delay: 0.5s;
         clip-path: circle(480px at center);
       }
