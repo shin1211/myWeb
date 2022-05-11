@@ -21,6 +21,8 @@ Media
   header
   =============== */
   header {
+    background-attachment: fixed;
+
     .contents-container {
       background-color: inherit;
     }
@@ -28,7 +30,7 @@ Media
     .nav-bar {
       position: fixed;
       justify-content: flex-start;
-      padding-left: 100px;
+      padding-left: 250px;
 
       z-index: 9999;
     }
@@ -48,7 +50,7 @@ Media
 
       li.horizontal-underline {
         top: 50px;
-        left: 120px;
+        left: 270px;
         width: 46px;
       }
     }

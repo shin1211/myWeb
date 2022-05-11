@@ -373,7 +373,7 @@ p {
 Header
 =============== */
 header {
-  background: url("../../images/header/profile_edit_Crop.jpg") fixed;
+  background: url("../../images/header/profile_edit_Crop.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 71%;
@@ -1264,6 +1264,9 @@ Media
   /*=============
   header
   =============== */
+  header {
+    background-attachment: fixed;
+  }
   header .contents-container {
     background-color: inherit;
   }
@@ -1272,7 +1275,7 @@ Media
     -webkit-box-pack: start;
         -ms-flex-pack: start;
             justify-content: flex-start;
-    padding-left: 100px;
+    padding-left: 250px;
     z-index: 9999;
   }
   header .nav-bar .nav-container {
@@ -1294,7 +1297,7 @@ Media
   }
   header .nav-bar .nav-container li.horizontal-underline {
     top: 50px;
-    left: 120px;
+    left: 270px;
     width: 46px;
   }
   header .burger-menu {
