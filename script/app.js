@@ -271,6 +271,46 @@ app.makeClone = () => {
 	}, 100);
 }
 
+//===================
+// svg scroll event
+//===================
+
+app.svgAnimate = () => {
+	const content = document.querySelector('.test-container');
+	const path1 = document.querySelector('.path1');
+	const content2 = document.querySelector('.path2-container');
+	const path2 = document.querySelector('.path2');
+	const path1Length = path1.getTotalLength();
+	const path2Length = path2.getTotalLength();
+
+	const calcDashoffset = (scrollY, element, length) => {
+		const ratio = (scrollY - element.offsetTop) / element.offsetHeight;
+		const value = length - (length * ratio);
+		return value < 0 ? 0 : value > length ? length : value;
+	}
+
+
+	path1.style.strokeDasharray = path1Length;
+	path1.style.strokeDashoffset = calcDashoffset(window.innerHeight * 0.7, content, path1Length);
+
+	path2.style.strokeDasharray = path2Length;
+	path2.style.strokeDashoffset = calcDashoffset(window.innerHeight * 0.7, content2, path2Length);
+
+
+
+
+
+	const scrollHandler = () => {
+		const scrollY = window.scrollY + (window.innerHeight * 0.7);
+		const scrollY2 = window.scrollY + (window.innerHeight * .7);
+		path1.style.strokeDashoffset = calcDashoffset(scrollY, content, path1Length);
+		path2.style.strokeDashoffset = calcDashoffset(scrollY2, content2, path2Length);
+
+	}
+	window.addEventListener('scroll', scrollHandler);
+}
+
+
 app.init = () => {
 	app.navBgColor();
 	app.burgerMenu();
@@ -279,7 +319,10 @@ app.init = () => {
 	app.scrollUpBtn();
 	app.textAnimation();
 	app.circleSlide();
-}
 
+	app.svgAnimate();
+
+
+}
 
 app.init();
