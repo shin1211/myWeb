@@ -277,49 +277,33 @@ app.makeClone = () => {
 
 app.svgAnimate = () => {
 	const aboutText = document.querySelector('.text-container');
-	const content = document.querySelector('.test-container');
+	const content = document.querySelector('.svg-container');
 	const path1 = document.querySelector('.path1');
 	const path1Length = path1.getTotalLength();
 
-	// const content2 = document.querySelector('.path2-container');
-	// const path2 = document.querySelector('.path2');
-	// const path2Length = path2.getTotalLength();
 
 	const calcDashoffset = (scrollY, element, length) => {
 		const ratio = (scrollY - element.offsetTop) / element.offsetHeight;
 		const value = length - (length * ratio);
-		console.log(value)
 		return value < 0 ? 0 : value > length ? length : value;
 	}
 
-
 	path1.style.strokeDasharray = path1Length;
-	path1.style.strokeDashoffset = calcDashoffset(window.innerHeight * 0.7, content, path1Length);
-
-	// path2.style.strokeDasharray = path2Length;
-	// path2.style.strokeDashoffset = calcDashoffset(window.innerHeight * 0.7, content2, path2Length);
-
-
-
-
+	path1.style.strokeDashoffset = calcDashoffset(window.innerHeight * 0.9, content, path1Length);
 
 	const scrollHandler = () => {
-
-		if (path1.style.strokeDashoffset > 100) {
+		const scrollY = window.scrollY + (window.innerHeight * 0.9);
+		if (calcDashoffset(scrollY, content, path1Length) < 3000) {
 			aboutText.classList.add('fade-in');
 		} else {
 			aboutText.classList.remove('fade-in');
 
 		}
-		const scrollY = window.scrollY + (window.innerHeight * 0.88);
-		// const scrollY2 = window.scrollY + (window.innerHeight * .7);
 		path1.style.strokeDashoffset = calcDashoffset(scrollY, content, path1Length);
-		// path2.style.strokeDashoffset = calcDashoffset(scrollY2, content2, path2Length);
 
 	}
 	window.addEventListener('scroll', scrollHandler);
 }
-
 
 app.init = () => {
 	app.navBgColor();
@@ -331,7 +315,6 @@ app.init = () => {
 	app.circleSlide();
 
 	app.svgAnimate();
-
 
 }
 

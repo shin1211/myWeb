@@ -3,11 +3,9 @@ About
 =============== */
 .about-container {
   background: $color-white;
-  // padding: 5rem 0;
   padding-bottom: 5rem;
   z-index: 20;
   display: flex;
-  // align-items: center;
   min-height: 100vh;
   min-height: -webkit-fill-available;
   overflow: hidden;
@@ -19,30 +17,34 @@ About
     height: 100%;
   }
 
-  .test-container {
+  .svg-container {
     width: 100%;
     height: auto;
 
     .path1 {
       fill: none;
       stroke: $color-orange;
-      stroke-width: 3px;
+      stroke-width: 4px;
     }
   }
 
   .text-container {
-    // opacity: 0;
-    margin-top: -600px;
     align-self: flex-end;
-    width: 50%;
-    padding: 0.5rem;
-    border: 1px solid red;
-    transform: translateX(2000px);
+    border-left: 1px solid $color-black;
+    width: 100%;
+    padding: 0 2rem;
     opacity: 0;
     transition: all 1s;
     display: flex;
     flex-direction: column;
-
+    transform: translateX(2000px);
+    h2 {
+      margin-bottom: 1rem;
+    }
+    a {
+      align-self: flex-start;
+      margin-top: 1rem;
+    }
     &.fade-in {
       transform: translateX(0);
       opacity: 1;
@@ -60,7 +62,7 @@ About
     border: 2px solid $color-orange;
     color: $color-black;
     border-radius: 10px;
-    transition: all 1s ease-out;
+    transition: all 0.5s ease-out;
 
     &:hover,
     &:focus,

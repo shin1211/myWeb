@@ -30,7 +30,7 @@ Media
     .nav-bar {
       position: fixed;
       justify-content: flex-start;
-      padding-left: 250px;
+      padding-left: 150px;
 
       z-index: 9999;
     }
@@ -49,8 +49,8 @@ Media
       }
 
       li.horizontal-underline {
-        top: 50px;
-        left: 270px;
+        top: 45px;
+        left: 170px;
         width: 46px;
       }
     }
@@ -67,7 +67,13 @@ Media
       left: initial;
     }
   }
-
+  /* =============
+  About
+  =============== */
+  .about-container .text-container {
+    width: 50%;
+    margin-top: -600px;
+  }
   /*=============
   Projects
   =============== */
