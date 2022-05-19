@@ -271,6 +271,40 @@ app.makeClone = () => {
 	}, 100);
 }
 
+//===================
+// svg scroll event
+//===================
+
+app.svgAnimate = () => {
+	const aboutText = document.querySelector('.text-container');
+	const content = document.querySelector('.svg-container');
+	const path1 = document.querySelector('.path1');
+	const path1Length = path1.getTotalLength();
+
+
+	const calcDashoffset = (scrollY, element, length) => {
+		const ratio = (scrollY - element.offsetTop) / element.offsetHeight;
+		const value = length - (length * ratio);
+		return value < 0 ? 0 : value > length ? length : value;
+	}
+
+	path1.style.strokeDasharray = path1Length;
+	path1.style.strokeDashoffset = calcDashoffset(window.innerHeight * 0.9, content, path1Length);
+
+	const scrollHandler = () => {
+		const scrollY = window.scrollY + (window.innerHeight * 0.9);
+		if (calcDashoffset(scrollY, content, path1Length) < 3000) {
+			aboutText.classList.add('fade-in');
+		} else {
+			aboutText.classList.remove('fade-in');
+
+		}
+		path1.style.strokeDashoffset = calcDashoffset(scrollY, content, path1Length);
+
+	}
+	window.addEventListener('scroll', scrollHandler);
+}
+
 app.init = () => {
 	app.navBgColor();
 	app.burgerMenu();
@@ -279,7 +313,9 @@ app.init = () => {
 	app.scrollUpBtn();
 	app.textAnimation();
 	app.circleSlide();
-}
 
+	app.svgAnimate();
+
+}
 
 app.init();
