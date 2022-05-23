@@ -289,10 +289,10 @@ app.svgAnimate = () => {
 	}
 
 	path1.style.strokeDasharray = path1Length;
-	path1.style.strokeDashoffset = calcDashoffset(window.innerHeight * 0.9, content, path1Length);
+	path1.style.strokeDashoffset = calcDashoffset(window.innerHeight * 0.8, content, path1Length);
 
 	const scrollHandler = () => {
-		const scrollY = window.scrollY + (window.innerHeight * 0.9);
+		const scrollY = window.scrollY + (window.innerHeight * 0.8);
 		if (calcDashoffset(scrollY, content, path1Length) < 3000) {
 			aboutText.classList.add('fade-in');
 		} else {
