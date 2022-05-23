@@ -522,6 +522,7 @@ header .nav-bar.active .nav-container {
 header .nav-bar a.resume {
   padding: 0.25rem 0.5rem;
   border: 2px solid #ff4500;
+  border-radius: 10px;
 }
 
 header .nav-bar a.resume:hover, header .nav-bar a.resume:focus, header .nav-bar a.resume:active {
