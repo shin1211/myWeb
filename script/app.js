@@ -1,5 +1,6 @@
 'use strict';
 const app = {};
+
 app.navBgColor = () => {
 	const navBar = document.querySelector('.nav-bar');
 	window.addEventListener('scroll', () => {
@@ -70,8 +71,7 @@ app.movingSlideNav = () => {
 				current = 'home';
 			}
 			if (scrollY >= (sectionTop - sectionHeight / 3)) {
-				// if current section is skills section (returning null id value since this section is part of about), retrun 'about'
-				current = section.getAttribute('id') === null ? 'about' : section.getAttribute('id');
+				current = section.getAttribute('id');
 			}
 		})
 		horizontalMenus.forEach(item => {
@@ -188,7 +188,7 @@ app.textAnimation = () => {
 	textLoop();
 }
 //===================
-// slide funtion
+// image slide
 //===================
 app.circleSlide = () => {
 	app.makeClone();
@@ -205,18 +205,31 @@ app.circleSlide = () => {
 	let newX = 0;
 	let newY = 0;
 	let wheelRadius = 350;
-	//wheelRadius = 200;
 	let angle = 0;
 	let currentIdx = 0;
 
-	projects.forEach((project, index) => {
-		newTheta = theta * (index + 6);
-		// newTheta = theta * (index);
-		newX = Math.cos(newTheta) * wheelRadius;
-		newY = -1 * Math.sin(newTheta) * wheelRadius;
-		project.style.left = `${initialPos.x + newX}px`
-		project.style.top = `${initialPos.y + newY}px`
-	})
+
+
+	window.addEventListener('scroll', () => {
+		projects[currentIdx].classList.add('selected');
+		if (window.scrollY > 1800) {
+			projects.forEach((project, index) => {
+				newTheta = theta * (index + 6);
+				newX = Math.cos(newTheta) * wheelRadius;
+				newY = -1 * Math.sin(newTheta) * wheelRadius;
+				project.style.left = `${initialPos.x + newX}px`
+				project.style.top = `${initialPos.y + newY}px`
+			});
+
+		} else {
+			projects.forEach((project, index) => {
+				project.classList.remove('selected');
+				project.style.left = '0px';
+				project.style.top = '0px';
+			});
+		}
+	});
+
 
 	prevBtn.addEventListener('click', (e) => {
 		if (currentIdx === 0) {
@@ -247,6 +260,7 @@ app.circleSlide = () => {
 		})
 		projects[currentIdx].classList.add('selected')
 	});
+
 }
 
 app.makeClone = () => {
@@ -266,9 +280,6 @@ app.makeClone = () => {
 	// 	wheelContainer.prepend(cloneSlide);
 	// }
 
-	setTimeout(() => {
-		// app.slideContainer.classList.add('animated');
-	}, 100);
 }
 
 //===================
@@ -289,10 +300,10 @@ app.svgAnimate = () => {
 	}
 
 	path1.style.strokeDasharray = path1Length;
-	path1.style.strokeDashoffset = calcDashoffset(window.innerHeight * 0.9, content, path1Length);
+	path1.style.strokeDashoffset = calcDashoffset(window.innerHeight * 0.8, content, path1Length);
 
 	const scrollHandler = () => {
-		const scrollY = window.scrollY + (window.innerHeight * 0.9);
+		const scrollY = window.scrollY + (window.innerHeight * 0.8);
 		if (calcDashoffset(scrollY, content, path1Length) < 3000) {
 			aboutText.classList.add('fade-in');
 		} else {
