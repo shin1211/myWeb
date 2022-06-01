@@ -21,10 +21,14 @@ Media
   header
   =============== */
   header {
-    background-attachment: fixed;
+    // background-attachment: fixed;
 
     .contents-container {
       background-color: inherit;
+
+      p {
+        font-size: 1.3rem;
+      }
     }
 
     .nav-bar {
@@ -114,10 +118,6 @@ Media
 }
 
 @media (min-width: 1300px) {
-  header {
-    background-position: left top;
-  }
-
   .skills {
     h2 {
       margin-bottom: 0;

@@ -341,7 +341,7 @@ a {
 }
 
 h1 {
-  font-size: 2.5rem;
+  font-size: 2.8rem;
 }
 
 h2 {
@@ -353,7 +353,7 @@ h3 {
   letter-spacing: 5px;
 }
 
-h4 {
+.contact-container h3 {
   font-size: 1rem;
   letter-spacing: 2px;
   margin-bottom: 0.5rem;
@@ -373,12 +373,24 @@ p {
 Header
 =============== */
 header {
-  background: url("../../images/header/profile_edit_Crop.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: 71%;
+  height: 100vh;
+}
+
+header .wrapper {
   height: 100vh;
   position: relative;
+}
+
+header .bg-container {
+  position: absolute;
+  right: 0;
+  top: 50px;
+  width: 550px;
+  height: 100vh;
+  background: url("../../images/header/seungmin_1.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
 }
 
 header .link-bar {
@@ -462,7 +474,12 @@ header .contents-container {
   position: absolute;
   top: 45%;
   left: 15%;
-  height: 185px;
+  height: 205px;
+}
+
+header .contents-container p {
+  font-size: 1rem;
+  color: #ff4500;
 }
 
 header .nav-bar {
@@ -520,8 +537,9 @@ header .nav-bar.active .nav-container {
 }
 
 header .nav-bar a.resume {
-  padding: 0.25rem 0.5rem;
-  border: 2px solid #ff4500;
+  padding: 0.35rem 0.5rem;
+  background-color: #3c3c3c;
+  color: #ffffff;
   border-radius: 10px;
 }
 
@@ -584,10 +602,6 @@ header li {
 
 header li:nth-child(5) {
   padding: 0;
-}
-
-header p {
-  color: #ff4500;
 }
 
 @-webkit-keyframes movingAnimation {
@@ -769,8 +783,8 @@ About
   display: inline-block;
   padding: 0.5rem 2rem;
   font-size: 1rem;
-  border: 2px solid #ff4500;
-  color: #3c3c3c;
+  background-color: #3c3c3c;
+  color: #ffffff;
   border-radius: 10px;
   -webkit-transition: all 0.5s ease-out;
   transition: all 0.5s ease-out;
@@ -856,7 +870,7 @@ About
   width: 100%;
   height: 100%;
   border-radius: 20px;
-  background-color: #b5daa4;
+  background-color: #eca06a;
   -webkit-clip-path: circle(140px at center);
           clip-path: circle(140px at center);
   -webkit-transition: all 0.5s;
@@ -1002,9 +1016,9 @@ About
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   width: 100%;
   margin-top: 1rem;
 }
@@ -1012,17 +1026,17 @@ About
 .projects-container .description a {
   display: inline-block;
   padding: 0.3rem 1.5rem;
+  margin: 0.5rem;
   border-radius: 5px;
-  border: 2px solid #ff4500;
+  background-color: #3c3c3c;
+  color: #ffffff;
   -webkit-transition: all 0.5s ease-out;
   transition: all 0.5s ease-out;
-  color: #3c3c3c;
   margin-bottom: 1rem;
 }
 
 .projects-container .description a:hover, .projects-container .description a:focus, .projects-container .description a:active {
   background-color: #ff4500;
-  border: 2px solid #ff4500;
   color: #ffffff;
 }
 
@@ -1286,11 +1300,11 @@ Media
   /*=============
   header
   =============== */
-  header {
-    background-attachment: fixed;
-  }
   header .contents-container {
     background-color: inherit;
+  }
+  header .contents-container p {
+    font-size: 1.3rem;
   }
   header .nav-bar {
     position: fixed;
@@ -1377,9 +1391,6 @@ Media
 }
 
 @media (min-width: 1300px) {
-  header {
-    background-position: left top;
-  }
   .skills h2 {
     margin-bottom: 0;
   }

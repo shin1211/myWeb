@@ -61,7 +61,7 @@
         width: 100%;
         height: 100%;
         border-radius: 20px;
-        background-color: rgb(181, 218, 164);
+        background-color: rgb(236, 160, 106);
         clip-path: circle(140px at center);
         transition: all 0.5s;
       }
@@ -170,24 +170,28 @@
 
     .link-container {
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
+      // justify-content: space-between;
       width: 100%;
       margin-top: 1rem;
     }
     a {
       display: inline-block;
       padding: 0.3rem 1.5rem;
+      margin: 0.5rem;
       border-radius: 5px;
-      border: 2px solid $color-orange;
+      // border: 2px solid $color-orange;
+      background-color: $color-black;
+      color: $color-white;
       transition: all 0.5s ease-out;
-      color: $color-black;
+      // color: $color-black;
       margin-bottom: 1rem;
 
       &:hover,
       &:focus,
       &:active {
         background-color: $color-orange;
-        border: 2px solid $color-orange;
+        // border: 2px solid $color-orange;
         color: $color-white;
       }
     }
