@@ -3,12 +3,25 @@ Header
 =============== */
 
 header {
-  background: url("../../images/header/profile_edit_Crop.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: 71%;
   height: 100vh;
-  position: relative;
+
+  .wrapper {
+    height: 100vh;
+    position: relative;
+  }
+
+  .bg-container {
+    position: absolute;
+    right: 0;
+    top: 50px;
+
+    width: 550px;
+    height: 100vh;
+    background: url("../../images/header/seungmin_1.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+  }
 
   .link-bar {
     position: fixed;
@@ -74,7 +87,13 @@ header {
     position: absolute;
     top: 45%;
     left: 15%;
-    height: 185px;
+    // width: 100%;
+    height: 205px;
+
+    p {
+      font-size: 1rem;
+      color: $color-orange;
+    }
   }
 
   .nav-bar {
@@ -115,8 +134,10 @@ header {
       top: 0;
     }
     a.resume {
-      padding: 0.25rem 0.5rem;
-      border: 2px solid $color-orange;
+      padding: 0.35rem 0.5rem;
+      // border: 2px solid $color-orange;
+      background-color: $color-black;
+      color: $color-white;
       border-radius: 10px;
 
       &:hover,
@@ -182,10 +203,6 @@ header {
     &:nth-child(5) {
       padding: 0;
     }
-  }
-
-  p {
-    color: $color-orange;
   }
 
   @keyframes movingAnimation {
