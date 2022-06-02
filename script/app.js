@@ -146,7 +146,7 @@ app.textAnimation = () => {
 			animationBtn.classList.add('animate');
 			btnText.innerHTML = 'ON'
 			AOS.init({ disable: false });
-			location.reload();
+
 		}
 	})
 
@@ -186,11 +186,12 @@ app.textAnimation = () => {
 	}
 
 	textLoop();
+
 }
 //===================
 // image slide
 //===================
-app.circleSlide = () => {
+app.circleSlide = (animationBtn = true) => {
 	app.makeClone();
 	const wheelContainer = document.querySelector('.wheel-container');
 	const projects = document.querySelectorAll('.projects-container .wheel-container .project');
@@ -210,7 +211,9 @@ app.circleSlide = () => {
 
 
 
+	// Need to fix this part. interacting with animation on/off btn
 	window.addEventListener('scroll', () => {
+
 		projects[currentIdx].classList.add('selected');
 		if (window.scrollY > 1800) {
 			projects.forEach((project, index) => {
@@ -228,6 +231,7 @@ app.circleSlide = () => {
 				project.style.top = '0px';
 			});
 		}
+
 	});
 
 
@@ -286,7 +290,7 @@ app.makeClone = () => {
 // svg scroll event
 //===================
 
-app.svgAnimate = () => {
+app.svgAnimate = (animationBtn = true) => {
 	const aboutText = document.querySelector('.text-container');
 	const content = document.querySelector('.svg-container');
 	const path1 = document.querySelector('.path1');
@@ -299,21 +303,55 @@ app.svgAnimate = () => {
 		return value < 0 ? 0 : value > length ? length : value;
 	}
 
-	path1.style.strokeDasharray = path1Length;
+	path1.style.strokeDasharray = animationBtn ? path1Length : path1Length + '' + path1Length;
 	path1.style.strokeDashoffset = calcDashoffset(window.innerHeight * 0.8, content, path1Length);
 
-	const scrollHandler = () => {
-		const scrollY = window.scrollY + (window.innerHeight * 0.8);
-		if (calcDashoffset(scrollY, content, path1Length) < 3000) {
-			aboutText.classList.add('fade-in');
-		} else {
-			aboutText.classList.remove('fade-in');
+	const scrollHandler = (animationBtn) => {
 
+		const scrollY = window.scrollY + (window.innerHeight * 0.8);
+		if (!animationBtn) {
+			aboutText.classList.add('fade-in');
+
+		} else {
+
+			if (calcDashoffset(scrollY, content, path1Length) < 3000) {
+				aboutText.classList.add('fade-in');
+			} else {
+				aboutText.classList.remove('fade-in');
+
+			}
+			path1.style.strokeDashoffset = calcDashoffset(scrollY, content, path1Length);
 		}
-		path1.style.strokeDashoffset = calcDashoffset(scrollY, content, path1Length);
 
 	}
-	window.addEventListener('scroll', scrollHandler);
+
+
+	window.addEventListener('scroll', () => {
+		scrollHandler(animationBtn);
+	});
+
+
+}
+
+//===================
+// animationHandler       
+// need to refacotor textAnimation, circleSlide, and svgAnimate function.
+//===================
+app.animationHandler = () => {
+	const animationBtn = document.querySelector('.animation-btn');
+	let isAnimating = true
+	animationBtn.addEventListener('click', () => {
+		if (isAnimating) {
+			isAnimating = !isAnimating;
+			app.svgAnimate(isAnimating);
+
+			console.log('off')
+		} else {
+			isAnimating = !isAnimating;
+			app.svgAnimate(isAnimating);
+			console.log('on')
+		}
+	})
 }
 
 app.init = () => {
@@ -326,6 +364,7 @@ app.init = () => {
 	app.circleSlide();
 
 	app.svgAnimate();
+	app.animationHandler();
 
 }
 
