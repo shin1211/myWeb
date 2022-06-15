@@ -2,13 +2,19 @@
 Media
 =============== */
 
-@media (min-width: 533px) {
-  header .contents-container {
-    height: 124px;
-  }
+@media (min-width: 624px) {
+  header {
+    .bg-container {
+      width: 550px;
+      top: 50px;
+    }
+    .contents-container {
+      height: 124px;
+    }
 
-  header .link-bar {
-    left: -10px;
+    .link-bar {
+      left: -10px;
+    }
   }
 }
 

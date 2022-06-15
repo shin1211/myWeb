@@ -1,6 +1,5 @@
 'use strict';
 const app = {};
-
 app.navBgColor = () => {
 	const navBar = document.querySelector('.nav-bar');
 	window.addEventListener('scroll', () => {
@@ -129,7 +128,8 @@ app.textAnimation = () => {
 	let isOn = false;
 
 	const animationBtn = document.querySelector('.animation-btn');
-	const btnText = animationBtn.querySelector('.btn-text')
+	const btnText = animationBtn.querySelector('.btn-text');
+
 	animationBtn.addEventListener('click', () => {
 		isOn = !isOn;
 		currentSentence = [];
@@ -138,19 +138,21 @@ app.textAnimation = () => {
 		count = 0;
 		letterCount = 0;
 		subHeading.innerHTML = sentences[0];
-		if (isOn) {
-			animationBtn.classList.remove('animate');
-			btnText.innerHTML = 'OFF';
-			AOS.init({ disable: true });
-		} else {
-			animationBtn.classList.add('animate');
-			btnText.innerHTML = 'ON'
-			AOS.init({ disable: false });
-			location.reload();
-		}
+
+
+		// if (isOn) {
+		// 	animationBtn.classList.remove('animate');
+		// 	btnText.innerHTML = 'OFF';
+		// 	AOS.init({ disable: true });
+		// } else {
+		// 	animationBtn.classList.add('animate');
+		// 	btnText.innerHTML = 'ON'
+		// 	AOS.init({ disable: false });
+		// }
 	})
 
-	const textLoop = () => {
+
+	const textLoop = function () {
 		isEnd = false;
 		subHeading.setAttribute('aria-label', sentences[count]);
 		if (!isOn && count < sentences.length) {
@@ -184,13 +186,12 @@ app.textAnimation = () => {
 		const textAnimationSpeed = isEnd ? 1000 : isDeleting ? 50 : 50;
 		setTimeout(textLoop, textAnimationSpeed);
 	}
-
 	textLoop();
 }
 //===================
 // image slide
 //===================
-app.circleSlide = () => {
+app.circleSlide = (animationBtn = true) => {
 	app.makeClone();
 	const wheelContainer = document.querySelector('.wheel-container');
 	const projects = document.querySelectorAll('.projects-container .wheel-container .project');
@@ -209,8 +210,8 @@ app.circleSlide = () => {
 	let currentIdx = 0;
 
 
-
 	window.addEventListener('scroll', () => {
+		// Need to fix this part.interacting with animation on / off btn
 		projects[currentIdx].classList.add('selected');
 		if (window.scrollY > 1800) {
 			projects.forEach((project, index) => {
@@ -228,7 +229,42 @@ app.circleSlide = () => {
 				project.style.top = '0px';
 			});
 		}
+
 	});
+
+	// if (animationBtn) {
+	// 	window.addEventListener('scroll', () => {
+
+	// 		projects[currentIdx].classList.add('selected');
+	// 		if (window.scrollY > 1800) {
+	// 			projects.forEach((project, index) => {
+	// 				newTheta = theta * (index + 6);
+	// 				newX = Math.cos(newTheta) * wheelRadius;
+	// 				newY = -1 * Math.sin(newTheta) * wheelRadius;
+	// 				project.style.left = `${initialPos.x + newX}px`
+	// 				project.style.top = `${initialPos.y + newY}px`
+	// 			});
+
+	// 		} else {
+	// 			projects.forEach((project, index) => {
+	// 				project.classList.remove('selected');
+	// 				project.style.left = '0px';
+	// 				project.style.top = '0px';
+	// 			});
+	// 		}
+
+	// 	});
+	// } else {
+
+	// 	projects[currentIdx].classList.add('selected');
+	// 	projects.forEach((project, index) => {
+	// 		newTheta = theta * (index + 6);
+	// 		newX = Math.cos(newTheta) * wheelRadius;
+	// 		newY = -1 * Math.sin(newTheta) * wheelRadius;
+	// 		project.style.left = `${initialPos.x + newX}px`
+	// 		project.style.top = `${initialPos.y + newY}px`
+	// 	});
+	// }
 
 
 	prevBtn.addEventListener('click', (e) => {
@@ -286,7 +322,7 @@ app.makeClone = () => {
 // svg scroll event
 //===================
 
-app.svgAnimate = () => {
+app.svgAnimate = (animationBtn = true) => {
 	const aboutText = document.querySelector('.text-container');
 	const content = document.querySelector('.svg-container');
 	const path1 = document.querySelector('.path1');
@@ -299,21 +335,66 @@ app.svgAnimate = () => {
 		return value < 0 ? 0 : value > length ? length : value;
 	}
 
-	path1.style.strokeDasharray = path1Length;
+	path1.style.strokeDasharray = animationBtn ? path1Length : path1Length + '' + path1Length;
 	path1.style.strokeDashoffset = calcDashoffset(window.innerHeight * 0.8, content, path1Length);
 
-	const scrollHandler = () => {
-		const scrollY = window.scrollY + (window.innerHeight * 0.8);
-		if (calcDashoffset(scrollY, content, path1Length) < 3000) {
-			aboutText.classList.add('fade-in');
-		} else {
-			aboutText.classList.remove('fade-in');
+	const scrollHandler = (animationBtn) => {
 
+		const scrollY = window.scrollY + (window.innerHeight * 0.8);
+		if (!animationBtn) {
+			aboutText.classList.add('fade-in');
+
+		} else {
+
+			if (calcDashoffset(scrollY, content, path1Length) < 3000) {
+				aboutText.classList.add('fade-in');
+			} else {
+				aboutText.classList.remove('fade-in');
+
+			}
+			path1.style.strokeDashoffset = calcDashoffset(scrollY, content, path1Length);
 		}
-		path1.style.strokeDashoffset = calcDashoffset(scrollY, content, path1Length);
 
 	}
-	window.addEventListener('scroll', scrollHandler);
+
+
+	window.addEventListener('scroll', () => {
+		scrollHandler(animationBtn);
+	});
+
+
+}
+
+//===================
+// animationHandler       
+// need to refacotor textAnimation, circleSlide, and svgAnimate function.
+//===================
+app.animationHandler = () => {
+	const animationBtn = document.querySelector('.animation-btn');
+	const btnText = animationBtn.querySelector('.btn-text');
+
+	let isAnimating = true
+	animationBtn.addEventListener('click', () => {
+		if (isAnimating) {
+			isAnimating = !isAnimating;
+			app.svgAnimate(isAnimating);
+
+			// app.circleSlide(isAnimating);
+			// app.textAnimation(isAnimating);
+
+			animationBtn.classList.remove('animate');
+			btnText.innerHTML = 'OFF';
+		} else {
+			isAnimating = !isAnimating;
+			app.svgAnimate(isAnimating);
+
+			// app.circleSlide(isAnimating);
+			// app.textAnimation(isAnimating);
+
+			animationBtn.classList.add('animate');
+			btnText.innerHTML = 'ON';
+		}
+	})
 }
 
 app.init = () => {
@@ -325,8 +406,88 @@ app.init = () => {
 	app.textAnimation();
 	app.circleSlide();
 
+
 	app.svgAnimate();
+	app.animationHandler();
 
 }
 
 app.init();
+
+
+
+
+
+// app.textAnimation = () => {
+// 	const subHeading = document.querySelector('.sub-heading');
+// 	const sentences = ['Front-End Developer', 'Dog Dad', 'Avid Gamer', 'Tech Savvy'];
+// 	let currentSentence = [];
+// 	let count = 0;
+// 	let letterCount = 0;
+// 	let isDeleting = false;
+// 	let isEnd = false;
+// 	let isOn = false;
+
+
+
+// 	const animationBtn = document.querySelector('.animation-btn');
+// 	const btnText = animationBtn.querySelector('.btn-text');
+
+// 	animationBtn.addEventListener('click', () => {
+// 		isOn = !isOn;
+// 		currentSentence = [];
+// 		isEnd = false;
+// 		isDeleting = false;
+// 		count = 0;
+// 		letterCount = 0;
+// 		subHeading.innerHTML = sentences[0];
+// 		if (isOn) {
+// 			animationBtn.classList.remove('animate');
+// 			btnText.innerHTML = 'OFF';
+// 			AOS.init({ disable: true });
+// 		} else {
+// 			animationBtn.classList.add('animate');
+// 			btnText.innerHTML = 'ON'
+// 			AOS.init({ disable: false });
+// 		}
+// 	})
+
+// 	const textLoop = function () {
+// 		isEnd = false;
+// 		subHeading.setAttribute('aria-label', sentences[count]);
+// 		if (!isOn && count < sentences.length) {
+// 			if (!isDeleting && letterCount <= sentences[count].length) {
+// 				currentSentence.push(sentences[count][letterCount]);
+// 				letterCount++;
+// 				subHeading.innerHTML = currentSentence.join('');
+// 			}
+
+// 			if (isDeleting && letterCount <= sentences[count].length) {
+// 				currentSentence.pop(sentences[count][letterCount]);
+// 				letterCount--;
+// 				subHeading.innerHTML = currentSentence.join('');
+// 			}
+
+// 			if (letterCount === sentences[count].length) {
+// 				isDeleting = true;
+// 				isEnd = true;
+// 			}
+
+// 			if (isDeleting && letterCount === 0) {
+// 				currentSentence = [];
+// 				isDeleting = false;
+// 				count++;
+// 			}
+
+// 			if (!isDeleting && count === sentences.length) {
+// 				count = 0;
+// 			}
+// 		}
+// 		const textAnimationSpeed = isEnd ? 1000 : isDeleting ? 50 : 50;
+// 		setTimeout(textLoop, textAnimationSpeed);
+
+
+// 	}
+// 	textLoop();
+
+// }
